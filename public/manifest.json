@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Jeu de piste",
+  "name": "Moteur de jeux de piste",
   "icons": [
     {
       "src": "favicon.ico",
