@@ -1,0 +1,123 @@
+{   
+    "intro":{
+        "contexte" : "Ce jeu de piste a pour objectif de vous faire decouvrir les principaux lieux frequentes par les etudiants du campus de la Bouloie.",
+        "temps" : 1.5,
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidite, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traverser une route, ne forcer pas l'entree d'un batiment si celle-ci ne vous est pas autorisee"
+    },
+
+    "parcours": {
+        "aqua": {
+            "depart" : true,
+            "position" : [47.244954, 5.988162],
+            "targets" : ["bu_sciences"],
+            "enigme" : 0,
+            "infos-lieu" : {
+                "description" : "Cafetaria universitaire", 
+                "horaires" : {
+                    "jours" : 1111100, 
+                    "heures" : "8h30 - 16h30"
+                }
+            }
+        },
+
+        "bu_sciences": {
+            "depart" : false,
+            "position" : [47.246310929233225, 5.9867755275163805],
+            "targets" : ["bu_droit", "petit_bouloie"],
+            "enigme" : 4,
+            "infos-lieu" : {
+                "description" : "Bibliotheque universitaire Sciences Sport Claude Oytana",
+                "horaires" : {
+                        "jours" : 1111100, 
+                        "heures" : "8h30 - 16h30"
+                },
+                "telephone" : "03 81 66 61 87",
+                "mail" : "bu-sciences@univ-fcomte.fr",
+                "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+            }
+        },
+
+        "bu_droit" : {
+            "depart" : false,
+            "position" : [47.24881362119469, 5.987882833048552],
+            "targets" : ["petit_bouloie"],
+            "enigme" : 1,
+            "infos-lieu" : {
+                "description" : "Bibliotheque universitaire Proudhon Droit Economie Politique et Gestion",
+                "horaires" : {
+                    "jours" : 1111100, 
+                    "heures" : "8h00 - 19h00"
+                },
+                "telephone" : "03 81 66 61 92",
+                "mail" : "bu-droit@univ-fcomte.fr",
+                "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+            }
+        },
+
+        "petit_bouloie" :{
+            "depart" : false,
+            "position" : [47.24653599315909, 5.987691518626641],
+            "targets" : ["ru_lumiere"],
+            "enigme" : 3,
+            "infos-lieu" : {
+                "description" : "Restaurant Universitaire Petit Bouloie",
+                "horaires" : {
+                    "jours" : 1111100, 
+                    "heures" : "11h30 à 13h30 "
+                },
+                "telephone" : "03 81 48 45 40",
+                "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                "nb_places" : 431,
+                "menu_vege" : true
+            }
+        },
+
+        "ru_lumiere": {
+            "depart" : false,
+            "position" : [47.249163860499074, 5.98677425493584],
+            "targets" : [],
+            "enigme" : 2,
+            "infos-lieu" : {
+                "description" : "Restaurant Universitaire Lumiere ",
+                "horaires" : {
+                    "jours" : 1111100, 
+                    "heures" : "11h30 à 13h30 -  18h à 20h"
+                },
+                "telephone" : "03 81 48 45 00",
+                "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                "nb_places" : 1150,
+                "menu_vege" : true
+            }
+        }
+    }, 
+
+    "enigme":[
+        {"intitule" : "Intitule de l'enigme",
+        "description" : "Blablabla",
+        "reponse" : "Machin",
+        "indices" : ["indice1", "indice2"]},
+
+        {"intitule" : "Intitule de l'enigme",
+        "description" : "Blablabla",
+        "reponse" : 42,
+        "indices" : ["indice1"]},
+
+        {"intitule" : "Intitule de l'enigme",
+        "description" : "Blablabla",
+        "reponse" : "Truc",
+        "indices" : ["indice1"], 
+        "file" : "./resources/file1.jpg"},
+
+        {"intitule" : "Intitule de l'enigme",
+        "description" : "Blablabla",
+        "reponse" : "Ouais",
+        "indices" : ["indice1"], 
+        "file" : "./resources/file2.mp3"},
+
+        {"intitule" : "Intitule de l'enigme",
+        "description" : "Blablabla",
+        "reponse" : "Bidule",
+        "indices" : ["indice1"], 
+        "file" : "https://jsp-quoi.com"}
+    ]
+}

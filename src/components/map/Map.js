@@ -7,7 +7,7 @@ class Map extends React.Component {
         lng: 5.988162,
         zoom: 22,
     }
-    
+
     render() {
         return (
             <MapContainer
@@ -26,7 +26,7 @@ class Map extends React.Component {
 
                 <Marker position={[this.state.lat, this.state.lng]}>
                     <Popup>
-                        Hop ya une énigme qui pop
+                        Hop ya une énigme qui pop qd on clic là
                     </Popup>
                 </Marker>
 
