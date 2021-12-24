@@ -1,0 +1,69 @@
+/**
+ * Allow to get informations from the configuration file of the game
+ */
+class gameWrapper{
+    constructor(filename){
+        this.data = require("./games/"+filename);
+    }
+
+    /**
+     * Get information relating to the introduction of the game
+     * @returns the introduction of the game
+     */
+    getIntro(){
+        return this.data.intro;
+    }
+
+    /**
+     * Get the first place of the course
+     * @returns the first place
+     */
+    getFirstPlace(){
+        for(let [place, infos] of Object.entries(this.data.parcours)) {
+            if(infos.depart){
+                return place;
+            }
+        }
+    }
+
+    /**
+     * Get the next place of the course
+     * @param {String} currentPlace the current place 
+     * @returns a string or an array of strings which represent the next place(s)
+     */
+    getNextPlace(currentPlace){
+        return this.data.parcours[currentPlace].targets;
+    }
+
+    /**
+     * Get the informations related to a place
+     * @param {String} place the place for which we want the information 
+     * @returns the informations related to the place
+     */
+    getPlaceInfo(place){
+        let info = {name: this.data.parcours[place].nom,
+                    infos : this.data.parcours[place].infos};
+        return info;
+    }
+
+    /**
+     * Get the geographical position of a place
+     * @param {String} place the place for which we want the geographical position
+     * @returns the geographical position of the place
+     */
+    getPlacePosition(place){
+        return this.data.parcours[place].position;
+    }
+
+    /**
+     * Get the enigma associated to the place
+     * @param {String} place the place for which we want the enigma 
+     * @returns the enigma associated to the place
+     */
+    getEnigmaForPlace(place){
+        let numEnigma = this.data.parcours[place].enigme;
+        return this.data.enigme[numEnigma];
+    }
+}
+
+export default gameWrapper;

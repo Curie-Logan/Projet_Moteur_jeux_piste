@@ -1,18 +1,19 @@
 {   
     "intro":{
-        "contexte" : "Ce jeu de piste a pour objectif de vous faire decouvrir les principaux lieux frequentes par les etudiants du campus de la Bouloie.",
+        "contexte" : "Ce jeu de piste a pour objectif de vous faire découvrir les principaux lieux fréquentés par les étudiants du campus de la Bouloie.",
         "temps" : 1.5,
-        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidite, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traverser une route, ne forcer pas l'entree d'un batiment si celle-ci ne vous est pas autorisee"
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route, ne forcez pas l'entrée d'un batiment si celle-ci ne vous est pas autorisée"
     },
 
     "parcours": {
         "aqua": {
+            "nom" : "L'Aqua",
             "depart" : true,
             "position" : [47.244954, 5.988162],
-            "targets" : ["bu_sciences"],
+            "targets" : "bu_sciences",
             "enigme" : 0,
-            "infos-lieu" : {
-                "description" : "Cafetaria universitaire", 
+            "infos" : {
+                "description" : "Cafétaria universitaire", 
                 "horaires" : {
                     "jours" : 1111100, 
                     "heures" : "8h30 - 16h30"
@@ -21,11 +22,11 @@
         },
 
         "bu_sciences": {
-            "depart" : false,
-            "position" : [47.246310929233225, 5.9867755275163805],
+            "nom" : "BU Sciences",
+            "position" : [47.246310, 5.986775],
             "targets" : ["bu_droit", "petit_bouloie"],
             "enigme" : 4,
-            "infos-lieu" : {
+            "infos" : {
                 "description" : "Bibliotheque universitaire Sciences Sport Claude Oytana",
                 "horaires" : {
                         "jours" : 1111100, 
@@ -38,11 +39,11 @@
         },
 
         "bu_droit" : {
-            "depart" : false,
-            "position" : [47.24881362119469, 5.987882833048552],
-            "targets" : ["petit_bouloie"],
+            "nom" : "BU Droit",
+            "position" : [47.248813, 5.987882],
+            "targets" : "petit_bouloie",
             "enigme" : 1,
-            "infos-lieu" : {
+            "infos" : {
                 "description" : "Bibliotheque universitaire Proudhon Droit Economie Politique et Gestion",
                 "horaires" : {
                     "jours" : 1111100, 
@@ -55,11 +56,11 @@
         },
 
         "petit_bouloie" :{
-            "depart" : false,
-            "position" : [47.24653599315909, 5.987691518626641],
-            "targets" : ["ru_lumiere"],
+            "nom" : "RU Petit Bouloie",
+            "position" : [47.246535, 5.987691],
+            "targets" : "ru_lumiere",
             "enigme" : 3,
-            "infos-lieu" : {
+            "infos" : {
                 "description" : "Restaurant Universitaire Petit Bouloie",
                 "horaires" : {
                     "jours" : 1111100, 
@@ -73,15 +74,15 @@
         },
 
         "ru_lumiere": {
-            "depart" : false,
-            "position" : [47.249163860499074, 5.98677425493584],
+            "nom" : "RU Lumière",
+            "position" : [47.249163, 5.986774],
             "targets" : [],
             "enigme" : 2,
-            "infos-lieu" : {
+            "infos" : {
                 "description" : "Restaurant Universitaire Lumiere ",
                 "horaires" : {
                     "jours" : 1111100, 
-                    "heures" : "11h30 à 13h30 -  18h à 20h"
+                    "heures" : "11h30 à 13h30 - 18h à 20h"
                 },
                 "telephone" : "03 81 48 45 00",
                 "mail" : "pole-restauration-besancon@crous-bfc.fr",
