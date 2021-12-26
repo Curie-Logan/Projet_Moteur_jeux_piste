@@ -5,7 +5,6 @@ import gameWrapper from '../../gameWrapper';
 
 import Menu from '../menu/Menu';
 import Map from '../map/Map';
-import Enigme from '../enigme/Enigme';
 
 class App extends React.Component{
 	constructor(props) {
@@ -23,9 +22,7 @@ class App extends React.Component{
 		return (
 		<div className="App">
 			<header className="App-header">
-			<Menu/>
 			<Map wrapper={this.gameW}/>
-			<Enigme/>
 			</header>
 		</div>
 		);

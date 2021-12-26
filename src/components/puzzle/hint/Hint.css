@@ -1,0 +1,8 @@
+#hint{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    /*background-image: url(../../../public/puzzleIcons/hintIcon.png);*/
+}

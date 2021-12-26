@@ -1,6 +1,8 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker} from 'react-leaflet';
 import L from 'leaflet';
+import Puzzle from '../puzzle/Puzzle';
+import ReactDOM from 'react-dom'
 
 import './Map.css';
 
@@ -50,15 +52,22 @@ class Map extends React.Component {
         var markers = [];
 
         let key = 0;
+
+        //Pour le debug, à retirer ensuite
         for(let place of this.state.visited){
             let position = this.gameW.getPlacePosition(place);
-            markers.push(<Marker position={position} icon={greenMarker} key={key}></Marker>);
+            if(key===0){
+                markers.push(<Marker eventHandlers={{click: (e) => { startPuzzle(e) } }} position={position} icon={greenMarker} key={key}></Marker>);
+            }
+            else{
+                markers.push(<Marker position={position} icon={greenMarker} key={key}></Marker>);
+            }
             key++;
         }
 
         for(let place of this.state.next){
-            let position = this.gameW.getPlacePosition(place);
-            markers.push(<Marker position={position} icon={redMarker} key={key}></Marker>);
+            let position = this.gameW.getPlacePosition(place);     
+            markers.push(<Marker position={position} icon={redMarker} key={key}></Marker>);    
             key++;
         }
 
@@ -70,7 +79,8 @@ class Map extends React.Component {
             <MapContainer
                 className = "container"
                 center = {[47.245857, 5.987072]}
-                zoom = {17} >
+                zoom = {17} 
+                style={{position: 'absolute', zIndex: 0}}>
 
                 <TileLayer
                     url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
@@ -80,5 +90,20 @@ class Map extends React.Component {
         );
     }
  }
+
+ /**
+  * Start a puzzle considering its ID
+  * @param {int} id 
+  */
+ function startPuzzle(id){
+    const div = document.createElement("div");
+    div.id = "puzzleDiv";
+    document.getElementsByClassName("App-header")[0].appendChild(div);
+
+    ReactDOM.render(
+        <Puzzle id="1"/>,
+        document.getElementById("puzzleDiv")
+    );
+}
 
  export default Map;
