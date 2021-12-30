@@ -36,14 +36,12 @@ class gameWrapper{
     }
 
     /**
-     * Get the informations related to a place
-     * @param {String} place the place for which we want the information 
-     * @returns the informations related to the place
+     * Get the name of a place
+     * @param {String} place the place for which we want the name
+     * @returns the name of the place
      */
-    getPlaceInfo(place){
-        let info = {name: this.data.parcours[place].nom,
-                    infos : this.data.parcours[place].infos};
-        return info;
+     getPlaceName(place){
+        return this.data.parcours[place].nom;
     }
 
     /**
@@ -51,8 +49,17 @@ class gameWrapper{
      * @param {String} place the place for which we want the geographical position
      * @returns the geographical position of the place
      */
-    getPlacePosition(place){
+     getPlacePosition(place){
         return this.data.parcours[place].position;
+    }
+
+    /**
+     * Get the informations related to a place
+     * @param {String} place the place for which we want the information 
+     * @returns the informations related to the place
+     */
+    getPlaceInfo(place){
+        return this.data.parcours[place].infos;
     }
 
     /**
@@ -60,7 +67,7 @@ class gameWrapper{
      * @param {String} place the place for which we want the enigma 
      * @returns the enigma associated to the place
      */
-    getEnigmaForPlace(place){
+    getPuzzleForPlace(place){
         let numEnigma = this.data.parcours[place].enigme;
         return this.data.enigme[numEnigma];
     }

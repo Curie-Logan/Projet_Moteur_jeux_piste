@@ -23,9 +23,14 @@ class Puzzle extends React.Component{
         else{
             this.setState({content: <div><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
         }
-        this.state.attempt++;
+        this.setState({attempt: this.state.attempt+1});
     }
 
+    handlerClosePuzzle(){
+        //Solution temporaire ptêtre gérer autrement
+        document.getElementById("puzzleDiv").remove();
+        document.getElementById("infoDiv").style.display = "block";
+    }
 
     handlerRetry(){
         this.setState({content: this.showQuestion()});
@@ -57,7 +62,7 @@ class Puzzle extends React.Component{
                {this.state.content}
            </div>
         );
-    }  
+    }
 }
 
 

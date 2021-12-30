@@ -14,10 +14,15 @@
             "enigme" : 0,
             "infos" : {
                 "description" : "Cafétaria universitaire", 
-                "horaires" : {
-                    "jours" : 1111100, 
-                    "heures" : "8h30 - 16h30"
-                }
+                "horaires" : [
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    [],
+                    []
+                ]
             }
         },
 
@@ -28,10 +33,15 @@
             "enigme" : 4,
             "infos" : {
                 "description" : "Bibliotheque universitaire Sciences Sport Claude Oytana",
-                "horaires" : {
-                        "jours" : 1111100, 
-                        "heures" : "8h30 - 16h30"
-                },
+                "horaires" : [
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    [],
+                    []
+                ],
                 "telephone" : "03 81 66 61 87",
                 "mail" : "bu-sciences@univ-fcomte.fr",
                 "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
@@ -40,15 +50,20 @@
 
         "bu_droit" : {
             "nom" : "BU Droit",
-            "position" : [47.248813, 5.987882],
+            "position" : [47.247407, 5.987801], 
             "targets" : "petit_bouloie",
             "enigme" : 1,
             "infos" : {
                 "description" : "Bibliotheque universitaire Proudhon Droit Economie Politique et Gestion",
-                "horaires" : {
-                    "jours" : 1111100, 
-                    "heures" : "8h00 - 19h00"
-                },
+                "horaires" : [
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    [],
+                    []
+                ],
                 "telephone" : "03 81 66 61 92",
                 "mail" : "bu-droit@univ-fcomte.fr",
                 "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
@@ -62,10 +77,15 @@
             "enigme" : 3,
             "infos" : {
                 "description" : "Restaurant Universitaire Petit Bouloie",
-                "horaires" : {
-                    "jours" : 1111100, 
-                    "heures" : "11h30 à 13h30 "
-                },
+                "horaires" : [
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    [],
+                    []
+                ],
                 "telephone" : "03 81 48 45 40",
                 "mail" : "pole-restauration-besancon@crous-bfc.fr",
                 "nb_places" : 431,
@@ -80,10 +100,15 @@
             "enigme" : 2,
             "infos" : {
                 "description" : "Restaurant Universitaire Lumiere ",
-                "horaires" : {
-                    "jours" : 1111100, 
-                    "heures" : "11h30 à 13h30 - 18h à 20h"
-                },
+                "horaires" : [
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    [],
+                    []
+                ],
                 "telephone" : "03 81 48 45 00",
                 "mail" : "pole-restauration-besancon@crous-bfc.fr",
                 "nb_places" : 1150,
