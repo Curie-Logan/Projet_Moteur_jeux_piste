@@ -3,7 +3,6 @@ import './Puzzle.css';
 import AnswerForm from './answerForm/AnswerForm'
 import Hint from './hint/Hint'
 
-//Logos importation
 
 class Puzzle extends React.Component{
     constructor(props){
@@ -15,13 +14,12 @@ class Puzzle extends React.Component{
     }
 
 
-    //TO DO
     handleAnswerSubmission(answer){
-        if(answer==42){
-            this.setState({content: <h2>C'est la bonne réponse !</h2>});
+        if(answer==this.getAnswer()){
+            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
         }
         else{
-            this.setState({content: <div><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
+            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
         }
         this.setState({attempt: this.state.attempt+1});
     }
@@ -36,25 +34,37 @@ class Puzzle extends React.Component{
         this.setState({content: this.showQuestion()});
     }
 
-
-    /* TO DO en fonction du format du parsing
-        Affiche la question de l'énigme
-    */
-    getQuestion(id){
-        return "Combien il y a-t-il de toilettes à l'Aqua ?";
+    /**
+     * @returns la question de l'énigme
+     */
+    getQuestion(){
+        return this.props.puzzleObject["intitule"];
     }
 
-    //TO DO
+    /**
+     * @returns la réponse de l'énigme
+     */
+    getAnswer(){
+        return this.props.puzzleObject["reponse"];
+    }
+
+    /**
+     * @returns l'ensemble des indices de l'énigme
+     */
+    getHint(){
+        return this.props.puzzleObject["indices"];
+    }
+
     showQuestion(){
-        const question = this.getQuestion(this.props.id);
+        const question = this.getQuestion();
+        const hint = this.getHint();
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
             <h2 id="question">{question}</h2>
-            <Hint/>
+            <Hint hint={hint}/>
             <AnswerForm onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }
-
 
     render(){
         return (
@@ -64,7 +74,5 @@ class Puzzle extends React.Component{
         );
     }
 }
-
-
 
 export default Puzzle;

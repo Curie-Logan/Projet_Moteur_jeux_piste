@@ -9,9 +9,9 @@ class Hint extends React.Component{
         this.state = {content: <button id="hint" onClick={this.handleRevealHint}>Révéler un indice</button>, revealed: false};
     }
     
+
     handleRevealHint(){
-        //To DO
-        this.setState({content: <h3>48 15 16 23 ..</h3>});
+        this.setState({content: <h3>{this.props.hint}</h3>});
     }
 
     render(){

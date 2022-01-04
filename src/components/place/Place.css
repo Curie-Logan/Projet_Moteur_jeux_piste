@@ -1,4 +1,4 @@
-#puzzle, #puzzleDiv, #puzzleInformations{
+#place, #placeInformationsDiv{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -8,20 +8,15 @@
     background-color: #FFE800;
     height: 900px;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
     color: #00B2FF;
 }
 
-
 #closeButton{
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: #0066FF;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: #FFFFFF;
-    font-weight: bold;
-    border: none;
+    font-size: larger;
+    border: 5px solid black;
+    top: 1px;
+    right: 1px;
+    color: blue;
 }

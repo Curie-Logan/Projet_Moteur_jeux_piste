@@ -63,13 +63,13 @@ class gameWrapper{
     }
 
     /**
-     * Get the enigma associated to the place
-     * @param {String} place the place for which we want the enigma 
-     * @returns the enigma associated to the place
+     * Get the puzzle associated to the place
+     * @param {String} place the place for which we want the puzzle 
+     * @returns the puzzle associated to the place
      */
     getPuzzleForPlace(place){
-        let numEnigma = this.data.parcours[place].enigme;
-        return this.data.enigme[numEnigma];
+        let numPuzzle = this.data.parcours[place].enigme;
+        return this.data.enigme[numPuzzle];
     }
 }
 

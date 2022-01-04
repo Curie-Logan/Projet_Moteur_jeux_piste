@@ -20,6 +20,23 @@ class PlaceInfo extends React.Component{
         document.getElementById("infoDiv").remove();
     }
 
+    /**
+     * Start a puzzle
+     */
+     startPuzzle(){
+        const puzzleObject = this.gameW.getPuzzleForPlace(this.place);
+        const div = document.createElement("div");
+        div.setAttribute("id", "puzzleDiv");
+
+        document.getElementById("infoDiv").style.display = "none"; //gérer dans le css plus tard
+        document.getElementsByClassName("App-header")[0].appendChild(div);
+
+        ReactDOM.render(
+            <Puzzle puzzleObject={puzzleObject}/>,
+            document.getElementById("puzzleDiv")
+        );
+    }
+
     render(){
         let name = this.gameW.getPlaceName(this.place);
         let info = this.gameW.getPlaceInfo(this.place);
@@ -27,7 +44,7 @@ class PlaceInfo extends React.Component{
         
         //Récupérer et afficher les autres infos
 
-        let btnPuzzle = (this.puzzle)? <button onClick={(e) => {startPuzzle(e)}}>Aller à l'énigme</button> : '';
+        let btnPuzzle = (this.puzzle)? <button onClick={(e) => {this.startPuzzle(e)}}>Aller à l'énigme</button> : '';
         return(
             <div id='placeInfo'>
                 <button type='button' onClick={this.handlerCloseInfo}>X</button>
@@ -40,21 +57,5 @@ class PlaceInfo extends React.Component{
     }
 }
 
-/**
-  * Start a puzzle considering its ID
-  * @param {int} id 
-  */
- function startPuzzle(id){
-    const div = document.createElement("div");
-    div.setAttribute("id", "puzzleDiv");
-
-    document.getElementById("infoDiv").style.display = "none"; //gérer dans le css plus tard
-    document.getElementsByClassName("App-header")[0].appendChild(div);
-
-    ReactDOM.render(
-        <Puzzle id="1"/>,
-        document.getElementById("puzzleDiv")
-    );
-}
 
 export default PlaceInfo;

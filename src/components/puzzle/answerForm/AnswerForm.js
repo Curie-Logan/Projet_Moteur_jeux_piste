@@ -21,7 +21,6 @@ class AnswerForm extends React.Component{
                     </form>});
     }
    
-    
     handleSubmit(event){
         this.props.onAnswerChange(this.state.value);
         event.preventDefault();
