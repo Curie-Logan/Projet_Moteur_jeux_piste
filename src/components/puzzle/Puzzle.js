@@ -15,7 +15,7 @@ class Puzzle extends React.Component{
 
 
     handleAnswerSubmission(answer){
-        if(answer==this.getAnswer()){
+        if(answer===this.getAnswer()){
             this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
         }
         else{
@@ -51,17 +51,17 @@ class Puzzle extends React.Component{
     /**
      * @returns l'ensemble des indices de l'énigme
      */
-    getHint(){
+    getHints(){
         return this.props.puzzleObject["indices"];
     }
 
     showQuestion(){
         const question = this.getQuestion();
-        const hint = this.getHint();
+        const hints = this.getHints();
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
             <h2 id="question">{question}</h2>
-            <Hint hint={hint}/>
+            <Hint hints={hints}/>
             <AnswerForm onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }
