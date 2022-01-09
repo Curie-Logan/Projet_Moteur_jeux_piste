@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom'
 import Puzzle from '../../puzzle/Puzzle';
 
 import './PlaceInfo.css';
-
+let objet;
 class PlaceInfo extends React.Component{
     constructor(props){
         super(props);
+        objet = this;
         this.gameW = this.props.wrapper;  
         this.place = this.props.place;
         this.puzzle = this.props.puzzle;
@@ -32,7 +33,7 @@ class PlaceInfo extends React.Component{
         document.getElementsByClassName("App-header")[0].appendChild(div);
 
         ReactDOM.render(
-            <Puzzle puzzleObject={puzzleObject}/>,
+            <Puzzle puzzleObject={puzzleObject}  response = {callbackFunction} />,
             document.getElementById("puzzleDiv")
         );
     }
@@ -57,5 +58,10 @@ class PlaceInfo extends React.Component{
     }
 }
 
+
+function callbackFunction(childData) {
+    console.log(childData);
+    objet.props.response(objet.place);
+  }
 
 export default PlaceInfo;

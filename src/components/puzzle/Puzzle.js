@@ -16,7 +16,7 @@ class Puzzle extends React.Component{
 
     handleAnswerSubmission(answer){
         if(answer===this.getAnswer()){
-            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
+            this.setState({content: <div><button onClick={this.handlerGoodAnswer} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
         }
         else{
             this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
@@ -29,6 +29,13 @@ class Puzzle extends React.Component{
         document.getElementById("puzzleDiv").remove();
         document.getElementById("infoDiv").style.display = "block";
     }
+
+    handlerGoodAnswer = () => {
+        this.props.response("Good Response");
+        document.getElementById("puzzleDiv").remove();
+        document.getElementById("infoDiv").remove();
+   }
+
 
     handlerRetry(){
         this.setState({content: this.showQuestion()});

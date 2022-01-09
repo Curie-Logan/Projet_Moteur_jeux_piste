@@ -7,22 +7,84 @@ import L from 'leaflet';
 import PlaceInfo from './placeInfo/PlaceInfo';
 
 import './Map.css';
+let objet;
+let i = 0;
 
+
+
+
+// let options = {
+//     enableHighAccuracy: true,
+//     timeout: 5000,
+//     maximumAge: 0
+//   };
 class Map extends React.Component {
     constructor(props){
         super(props);
+        objet = this;
+        // this.timer = window.setInterval(function(){
+        //     navigator.geolocation.watchPosition(checkPositionCloseMarker,error,options);
+        //     i++;
+        //   }, 9000);
         this.gameW = this.props.wrapper; 
         this.state = {
             //la position gps du joueur ?
-            visited : ["aqua"], 
-            current : "bu_sciences",
-            next : ["bu_droit", "petit_bouloie"]
+            visited : [], 
+            current : "",
+            next : [this.props.wrapper.getFirstPlace()]
         };
     }
+     
+
+
+
+
 
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
 
+    //Methode qui 
+    updateState(place) {
+        //Remove place from current 
+        let tCurrent = this.state.current;
+        let tNext = this.state.next;
+        let tVisited = this.state.visited;
+
+
+            tCurrent = "";
+
+        
+        //Update visited place
+        tVisited.push(place);
+    
+        //Update current place
+
+        let updateCurrent = this.gameW.getNextPlace(place);
+        
+
+        if(Array.isArray(updateCurrent)){
+            for(let next of updateCurrent) {
+                let indexVal = tNext.indexOf(next);
+                if (indexVal < 0) {
+                    tNext.push(next);
+
+                }
+            }
+        }else{
+            let indexVal = tNext.indexOf(updateCurrent);
+            if (indexVal < 0) {
+                tNext.push(updateCurrent);
+
+            }
+        }
+        this.setState({visited: tVisited});
+        this.setState({next: tNext});
+        this.setState({current: tCurrent});
+
+
+        //this.render();    
+        console.log(this);
+    }
 
     /**
      * Handler for click on a place, 
@@ -34,9 +96,27 @@ class Map extends React.Component {
         div.setAttribute("id", "infoDiv");
         document.getElementsByClassName("App-header")[0].appendChild(div);
         ReactDOM.render(
-            <PlaceInfo wrapper={this.gameW} place={place} puzzle={puzzle}></PlaceInfo>,
+            <PlaceInfo wrapper={this.gameW} place={place} puzzle={puzzle} response = {callbackFunction}></PlaceInfo>,
             document.getElementById("infoDiv")
         );
+    }
+
+    //Methode provisoire qui permet de se deplacer sur un marker(Next) en cliquant dessus
+    changerMarker(place){
+        let tNext = this.state.next;
+        if(this.state.current != ""){
+             tNext.push(this.state.current);
+        }
+
+        let indexVal = tNext.indexOf(place);
+        if (indexVal > -1) {
+            tNext.splice(indexVal, 1);
+        }
+        
+
+         this.setState({next: tNext});
+         this.setState({current: place});
+
     }
 
     /**
@@ -57,6 +137,8 @@ class Map extends React.Component {
 
         //The places visited
         for(let place of this.state.visited){
+            console.log(place);
+
             let position = this.gameW.getPlacePosition(place);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(place)}} position={position} icon={greenMarker} key={key}></Marker>;
             markers.push(marker);
@@ -65,6 +147,7 @@ class Map extends React.Component {
 
         //The current place
         if(this.state.current){
+
             let position = this.gameW.getPlacePosition(this.state.current);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(this.state.current, true)}} position={position} icon={blueMarker} key={key}></Marker>;
             markers.push(marker);
@@ -73,11 +156,12 @@ class Map extends React.Component {
 
         //The next places to visit
         for(let place of this.state.next){
+            console.log(place);
             let position = this.gameW.getPlacePosition(place); 
             let name = this.gameW.getPlaceName(place);
             
             let popup = <Popup>{name}</Popup>;
-            let marker = <Marker position={position} icon={redMarker} key={key}>{popup}</Marker>;
+            let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}>{popup}</Marker>;
             
             markers.push(marker);
             key++;
@@ -96,13 +180,39 @@ class Map extends React.Component {
 
                 <TileLayer
                     url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
-
                 {this.displayMarkers()}
             </MapContainer>  
         );
     }
  } export default Map;
- 
+
+//---- Test geolocalisation, probleme de precision, car gps du navigateur pas assez precis 
+
+
+//  function checkPositionCloseMarker(pos){
+//     let cord = pos.coords;
+//     console.log(cord);
+
+//     for(let place of objet.state.next){
+//         let pos = objet.gameW.getPlacePosition(place);
+//         console.log(pos);
+//         if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.03){
+//             console.log("goood");
+//         }
+
+
+//     }
+//   }
+
+//   function error(err) {
+//     console.warn('ERROR(' + err.code + '): ' + err.message);
+//   }
+
+ function callbackFunction(place) {
+    objet.updateState(place);
+  }
+
+
  /**
  * Return a marker icon of a specific color
  * @param {String} color the color of the icon
@@ -122,3 +232,5 @@ class Map extends React.Component {
 
     return new customIcon();
 }
+
+
