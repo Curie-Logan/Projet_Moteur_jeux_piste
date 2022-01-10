@@ -2,6 +2,7 @@ import React from "react";
 import './Puzzle.css';
 import AnswerForm from './answerForm/AnswerForm'
 import Hint from './hint/Hint'
+import File from "./file/File";
 
 
 class Puzzle extends React.Component{
@@ -15,7 +16,7 @@ class Puzzle extends React.Component{
 
 
     handleAnswerSubmission(answer){
-        if(answer===this.getAnswer()){
+        if(answer===this.props.puzzleObject["reponse"]){
             this.setState({content: <div><button onClick={this.handlerGoodAnswer} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
         }
         else{
@@ -41,34 +42,17 @@ class Puzzle extends React.Component{
         this.setState({content: this.showQuestion()});
     }
 
-    /**
-     * @returns la question de l'énigme
-     */
-    getQuestion(){
-        return this.props.puzzleObject["intitule"];
-    }
-
-    /**
-     * @returns la réponse de l'énigme
-     */
-    getAnswer(){
-        return this.props.puzzleObject["reponse"];
-    }
-
-    /**
-     * @returns l'ensemble des indices de l'énigme
-     */
-    getHints(){
-        return this.props.puzzleObject["indices"];
-    }
 
     showQuestion(){
-        const question = this.getQuestion();
-        const hints = this.getHints();
+        const question = this.props.puzzleObject["intitule"];
+        const hints = this.props.puzzleObject["indices"];
+        const file = this.props.puzzleObject["file"];
+        const fileJsx = file !== undefined ? <File file={file}/> : ""; 
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
             <h2 id="question">{question}</h2>
             <Hint hints={hints}/>
+            {fileJsx}
             <AnswerForm onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }

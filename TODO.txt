@@ -1,0 +1,7 @@
+-Vérifier le fonctionnement avec le GPS
+
+-Enlever le franglais pour harmoniser
+
+-Esthétique du jeu:
+    -Changer la police
+    -Changer la colorimétrie

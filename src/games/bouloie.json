@@ -131,19 +131,19 @@
         {"intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Truc",
-        "indices" : ["indice1 Truc"], 
-        "file" : "./resources/file1.jpg"},
+        "indices" : ["indice1 Truc"],
+        "file" : {"type": "picture", "src": "./resources/file1.jpg"}},
 
         {"intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Ouais",
-        "indices" : ["indice1 Ouais"], 
-        "file" : "./resources/file2.mp3"},
+        "indices" : ["indice1 Ouais"],
+        "file" : {"type": "audio", "src": "./resources/file2.mp3"}},
 
         {"intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Bidule",
-        "indices" : ["indice1","indice2","indice3 Bidule"], 
-        "file" : "https://jsp-quoi.com"}
+        "indices" : ["indice1","indice2","indice3 Bidule"],
+        "file" : {"type": "link", "src": "https://jsp-quoi.com"}}
     ]
 }
