@@ -11,10 +11,6 @@ class App extends React.Component{
 		this.gameW = new gameWrapper("bouloie.json");
 		this.state = {};
 	}
-
-	//Passer a map et puzzle le lieu courant
-	//Passer a map les lieux déjà visité
-	//Passer a map le(s) lieu(x) suivant(s)
 	
 	//Je crois qu'on devrait mettre la map et tout le reste dans une balise <main>
 	render(){

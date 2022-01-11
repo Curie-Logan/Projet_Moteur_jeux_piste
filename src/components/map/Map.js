@@ -8,7 +8,6 @@ import PlaceInfo from './placeInfo/PlaceInfo';
 
 import './Map.css';
 let objet;
-let i = 0;
 
 
 
@@ -34,11 +33,6 @@ class Map extends React.Component {
             next : [this.props.wrapper.getFirstPlace()]
         };
     }
-     
-
-
-
-
 
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
@@ -80,10 +74,6 @@ class Map extends React.Component {
         this.setState({visited: tVisited});
         this.setState({next: tNext});
         this.setState({current: tCurrent});
-
-
-        //this.render();    
-        console.log(this);
     }
 
     /**

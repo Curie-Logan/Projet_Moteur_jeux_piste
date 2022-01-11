@@ -1,0 +1,25 @@
+#timetable{
+    margin-bottom: 2%;
+
+    display: block;
+    
+    max-width: 92%;
+    white-space: nowrap;
+    overflow-x: auto;
+
+    border-collapse: collapse;
+}
+
+#timetable > tbody {
+    display: table;
+    width: 100%;
+}
+
+#timetable tr:nth-child(even){
+    background-color: #D0D0E2;
+}
+
+#timetable td:first-child{
+    font-weight: bold;
+    text-align: left;
+}
