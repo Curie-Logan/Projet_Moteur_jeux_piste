@@ -32,7 +32,7 @@
             "targets" : ["bu_droit", "petit_bouloie"],
             "enigme" : 4,
             "infos" : {
-                "description" : "Bibliothèque universitaire Sciences Sport Claude Oytana",
+                "description" : "Bibliotheque universitaire Sciences Sport Claude Oytana",
                 "horaires" : [
                     ["08:30 - 16:30"],
                     ["08:30 - 16:30"],
@@ -42,11 +42,9 @@
                     [],
                     []
                 ],
-                "contact" : {
-                    "telephone" : "03 81 66 61 87",
-                    "mail" : "bu-sciences@univ-fcomte.fr",
-                    "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
-                }
+                "telephone" : "03 81 66 61 87",
+                "mail" : "bu-sciences@univ-fcomte.fr",
+                "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
             }
         },
 
@@ -56,7 +54,7 @@
             "targets" : "petit_bouloie",
             "enigme" : 1,
             "infos" : {
-                "description" : "Bibliothèque universitaire Proudhon Droit Économie Politique et Gestion",
+                "description" : "Bibliotheque universitaire Proudhon Droit Economie Politique et Gestion",
                 "horaires" : [
                     ["08:00 - 19:00"],
                     ["08:00 - 19:00"],
@@ -66,11 +64,9 @@
                     [],
                     []
                 ],
-                "contact": {
-                    "telephone" : "03 81 66 61 92",
-                    "mail" : "bu-droit@univ-fcomte.fr",
-                    "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
-                }
+                "telephone" : "03 81 66 61 92",
+                "mail" : "bu-droit@univ-fcomte.fr",
+                "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
             }
         },
 
@@ -80,7 +76,7 @@
             "targets" : "ru_lumiere",
             "enigme" : 3,
             "infos" : {
-                "description" : "Restaurant Universitaire Petit Bouloie, 431 places",
+                "description" : "Restaurant Universitaire Petit Bouloie",
                 "horaires" : [
                     ["11:30 - 13:30"],
                     ["11:30 - 13:30"],
@@ -90,10 +86,10 @@
                     [],
                     []
                 ],
-                "contact" :{
-                    "telephone" : "03 81 48 45 40",
-                    "mail" : "pole-restauration-besancon@crous-bfc.fr"
-                }
+                "telephone" : "03 81 48 45 40",
+                "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                "nb_places" : 431,
+                "menu_vege" : true
             }
         },
 
@@ -103,7 +99,7 @@
             "targets" : [],
             "enigme" : 2,
             "infos" : {
-                "description" : "Restaurant Universitaire Lumière, 1150 places",
+                "description" : "Restaurant Universitaire Lumiere ",
                 "horaires" : [
                     ["11:30 - 13:30", "18:00 - 20:00"],
                     ["11:30 - 13:30", "18:00 - 20:00"],
@@ -113,41 +109,46 @@
                     [],
                     []
                 ],
-                "contact": {
-                    "telephone" : "03 81 48 45 00",
-                    "mail" : "pole-restauration-besancon@crous-bfc.fr"
-                }
+                "telephone" : "03 81 48 45 00",
+                "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                "nb_places" : 1150,
+                "menu_vege" : true
             }
         }
     }, 
 
     "enigme":[
-        {"intitule" : "Intitule de l'enigme",
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Machin",
         "indices" : ["indice1", "indice Machin"]},
 
-        {"intitule" : "Intitule de l'enigme",
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "42",
         "indices" : ["42 indice"]},
 
-        {"intitule" : "Intitule de l'enigme",
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Truc",
         "indices" : ["indice1 Truc"],
-        "file" : {"type": "picture", "src": "./resources/file1.jpg"}},
+        "file" : {"type": "picture", "src": "file1.jpg"}},
 
-        {"intitule" : "Intitule de l'enigme",
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Ouais",
         "indices" : ["indice1 Ouais"],
-        "file" : {"type": "audio", "src": "./resources/file2.mp3"}},
+        "file" : {"type": "audio", "src": "file2.mp3"}},
 
-        {"intitule" : "Intitule de l'enigme",
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme",
         "description" : "Blablabla",
         "reponse" : "Bidule",
         "indices" : ["indice1","indice2","indice3 Bidule"],
-        "file" : {"type": "link", "src": "https://jsp-quoi.com"}}
-    ]
+        "file" : {"type": "link", "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}}
+    ]   
 }

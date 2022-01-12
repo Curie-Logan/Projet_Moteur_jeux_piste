@@ -12,16 +12,15 @@ class App extends React.Component{
 		this.state = {};
 	}
 	
+	//TO DO --> reprise de parties
 	//Je crois qu'on devrait mettre la map et tout le reste dans une balise <main>
 	render(){
 		return (
 		<div className="App">
 			<header className="App-header">
-				<Map wrapper={this.gameW}/>
+				<Map resume={true} wrapper={this.gameW}/>
 			</header>
 		</div>
 		);
 	}
 } export default App;
-
-

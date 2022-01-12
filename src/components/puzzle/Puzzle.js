@@ -16,13 +16,21 @@ class Puzzle extends React.Component{
 
 
     handleAnswerSubmission(answer){
-        if(answer===this.props.puzzleObject["reponse"]){
+        this.setState({attempt: this.state.attempt+1});
+        if(answer.trim()===this.props.puzzleObject["reponse"].trim()){
+            let progression = JSON.parse(localStorage.getItem("progression"));
+            if(!progression["puzzleValidated"]){
+                progression["puzzleValidated"] = [];
+            }
+            progression["puzzleValidated"].push({title: this.props.puzzleObject["intitule"], attempt: this.state.attempt});
+            localStorage.setItem("progression",JSON.stringify(progression));
+    
+
             this.setState({content: <div><button onClick={this.handlerGoodAnswer} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
         }
         else{
             this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
         }
-        this.setState({attempt: this.state.attempt+1});
     }
 
     handlerClosePuzzle(){
@@ -48,10 +56,24 @@ class Puzzle extends React.Component{
         const hints = this.props.puzzleObject["indices"];
         const file = this.props.puzzleObject["file"];
         const fileJsx = file !== undefined ? <File file={file}/> : ""; 
+
+        const progression = JSON.parse(localStorage.getItem("progression"));
+        let saved = false;
+        
+        if(progression["revealedHints"]){
+            for(const hintObject of progression["revealedHints"]){
+                console.log("hint : 2 "+hintObject["puzzleTitle"]);
+
+                if(hintObject["puzzleTitle"]===question){
+                    saved = true;
+                }
+            }
+        }
+    
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
             <h2 id="question">{question}</h2>
-            <Hint hints={hints}/>
+            <Hint revealedHints={saved} title={question} hints={hints}/>
             {fileJsx}
             <AnswerForm onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);

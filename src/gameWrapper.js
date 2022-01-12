@@ -3,7 +3,7 @@
  */
 class gameWrapper{
     constructor(filename){
-        this.data = require("./games/"+filename);
+        this.data = require("../public/games/"+filename);
     }
 
     /**

@@ -6,20 +6,22 @@ class File extends React.Component{
 
     showFile(){
         const src = this.props.file["src"];
+        console.log("source: "+src);
         switch(this.props.file["type"]){
             case "picture":
-                return <img alt="" src={src}></img>
+                return <img alt="" src={process.env.PUBLIC_URL+"/games/resources/"+src}></img>
             case "audio":
-                return <audio src={src}></audio>;
+                return <audio controls src={process.env.PUBLIC_URL+"/games/resources/"+src}></audio>;
             case "link":
                 return <a href={src}>{src}</a>
+            default:
+                return false;
         }
     }
     
     render(){
         return (
            <div>
-               <h4>Ressource pour l'énigme :</h4>
               {this.showFile()}
            </div>
         );

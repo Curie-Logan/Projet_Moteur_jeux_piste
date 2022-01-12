@@ -1,4 +1,4 @@
 
-#answer{
-    /* background-image: url(); */
+#answer:nth-child(2n){
+    /*background-image: url(../../../../public/img/arrow.png);*/
 }

@@ -26,13 +26,37 @@ class Map extends React.Component {
         //     i++;
         //   }, 9000);
         this.gameW = this.props.wrapper; 
+
+        let progression = {visited: [], current: "", next: [this.props.wrapper.getFirstPlace()]};
+
+        //Reprise ou non de partie
+        if(this.props.resume===true){
+            //Récupération de la progression
+            const savedProgression = JSON.parse(localStorage.getItem("progression"));
+            if(savedProgression){
+                progression["visited"] = savedProgression["visited"];
+                progression["current"] = savedProgression["current"];
+                progression["next"] = savedProgression["next"];
+            }
+            else{
+                //TO DO --> pas de partie à reprendre
+            }
+        }
+        else{
+            //Enregistrement de la progression dans le localStorage
+            localStorage.setItem("progression",JSON.stringify(progression));
+        }
+
         this.state = {
             //la position gps du joueur ?
-            visited : [], 
-            current : "",
-            next : [this.props.wrapper.getFirstPlace()]
+            visited : progression.visited, 
+            current : progression.current,
+            next : progression.next
         };
     }
+
+
+    
 
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
@@ -45,7 +69,7 @@ class Map extends React.Component {
         let tVisited = this.state.visited;
 
 
-            tCurrent = "";
+        tCurrent = "";
 
         
         //Update visited place
@@ -61,19 +85,25 @@ class Map extends React.Component {
                 let indexVal = tNext.indexOf(next);
                 if (indexVal < 0) {
                     tNext.push(next);
-
                 }
             }
         }else{
             let indexVal = tNext.indexOf(updateCurrent);
             if (indexVal < 0) {
                 tNext.push(updateCurrent);
-
             }
         }
         this.setState({visited: tVisited});
         this.setState({next: tNext});
         this.setState({current: tCurrent});
+        
+        //Enregistrement de la progression
+        let savedProgression = JSON.parse(localStorage.getItem("progression"));
+        console.log("etat de la progression 1 : "+savedProgression);
+        savedProgression["visited"] = tVisited;
+        savedProgression["current"] = tCurrent;
+        savedProgression["next"] = tNext;
+        localStorage.setItem("progression",JSON.stringify(savedProgression));
     }
 
     /**
@@ -104,9 +134,16 @@ class Map extends React.Component {
         }
         
 
-         this.setState({next: tNext});
-         this.setState({current: place});
+        this.setState({next: tNext});
+        this.setState({current: place});
 
+        //Enregistrement de la progression
+        let savedProgression = JSON.parse(localStorage.getItem("progression"));
+        console.log("etat de la progression 2 : "+savedProgression);
+        savedProgression["visited"] = this.state.visited;
+        savedProgression["current"] = this.state.current;
+        savedProgression["next"] = this.state.next;
+        localStorage.setItem("progression",JSON.stringify(savedProgression));
     }
 
     /**
@@ -222,5 +259,3 @@ class Map extends React.Component {
 
     return new customIcon();
 }
-
-
