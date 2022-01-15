@@ -2,7 +2,7 @@
     "intro":{
         "contexte" : "Ce jeu de piste a pour objectif de vous faire découvrir les principaux lieux fréquentés par les étudiants du campus de la Bouloie.",
         "temps" : 1.5,
-        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route, ne forcez pas l'entrée d'un batiment si celle-ci ne vous est pas autorisée"
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route, ne forcez pas l'entrée d'un bâtiment si celle-ci ne vous est pas autorisée."
     },
 
     "parcours": {
@@ -13,7 +13,7 @@
             "targets" : "bu_sciences",
             "enigme" : 0,
             "infos" : {
-                "description" : "Cafétaria universitaire", 
+                "description" : ["Cafétaria universitaire.", "Lieu de détente disposant d'un espace de restauration rapide et de snack.", "Un distributeur proposant diverse spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."], 
                 "horaires" : [
                     ["08:30 - 16:30"],
                     ["08:30 - 16:30"],
@@ -32,7 +32,7 @@
             "targets" : ["bu_droit", "petit_bouloie"],
             "enigme" : 4,
             "infos" : {
-                "description" : "Bibliotheque universitaire Sciences Sport Claude Oytana",
+                "description" : ["Bibliothèque universitaire Sciences Sport Claude Oytana.", "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs au domaine scientifique tel que la chimie, la physique, les mathématiques, la mécanique et l'informatique.", "Des postes de travail informatiques sont également accessibles permettant de consulter une grande quantité de ressources numériques.", "Actuellement fermée pour cause de transformation en Learning Center, la BU a été déménagée provisoirement dans le bâtiment Propédeutique en salle 11K."],
                 "horaires" : [
                     ["08:30 - 16:30"],
                     ["08:30 - 16:30"],
@@ -42,9 +42,11 @@
                     [],
                     []
                 ],
-                "telephone" : "03 81 66 61 87",
-                "mail" : "bu-sciences@univ-fcomte.fr",
-                "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+                "contact" : {
+                    "telephone" : "03 81 66 61 87",
+                    "mail" : "bu-sciences@univ-fcomte.fr",
+                    "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+                }
             }
         },
 
@@ -54,7 +56,7 @@
             "targets" : "petit_bouloie",
             "enigme" : 1,
             "infos" : {
-                "description" : "Bibliotheque universitaire Proudhon Droit Economie Politique et Gestion",
+                "description" : ["Bibliothèque universitaire Proudhon Droit Economie Politique et Gestion.", "Espace de travail et de révision disposant de nombreux ouvrages et documents relatifs au droit, à la politique, à l'économie et la gestion qu'il est possible de consulter sur place ou d'emprunter.", "Des postes de travail informatiques sont également mis à disposition permettant de consulter une grande quantité de ressources numériques.", "Des expositions sont régulièrement organisées dans une salle dédiée au rez-de-chaussée."],
                 "horaires" : [
                     ["08:00 - 19:00"],
                     ["08:00 - 19:00"],
@@ -64,19 +66,21 @@
                     [],
                     []
                 ],
-                "telephone" : "03 81 66 61 92",
-                "mail" : "bu-droit@univ-fcomte.fr",
-                "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+                "contact" : {
+                    "telephone" : "03 81 66 61 92",
+                    "mail" : "bu-droit@univ-fcomte.fr",
+                    "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+                }
             }
         },
 
         "petit_bouloie" :{
-            "nom" : "RU Petit Bouloie",
+            "nom" : "Restaurant Petit Bouloie",
             "position" : [47.246535, 5.987691],
             "targets" : "ru_lumiere",
             "enigme" : 3,
             "infos" : {
-                "description" : "Restaurant Universitaire Petit Bouloie",
+                "description" : ["Restaurant universitaire disposant de 431 places permettant de partager un repas équilibré entre amis.", "Des menus végétariens sont également proposés."],
                 "horaires" : [
                     ["11:30 - 13:30"],
                     ["11:30 - 13:30"],
@@ -86,20 +90,20 @@
                     [],
                     []
                 ],
-                "telephone" : "03 81 48 45 40",
-                "mail" : "pole-restauration-besancon@crous-bfc.fr",
-                "nb_places" : 431,
-                "menu_vege" : true
+                "contact" : {
+                    "telephone" : "03 81 48 45 40",
+                    "mail" : "pole-restauration-besancon@crous-bfc.fr"
+                }
             }
         },
 
         "ru_lumiere": {
-            "nom" : "RU Lumière",
+            "nom" : "Restaurant Lumière",
             "position" : [47.249163, 5.986774],
             "targets" : [],
             "enigme" : 2,
             "infos" : {
-                "description" : "Restaurant Universitaire Lumiere ",
+                "description" : ["Restaurant universitaire disposant de 1150 places permettant de partager un repas équilibré entre amis.", "Le restaurant à l'étage propose plusieurs selfs (plat du jour, saveur de la mer, grill-frites, cuisines du monde, pizza) ainsi que des menus végétariens.", "Au rez-de-chaussée, une cafétaria/sandwicherie offre un espace convivial pour manger sur le pouce."],
                 "horaires" : [
                     ["11:30 - 13:30", "18:00 - 20:00"],
                     ["11:30 - 13:30", "18:00 - 20:00"],
@@ -109,13 +113,14 @@
                     [],
                     []
                 ],
-                "telephone" : "03 81 48 45 00",
-                "mail" : "pole-restauration-besancon@crous-bfc.fr",
-                "nb_places" : 1150,
-                "menu_vege" : true
+                "contact" : {
+                    "telephone" : "03 81 48 45 00",
+                    "mail" : "pole-restauration-besancon@crous-bfc.fr"
+                }
             }
         }
     }, 
+
 
     "enigme":[
         {"type": "QCM",
