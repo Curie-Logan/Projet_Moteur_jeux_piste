@@ -17,15 +17,6 @@
     overflow-y: scroll;
 }
 
-#placeInfo div, #placeInfo table, #placeInfo > p:first-of-type{
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 92%;
-
-    background-color: #F5F5DC;
-}
-
 /* The close button */
 #placeInfo button:first-child{ 
     position: sticky;
@@ -40,14 +31,6 @@
     background-color: #0066FF;
     color: #FFFFFF;
     font-weight: bold;
-}
-
-/* The description */
-#description{
-    margin-bottom: 2%;
-
-    text-align: left;
-    color: #161515;
 }
 
 #placeInfo .sectionTitle{

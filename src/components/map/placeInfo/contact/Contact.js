@@ -9,9 +9,9 @@ class Contact extends React.Component{
     }
 
     render(){
-        let phone = (this.contact.telephone)? <p>Téléphone : <a href="tel:{this.contact.telephone}">{this.contact.telephone}</a></p>: '';
-        let mail = (this.contact.mail)? <p>Mail : <a href="mailto:{this.contact.mail}">{this.contact.mail}</a></p>: '';
-        let web = (this.contact.web)? <p><a href="this.contact.web">site internet</a></p>:'';
+        let phone = (this.contact.telephone)? [<img src='./img/map/placeInfo/contact/phone.png'/>, <p>Téléphone : <a href="tel:{this.contact.telephone}">{this.contact.telephone}</a></p>] : '';
+        let mail = (this.contact.mail)? [<img src='./img/map/placeInfo/contact/email.png'/>, <p>Mail : <a href="mailto:{this.contact.mail}">{this.contact.mail}</a></p>] : '';
+        let web = (this.contact.web)? [<img src='./img/map/placeInfo/contact/web.png'/>, <p><a href="this.contact.web">site internet</a></p>] : '';
 
         return(
             <div id='contact'>

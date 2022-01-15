@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Puzzle from '../../puzzle/Puzzle';
+import Description from './description/Description';
 import Timetable from './timetable/Timetable';
 import Contact from './contact/Contact';
 
@@ -25,7 +26,7 @@ class PlaceInfo extends React.Component{
     }
 
     /**
-     * Start a puzzle
+     * Start a puzzle when clicking on the button "Aller à l'énigme"
      */
      startPuzzle(){
         const puzzleObject = this.gameW.getPuzzleForPlace(this.place);
@@ -52,9 +53,8 @@ class PlaceInfo extends React.Component{
             <div id='placeInfo'>
                 <button type='button' onClick={this.handlerCloseInfo}>X</button>
                 <h2>{name}</h2> 
-                <p id='description'>
-                    {description}
-                </p>
+
+                <Description infos={description}/>
 
                 {(info["horaires"])? [<p class='sectionTitle'>Horaires</p>, <Timetable hours={info["horaires"]}/>] : ''}
 

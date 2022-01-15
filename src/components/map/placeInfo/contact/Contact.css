@@ -1,3 +1,24 @@
+#contact{
+   margin-left: auto;
+   margin-right: auto;
+
+   width: 92%;
+   max-width: 92%;
+   
+   padding-left: 0.5em;
+   padding-right: 0.5em;
+   background-color: #F5F5DC;
+
+   text-align: left;
+   color: #161515;
+}
+
+#contact img{
+   float: left;
+   margin-right: 0.5em;
+   margin-bottom: 2px;
+}
+
 #contact p{
    text-align: left;
 }

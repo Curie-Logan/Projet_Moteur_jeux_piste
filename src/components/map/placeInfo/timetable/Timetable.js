@@ -11,13 +11,15 @@ class Timetable extends React.Component{
     render(){
         let days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
         let timetable = [];
-        let nbCols = this.hours[0].length;
-        
+
+        let nbCols = 1; //To adapt the colspan
         for(let i = 0; i < this.hours.length; ++i){
             if(this.hours[i].length > nbCols){
                 nbCols = this.hours[i].length;
             }
+        }
 
+        for(let i = 0; i < this.hours.length; ++i){
             let cells = [];
 
             if(this.hours[i].length){
@@ -30,12 +32,11 @@ class Timetable extends React.Component{
                 cells.push(h);
             }
             
-
             let row = 
-            <tr>
-                <td>{days[i]}</td>
-                {cells}
-            </tr>;
+                <tr>
+                    <td>{days[i]}</td>
+                    {cells}
+                </tr>;
             timetable.push(row);
         }
 

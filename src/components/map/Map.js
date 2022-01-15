@@ -10,8 +10,6 @@ import './Map.css';
 let objet;
 
 
-
-
 // let options = {
 //     enableHighAccuracy: true,
 //     timeout: 5000,
@@ -174,7 +172,6 @@ class Map extends React.Component {
 
         //The current place
         if(this.state.current){
-
             let position = this.gameW.getPlacePosition(this.state.current);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(this.state.current, true)}} position={position} icon={blueMarker} key={key}></Marker>;
             markers.push(marker);
@@ -199,14 +196,12 @@ class Map extends React.Component {
 
     render() {
         return (
-            <MapContainer
-                className = "container"
+            <MapContainer id="map"
                 center = {[47.245857, 5.987072]} //Adapter le center
-                zoom = {17} 
-                style={{position: 'absolute', zIndex: 0}}>
+                zoom = {17} minZoom = {3} zoomControl={false}>
 
-                <TileLayer
-                    url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
+                <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
+                
                 {this.displayMarkers()}
             </MapContainer>  
         );
@@ -248,7 +243,7 @@ class Map extends React.Component {
  function getMarkerIcon(color){
     var customIcon = L.Icon.extend({
         options: {
-            iconUrl: "./img/marker_" + color + ".png", // picture of the marker
+            iconUrl: "./img/map/marker_" + color + ".png", // picture of the marker
             iconSize:     [50, 50], // size of the marker
             shadowSize:   [50, 50], // size of the shadow
             iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
