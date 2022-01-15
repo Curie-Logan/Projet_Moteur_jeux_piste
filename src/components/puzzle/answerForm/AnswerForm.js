@@ -11,19 +11,72 @@ class AnswerForm extends React.Component{
     }
     
     handleChange(event){
-        this.setState({value: event.target.value});
+        if(this.props.type==="QCM"){
+            //Unchecked all checkbox excepted the one which is considered
+            const form = document.getElementById("answer");
+            for(const element of form){ 
+                if(element instanceof HTMLInputElement&&element.type!=="submit"){
+                    if(element.value!==event.target.value&&element.checked){
+                        element.checked = false;
+                    }
+                }
+                if(event.target.checked){
+                    this.setState({value: event.target.value});
+                }
+                else{
+                    this.setState({value: ""});
+                }
+            }
+        }
+        else{
+            this.setState({value: event.target.value});
+        }
     }
 
     componentDidMount(){
-        this.setState({content: <form onSubmit={this.handleSubmit} id="answer">
-                        <input placeholder='Votre réponse :' type="text" name="answer" onChange={this.handleChange}/>
-                        <input type="submit" value="Soumettre la réponse" />
-                    </form>});
+        switch(this.props.type){
+            case "QR":
+                this.setState({content: <form onSubmit={this.handleSubmit} id="answer">
+                    <input placeholder='Votre réponse :' type="text" name="answer" onChange={this.handleChange}/>
+                    <input type="submit" style={{margin: "5rem"}} value="Soumettre la réponse" />
+                </form>});
+                break;
+            case "QCM":
+                let arrayChoices = [];
+                for(const element of this.props.choices){
+                    arrayChoices.push(<div><input type="checkbox" onChange={this.handleChange} key={element} value={element} name={element}/><label for={element}>{element}</label></div>);
+                }
+                this.setState({content: <form onSubmit={this.handleSubmit} id="answer">       
+                    {arrayChoices}
+                    <input type="submit" style={{margin: "5rem"}} value="Soumettre la réponse"/>
+                </form>}); 
+                break;
+            default:
+                return;
+        }
     }
    
     handleSubmit(event){
-        this.props.onAnswerChange(this.state.value);
-        event.preventDefault();
+        if(this.props.type==="QCM"){
+            const form = document.getElementById("answer");
+            let checked = false;
+            for(const element of form){
+                if(element instanceof HTMLInputElement&&element.checked){
+                    checked = true;
+                }
+            }
+            if(checked){
+                this.props.onAnswerChange(this.state.value);
+            }
+            //TO DO --> ajouter une popup plus propre
+            else{
+                alert("Aucune réponse n'a été sélectionné");
+            }
+        }
+        else{
+            this.props.onAnswerChange(this.state.value);
+            event.preventDefault();
+        } 
     }
 
     render(){

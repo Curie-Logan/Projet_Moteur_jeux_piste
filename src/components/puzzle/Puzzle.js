@@ -52,18 +52,19 @@ class Puzzle extends React.Component{
 
 
     showQuestion(){
+        const puzzleType = this.props.puzzleObject["type"];
         const question = this.props.puzzleObject["intitule"];
         const hints = this.props.puzzleObject["indices"];
         const file = this.props.puzzleObject["file"];
         const fileJsx = file !== undefined ? <File file={file}/> : ""; 
+
+        let choices = puzzleType === "QCM" ? this.props.puzzleObject["choix"] : false;
 
         const progression = JSON.parse(localStorage.getItem("progression"));
         let saved = false;
         
         if(progression["revealedHints"]){
             for(const hintObject of progression["revealedHints"]){
-                console.log("hint : 2 "+hintObject["puzzleTitle"]);
-
                 if(hintObject["puzzleTitle"]===question){
                     saved = true;
                 }
@@ -75,7 +76,7 @@ class Puzzle extends React.Component{
             <h2 id="question">{question}</h2>
             <Hint revealedHints={saved} title={question} hints={hints}/>
             {fileJsx}
-            <AnswerForm onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
+            <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }
 

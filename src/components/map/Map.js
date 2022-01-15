@@ -97,7 +97,9 @@ class Map extends React.Component {
         
         //Enregistrement de la progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
-        console.log("etat de la progression 1 : "+savedProgression);
+        if(!savedProgression){
+            savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+        }
         savedProgression["visited"] = tVisited;
         savedProgression["current"] = tCurrent;
         savedProgression["next"] = tNext;
@@ -137,7 +139,9 @@ class Map extends React.Component {
 
         //Enregistrement de la progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
-        console.log("etat de la progression 2 : "+savedProgression);
+        if(!savedProgression){
+            savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+        }
         savedProgression["visited"] = this.state.visited;
         savedProgression["current"] = this.state.current;
         savedProgression["next"] = this.state.next;
