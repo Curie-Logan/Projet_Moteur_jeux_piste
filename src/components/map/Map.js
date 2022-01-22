@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
@@ -23,12 +23,11 @@ class Map extends React.Component {
         //     navigator.geolocation.watchPosition(checkPositionCloseMarker,error,options);
         //     i++;
         //   }, 9000);
-        this.gameW = this.props.wrapper; 
 
         let progression = {visited: [], current: "", next: [this.props.wrapper.getFirstPlace()]};
 
         //Reprise ou non de partie
-        if(this.props.resume===true){
+        if(this.props.resume === true){
             //Récupération de la progression
             const savedProgression = JSON.parse(localStorage.getItem("progression"));
             if(savedProgression){
@@ -46,7 +45,6 @@ class Map extends React.Component {
         }
 
         this.state = {
-            //la position gps du joueur ?
             visited : progression.visited, 
             current : progression.current,
             next : progression.next
@@ -66,31 +64,27 @@ class Map extends React.Component {
         let tNext = this.state.next;
         let tVisited = this.state.visited;
 
-
         tCurrent = "";
-
         
         //Update visited place
         tVisited.push(place);
     
         //Update current place
 
-        let updateCurrent = this.gameW.getNextPlace(place);
+        let updateCurrent = this.props.wrapper.getNextPlace(place);
         
 
         if(Array.isArray(updateCurrent)){
             for(let next of updateCurrent) {
-                let indexVal = tNext.indexOf(next);
-                if (indexVal < 0) {
-                    tNext.push(next);
+                if(!this.state.visited.includes(next)){
+                    let indexVal = tNext.indexOf(next);
+                    if (indexVal < 0) {
+                        tNext.push(next);
+                    }
                 }
             }
-        }else{
-            let indexVal = tNext.indexOf(updateCurrent);
-            if (indexVal < 0) {
-                tNext.push(updateCurrent);
-            }
         }
+        
         this.setState({visited: tVisited});
         this.setState({next: tNext});
         this.setState({current: tCurrent});
@@ -111,20 +105,22 @@ class Map extends React.Component {
      * display a popup with information on this place
      */
     displayInfo(place, puzzle = false){
-        //Voir pour supprimer cette div, car elle est un peu "inutile" dans le DOM
         const div = document.createElement("div");
         div.setAttribute("id", "infoDiv");
         document.getElementsByClassName("App-header")[0].appendChild(div);
+
         ReactDOM.render(
-            <PlaceInfo wrapper={this.gameW} place={place} puzzle={puzzle} response = {callbackFunction}></PlaceInfo>,
+            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} response = {callbackFunction}></PlaceInfo>,
             document.getElementById("infoDiv")
         );
+        
+        document.getElementById("placeInfo").scrollTop = 0;
     }
 
     //Methode provisoire qui permet de se deplacer sur un marker(Next) en cliquant dessus
     changerMarker(place){
         let tNext = this.state.next;
-        if(this.state.current != ""){
+        if(this.state.current !== ""){
              tNext.push(this.state.current);
         }
 
@@ -168,7 +164,7 @@ class Map extends React.Component {
         for(let place of this.state.visited){
             console.log(place);
 
-            let position = this.gameW.getPlacePosition(place);
+            let position = this.props.wrapper.getPlacePosition(place);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(place)}} position={position} icon={greenMarker} key={key}></Marker>;
             markers.push(marker);
             key++;
@@ -176,7 +172,7 @@ class Map extends React.Component {
 
         //The current place
         if(this.state.current){
-            let position = this.gameW.getPlacePosition(this.state.current);
+            let position = this.props.wrapper.getPlacePosition(this.state.current);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(this.state.current, true)}} position={position} icon={blueMarker} key={key}></Marker>;
             markers.push(marker);
             key++;
@@ -185,11 +181,9 @@ class Map extends React.Component {
         //The next places to visit
         for(let place of this.state.next){
             console.log(place);
-            let position = this.gameW.getPlacePosition(place); 
-            let name = this.gameW.getPlaceName(place);
+            let position = this.props.wrapper.getPlacePosition(place); 
             
-            let popup = <Popup>{name}</Popup>;
-            let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}>{popup}</Marker>;
+            let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}/>;
             
             markers.push(marker);
             key++;

@@ -3,27 +3,27 @@ import React from 'react';
 import './Timetable.css';
 
 class Timetable extends React.Component{
-    constructor(props){
-        super(props);
-        this.hours = props.hours;
-    }
 
-    render(){
+    /**
+     * Get the content of the timetable
+     * @returns the timetable to display
+     */
+    getContent(){
         let days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
         let timetable = [];
 
         let nbCols = 1; //To adapt the colspan
-        for(let i = 0; i < this.hours.length; ++i){
-            if(this.hours[i].length > nbCols){
-                nbCols = this.hours[i].length;
+        for(let i = 0; i < this.props.hours.length; ++i){
+            if(this.props.hours[i].length > nbCols){
+                nbCols = this.props.hours[i].length;
             }
         }
 
-        for(let i = 0; i < this.hours.length; ++i){
+        for(let i = 0; i < this.props.hours.length; ++i){
             let cells = [];
 
-            if(this.hours[i].length){
-                for(let hour of this.hours[i]){
+            if(this.props.hours[i].length){
+                for(let hour of this.props.hours[i]){
                     let h = <td>{hour}</td>
                     cells.push(h);
                 }
@@ -40,10 +40,14 @@ class Timetable extends React.Component{
             timetable.push(row);
         }
 
+        return timetable;
+    }
+
+    render(){
         return(
             <table id='timetable'>
                 <tbody>
-                    {timetable}
+                    {this.getContent()}
                 </tbody>
             </table>
             

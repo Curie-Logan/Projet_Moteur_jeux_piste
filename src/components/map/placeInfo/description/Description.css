@@ -1,14 +1,29 @@
 #description{
+    width: 90%;
+    max-width: 90%;
+
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1vh;
 
-    width: 92%;
-    max-width: 92%;
+    padding-top: 1px;
+    padding-bottom: 1px;
 
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     background-color: #F5F5DC;
 
-    text-align: left;
-    color: #161515;
+    text-align: justify;
+}
+
+#description p{
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}
+
+/* The lists */
+#description ul{
+    margin-top: -15px;
+}
+
+#description li {
+    list-style: square;
 }

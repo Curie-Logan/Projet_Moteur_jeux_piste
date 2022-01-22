@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Puzzle from '../../puzzle/Puzzle';
 import Description from './description/Description';
 import Timetable from './timetable/Timetable';
 import Contact from './contact/Contact';
+import StartPuzzle from './startPuzzle/StartPuzzle';
 
 import './PlaceInfo.css';
 
@@ -13,9 +12,6 @@ class PlaceInfo extends React.Component{
     constructor(props){
         super(props);
         objet = this;
-        this.gameW = this.props.wrapper;  
-        this.place = this.props.place;
-        this.puzzle = this.props.puzzle;
     }
 
     /**
@@ -25,33 +21,16 @@ class PlaceInfo extends React.Component{
         document.getElementById("infoDiv").remove();
     }
 
-    /**
-     * Start a puzzle when clicking on the button "Aller à l'énigme"
-     */
-     startPuzzle(){
-        const puzzleObject = this.gameW.getPuzzleForPlace(this.place);
-        const div = document.createElement("div");
-        div.setAttribute("id", "puzzleDiv");
-
-        document.getElementById("infoDiv").style.display = "none";
-        document.getElementsByClassName("App-header")[0].appendChild(div);
-
-        ReactDOM.render(
-            <Puzzle puzzleObject={puzzleObject}  response = {callbackFunction} />,
-            document.getElementById("puzzleDiv")
-        );
-    }
-
     render(){
-        let info = this.gameW.getPlaceInfo(this.place);
-        let name = this.gameW.getPlaceName(this.place);
+        let info = this.props.wrapper.getPlaceInfo(this.props.place);
+        let name = this.props.wrapper.getPlaceName(this.props.place);
         let description = info["description"];
-
-        let btnPuzzle = (this.puzzle)? <button onClick={() => {this.startPuzzle()}}>Aller à l'énigme</button> : '';
-
+        let startPuzzle = (this.props.puzzle)? <StartPuzzle wrapper={this.props.wrapper} place={this.props.place} callbackFunction={callbackFunction}/> : '';
+        
         return(
             <div id='placeInfo'>
-                <button type='button' onClick={this.handlerCloseInfo}>X</button>
+                <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerCloseInfo}/>
+
                 <h2>{name}</h2> 
 
                 <Description infos={description}/>
@@ -60,7 +39,7 @@ class PlaceInfo extends React.Component{
 
                 {(info["contact"])? [<p class='sectionTitle'>Contact</p>, <Contact coordonnees={info["contact"]}/>]: ''}
                 
-                {btnPuzzle}
+                {startPuzzle}
             </div>
         );
     }
@@ -68,5 +47,5 @@ class PlaceInfo extends React.Component{
 
 function callbackFunction(childData) {
     console.log(childData);
-    objet.props.response(objet.place);
+    objet.props.response(objet.props.place);
 }

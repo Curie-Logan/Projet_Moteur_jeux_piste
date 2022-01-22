@@ -1,39 +1,40 @@
-#infoDiv, #placeInfo{
+#placeInfo{
     z-index: 2;
-    width: 95%;
+
+    height: 100vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     background-color: #FFE800;
     opacity: 0.85;
-
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #0066FF;   
-}
-
-#placeInfo{
-    margin-left: auto;
-    margin-right: auto;
-
-    max-height: 50vh;
-    overflow-y: scroll;
 }
 
 /* The close button */
-#placeInfo button:first-child{ 
-    position: sticky;
-    top: 2%;
-    margin-left: 88%;
-    
-    border: none;
-    border-radius: 50%;
+#placeInfo img:first-child{
     width: 30px;
-    height: 30px;
-    
-    background-color: #0066FF;
-    color: #FFFFFF;
+    position: sticky;
+    top: 15px;
+    margin-left: 15px;
+}
+
+/*The titles */
+#placeInfo .sectionTitle, #placeInfo h2{
     font-weight: bold;
+    color: #0066FF;
+}
+
+#placeInfo h2{
+    margin-bottom: 2vh;
+    font-size : 2em;
 }
 
 #placeInfo .sectionTitle{
-    font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 1vh;
+    font-size: 1.15em;
 }

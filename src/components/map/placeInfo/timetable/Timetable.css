@@ -1,14 +1,14 @@
 #timetable{
+    width: 90%;
+    max-width: 90%;
+
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 2%;
+    margin-bottom: 1vh;
 
     display: block;
-    
-    width: 92%;
-    max-width: 92%;
+
     white-space: nowrap;
-    overflow-x: auto;
 
     border-collapse: collapse;
     
@@ -25,9 +25,9 @@
 }
 
 #timetable td:first-child{
-    font-weight: bold;
-    text-align: left;
-
     padding-left: 0.5em;
     padding-right: 0.5em;
+    
+    font-weight: bold;
+    text-align: left;
 }
