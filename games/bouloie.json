@@ -1,0 +1,285 @@
+{   
+    "intro":{
+        "contexte" : "Ce jeu de piste a pour objectif de vous faire visiter le campus universitaire de la Bouloie pour découvrir les principaux lieux fréquentés par les étudiants.",
+        "temps" : 1.5,
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route et ne forcez pas l'entrée d'un bâtiment si celle-ci ne vous est pas autorisée."
+    },
+
+    "parcours": {
+        "aqua": {
+            "nom" : "L'Aqua",
+            "depart" : true,
+            "position" : [47.244954, 5.988162],
+            "targets" : ["bu_sciences"],
+            "enigme" : 0,
+            "infos" : {
+                "description" : [
+                    "Cafétaria universitaire.", 
+                    "Lieu de détente disposant d'un espace de restauration rapide et de snack.", 
+                    "Un distributeur proposant diverse spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."
+                ], 
+                "horaires" : [
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    [],
+                    []
+                ]
+            }
+        },
+
+        "bu_sciences": {
+            "nom" : "BU Sciences",
+            "position" : [47.246310, 5.986775],
+            "targets" : ["bu_droit", "petit_bouloie"],
+            "enigme" : 4,
+            "infos" : {
+                "description" : [
+                    "Bibliothèque universitaire Sciences Sport Claude Oytana.", 
+                    "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs aux domaines scientifiques tel que : ", 
+                    ["la chimie", "la physique", "les mathématiques", "la mécanique", "l'informatique"], 
+                    "Des postes de travail informatiques sont également accessibles permettant de consulter une grande quantité de ressources numériques.", 
+                    "Actuellement fermée pour cause de transformation en Learning Center, la BU a été déménagée provisoirement dans le bâtiment Propédeutique en salle 11K."
+                ],
+                "horaires" : [
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 66 61 87",
+                    "mail" : "bu-sciences@univ-fcomte.fr",
+                    "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+                }
+            }
+        },
+
+        "bu_droit" : {
+            "nom" : "BU Droit",
+            "position" : [47.247407, 5.987801], 
+            "targets" : ["petit_bouloie"],
+            "enigme" : 1,
+            "infos" : {
+                "description" : [
+                    "Bibliothèque universitaire Proudhon Droit Economie Politique et Gestion.", 
+                    "Espace de travail et de révision disposant de nombreux ouvrages et documents relatifs au droit, à la politique, à l'économie et la gestion qu'il est possible de consulter sur place ou d'emprunter.", 
+                    "Des postes de travail informatiques sont également mis à disposition permettant de consulter une grande quantité de ressources numériques.", 
+                    "Des expositions sont régulièrement organisées dans la salle dédiée au rez-de-chaussée."
+                ],
+                "horaires" : [
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    ["08:00 - 19:00"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 66 61 92",
+                    "mail" : "bu-droit@univ-fcomte.fr",
+                    "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+                }
+            }
+        },
+
+        "petit_bouloie" :{
+            "nom" : "Restaurant Petit Bouloie",
+            "position" : [47.246535, 5.987691],
+            "targets" : ["ru_lumiere"],
+            "enigme" : 3,
+            "infos" : {
+                "description" : [
+                    "Restaurant universitaire disposant de 431 places permettant de partager un repas équilibré entre amis.", 
+                    "Des menus végétariens sont également proposés."
+                ],
+                "horaires" : [
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    ["11:30 - 13:30"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 48 45 40",
+                    "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                    "web" : "https://www.crous-bfc.fr/restaurant/restaurant-petit-bouloie/"
+                }
+            }
+        },
+
+        "ru_lumiere": {
+            "nom" : "Restaurant Lumière",
+            "position" : [47.249163, 5.986774],
+            "targets" : ["MDE"],
+            "enigme" : 2,
+            "infos" : {
+                "description" : [
+                    "Restaurant universitaire disposant de 1150 places permettant de partager un repas équilibré entre amis.", 
+                    "Le restaurant à l'étage propose des plusieurs selfs :", 
+                    ["cuisine traditionnelle", "grill-frites", "cuisine italienne", "cuisine du monde", "saveur de la mer", "menu végétalien"],
+                    "Au rez-de-chaussée, une cafétaria / sandwicherie offre un espace convivial pour manger sur le pouce."
+                ],
+                "horaires" : [
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    ["11:30 - 13:30", "18:00 - 20:00"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 48 45 00",
+                    "mail" : "pole-restauration-besancon@crous-bfc.fr",
+                    "web" : "https://www.crous-bfc.fr/restaurant/restaurant-lumiere/"
+                }
+            }
+        },
+
+        "MDE":{
+            "nom" : "Maison des Étudiants",
+            "position" : [47.248209, 5.988368],
+            "targets" : ["dpt_info"],
+            "enigme" : 5,
+            "infos" : {
+                "description" : [
+                    "Lieu d'accueil et d'information pour vous orienter vers les services de l'université et pour répondre à toute question concernant votre vie estudiantine :",
+                    ["aides financières et bourses", "santé", "social", "culture", "sport", "loisirs", "etc."],
+                    "Lieu d'accompagnement au montage de projets hors-cursus et à la gestion associative :",
+                    ["création et gestion d'associations", "aide au montage de projets", "recherche de subventions", "etc."],
+                    "Service d'accompagnement à l'orientation et au projet professionnel par l'équipe du Service Orientation-Stage-Emploi :",
+                    ["orientation universitaire,", "débouchés,", "recherche de stage,", "rédaction de CV et de lettre de motivation,", "etc."]
+                ], 
+                "horaires" : [
+                    ["09:00 - 12:00", "13:00 - 17:00"],
+                    ["09:00 - 12:00", "13:00 - 17:00"],
+                    ["09:00 - 12:00", "13:00 - 17:00"],
+                    ["09:00 - 12:00", "13:00 - 17:00"],
+                    ["09:00 - 12:00"],
+                    [],
+                    []
+                ], 
+                "contact" : {
+                    "telephone" : "03 81 66 66 99", 
+                    "web" : "https://www.univ-fcomte.fr/les-maisons-des-etudiants"
+                }
+            }
+        },
+
+        "dpt_info": {
+            "nom" : "Département informatique",
+            "position" : [47.245790, 5.987455],
+            "targets" : ["amphi_A"],
+            "enigme" : 6,
+            "infos" : {
+                "description" : [
+                    "Le Département des Enseignements Informatiques offre un ensemble complet de formations depuis l'obtention du baccalauréat :",
+                    ["Licence (Bac+3, orientée vers la poursuite en Master)", "Licence Pro (Bac+3, orientée vers l'activité professionnelle),", "Master (Bac+5, Cadre en informatique ou Poursuite en Doctorat),", "Cursus Master en Ingénierie (CMI Bac+5, complète la Licence et le Master pour les étudiants les plus motivés et délivre un label d'ingénieur)"],
+                    "Dans ce bâtiment (bat. C) se situe:", 
+                    ["l'amphi C pour les cours magistraux", "les salles de Travaux Pratiques (TP) équipées de postes de travail informatiques et en accès libre", "une salle de coworking", "les bureaux des enseignants en informatique"]
+                ], 
+                "contact" : {
+                    "telephone" : "03 81 66 64 55", 
+                    "mail" : "corinne.charles@univ-fcomte.fr ",
+                    "web" : "https://dept-info.univ-fcomte.fr/"
+                }
+            }
+        }, 
+
+        "amphi_A": {
+            "nom" : "Amphi A",
+            "position" : [47.244779, 5.988424],
+            "targets" : ["propedeutique"],
+            "enigme" : 7,
+            "infos" : {
+                "description" : [
+                    "Amphithéâtre dans lequel se déroulent les cours magistraux de différentes unités d'enseignement (mathématiques, informatique, chimie, physique, méca, etc.).", 
+                    "Comme d'autres amphis du campus il accueil les examens et les réunions."
+                ]
+            }
+        },
+
+        "propedeutique":{
+            "nom" : "Hall Propédeutique",
+            "position" : [47.245564, 5.985005],
+            "targets" : [],
+            "enigme" : 8,
+            "infos" : {
+                "description" : [
+                    "Le hall du bâtiment Propédeutique abrite les départements d'anglais, de géosciences, de SVT et 4 amphithéâtres dans lesquels se déroulent cours et examens.",
+                    "Dans les différentes ailes du bâtiment se situent les salles de TP de géologie, chimie et SVT.", 
+                    "Le secrétariat pour les nouveaux venus (Starter ST/SVT) quant à lui se trouve au fond du hall entre la machine à café et les escaliers."]
+            }
+        }
+    }, 
+
+
+    "enigme":[
+        {"type": "QCM",
+        "choix": ["choix 1","choix 2","choix 3"],
+        "intitule" : "Intitule de l'enigme 1",
+        "description" : "Blablabla",
+        "reponse" : "choix 2",
+        "indices" : ["indice1", "indice choix 2"]},
+
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme 2",
+        "description" : "Blablabla",
+        "reponse" : "42",
+        "indices" : ["42 indice"]},
+
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme 3",
+        "description" : "Blablabla",
+        "reponse" : "Truc",
+        "indices" : ["indice1 Truc"],
+        "file" : {"type": "picture", "src": "file1.jpg"}},
+
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme 4",
+        "description" : "Blablabla",
+        "reponse" : "Ouais",
+        "indices" : ["indice1 Ouais"],
+        "file" : {"type": "audio", "src": "file2.mp3"}},
+
+        {"type": "QR",
+        "intitule" : "Intitule de l'enigme 5",
+        "description" : "Blablabla",
+        "reponse" : "Bidule",
+        "indices" : ["indice1","indice2","indice3 Bidule"],
+        "file" : {"type": "link", "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}}, 
+
+        {"type": "QR",
+            "intitule" : "Intitule de l'enigme 6",
+            "description" : "Blablabla",
+            "reponse" : "42",
+            "indices" : ["42"]}, 
+        
+        {"type": "QR",
+            "intitule" : "Intitule de l'enigme 7",
+            "description" : "Blablabla",
+            "reponse" : "42",
+            "indices" : ["42"]},
+
+        {"type": "QR",
+            "intitule" : "Intitule de l'enigme 8",
+            "description" : "Blablabla",
+            "reponse" : "42",
+            "indices" : ["42"]},
+
+        {"type": "QR",
+            "intitule" : "Intitule de l'enigme 8",
+            "description" : "Blablabla",
+            "reponse" : "42",
+            "indices" : ["42"]}
+    ]   
+}
