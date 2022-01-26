@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Curie-Logan.github.io/Projet_Moteur_jeux_piste",
   "name": "moteur_jeux_piste",
   "version": "0.1.0",
   "private": true,
@@ -17,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

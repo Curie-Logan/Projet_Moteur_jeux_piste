@@ -177,7 +177,7 @@ class Map extends React.Component {
 
         var customIconSelf = L.Icon.extend({
             options: {
-                iconUrl: "./img/self.png", // picture of the marker
+                iconUrl: "./img/map/marker_player.png", // picture of the marker
                 iconSize:     [50, 50], // size of the marker
                 shadowSize:   [50, 50], // size of the shadow
                 iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
