@@ -10,21 +10,20 @@ import './Map.css';
 let objet;
 
 
-// let options = {
-//     enableHighAccuracy: true,
-//     timeout: 5000,
-//     maximumAge: 0
-//   };
+
 class Map extends React.Component {
     constructor(props){
         super(props);
         objet = this;
-        // this.timer = window.setInterval(function(){
-        //     navigator.geolocation.watchPosition(checkPositionCloseMarker,error,options);
-        //     i++;
-        //   }, 9000);
+        if(this.props.geolocation === true){
 
-        let progression = {visited: [], current: "", next: [this.props.wrapper.getFirstPlace()]};
+        this.timer = window.setInterval(function(){
+            navigator.geolocation.getCurrentPosition(checkPositionCloseMarker);
+          }, 1000);
+          
+        }
+
+        let progression = {visited: [], current: "", next: [this.props.wrapper.getFirstPlace()],playerPosition : [0,0]};
 
         //Reprise ou non de partie
         if(this.props.resume === true){
@@ -34,6 +33,8 @@ class Map extends React.Component {
                 progression["visited"] = savedProgression["visited"];
                 progression["current"] = savedProgression["current"];
                 progression["next"] = savedProgression["next"];
+                progression["playerPosition"] = savedProgression["playerPosition"];
+
             }
             else{
                 //TO DO --> pas de partie à reprendre
@@ -47,7 +48,9 @@ class Map extends React.Component {
         this.state = {
             visited : progression.visited, 
             current : progression.current,
-            next : progression.next
+            next : progression.next,
+            playerPosition : progression.playerPosition
+
         };
     }
 
@@ -57,7 +60,7 @@ class Map extends React.Component {
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
 
-    //Methode qui 
+    /*Update the current, next and visited place when a puzzle is solved */
     updateState(place) {
         //Remove place from current 
         let tCurrent = this.state.current;
@@ -117,8 +120,10 @@ class Map extends React.Component {
         document.getElementById("placeInfo").scrollTop = 0;
     }
 
-    //Methode provisoire qui permet de se deplacer sur un marker(Next) en cliquant dessus
-    changerMarker(place){
+    /*
+        Function called to put the place in parameter in current place
+    */
+       changerMarker(place){
         let tNext = this.state.next;
         if(this.state.current !== ""){
              tNext.push(this.state.current);
@@ -143,6 +148,49 @@ class Map extends React.Component {
         savedProgression["next"] = this.state.next;
         localStorage.setItem("progression",JSON.stringify(savedProgression));
     }
+
+    //Centrer la map avec le point entre le joueur et le premier lieu, mais probleme avec la position du joueur qui est obtenue de manière asynchrone
+
+    // centerF(){
+    //     let t = [];
+        
+    //     let posFirstPlace =this.gameW.getPlacePosition(this.gameW.getFirstPlace());
+    //     if(this.state.playerPosition[0] != 0 && this.state.playerPosition[1] != 0 ){
+    //         t.push( (this.state.playerPosition[0] + posFirstPlace[0]) / 2);
+    //         t.push( (this.state.playerPosition[1] + posFirstPlace[1])  / 2);
+    //     }else{
+    //         console.log("Position du joueur egal à 0");
+    //         return posFirstPlace;
+    //     } 
+
+    //     return t;
+
+    // }
+
+
+
+    /**
+     * Get the marker of the player to display on the map
+     * @returns the marker
+     */
+    displayPlayer(){
+
+        var customIconSelf = L.Icon.extend({
+            options: {
+                iconUrl: "./img/self.png", // picture of the marker
+                iconSize:     [50, 50], // size of the marker
+                shadowSize:   [50, 50], // size of the shadow
+                iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
+                shadowAnchor: [27, 50], // the same for the shadow
+                popupAnchor:  [-1, -50],// point from which the popup should open relative to the iconAnchor
+            }
+        });
+        let self = <Marker eventHandlers={{click: () => console.log("tu es la")}} position={this.state.playerPosition} icon={new customIconSelf()} key={999}></Marker>;
+
+        return self;
+        
+    }
+
 
     /**
      * Get the markers for the places to display on the map
@@ -195,38 +243,45 @@ class Map extends React.Component {
     render() {
         return (
             <MapContainer id="map"
-                center = {[47.245857, 5.987072]} //Adapter le center
+                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} //Adapter le center
                 zoom = {17} minZoom = {3} zoomControl={false}>
 
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
                 
                 {this.displayMarkers()}
+                {this.displayPlayer()}
+
             </MapContainer>  
         );
     }
  } export default Map;
 
-//---- Test geolocalisation, probleme de precision, car gps du navigateur pas assez precis 
+
+ function checkPositionCloseMarker(pos){
+    let cord = pos.coords;
+    let tab = [];
+    tab.push(cord.latitude);
+    tab.push(cord.longitude);
+    objet.setState({playerPosition: tab});
+    for(let place of objet.state.next){
+        let pos = objet.props.wrapper.getPlacePosition(place);
+        //Precision à determiner
+        if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.00003){
+            console.log("à coté");
+            //Afficher les infos met a jour l'affichage tout le temps et donc bloque sur les infos du lieu
+            //objet.displayInfo(place, true);
+            //Autre solution met à jour le pin
+            objet.changerMarker(place);
+
+        }
 
 
-//  function checkPositionCloseMarker(pos){
-//     let cord = pos.coords;
-//     console.log(cord);
-
-//     for(let place of objet.state.next){
-//         let pos = objet.gameW.getPlacePosition(place);
-//         console.log(pos);
-//         if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.03){
-//             console.log("goood");
-//         }
+    }
 
 
-//     }
-//   }
 
-//   function error(err) {
-//     console.warn('ERROR(' + err.code + '): ' + err.message);
-//   }
+
+  }
 
  function callbackFunction(place) {
     objet.updateState(place);

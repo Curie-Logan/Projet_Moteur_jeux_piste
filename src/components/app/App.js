@@ -16,7 +16,7 @@ class App extends React.Component{
 		return (
 		<div className="App">
 			<header className="App-header">
-				<Map resume={false} wrapper={this.wrapper}/>
+				<Map resume={false} wrapper={this.wrapper} geolocation= {true}/>
 			</header>
 		</div>
 		);
