@@ -1,9 +1,9 @@
 -Utilisation du local storage pour sauvegarder la progression et reprendre ultérieurement 
 	Structure enregistrement dans le local storage
 
-	Objet de la forme : {visited: [], current: "", next: [], puzzleValidated: [{title: «title» nbAttempt: y}], revealedHints: [{puzzleTitle: "puzzleTitle", hintList: ["indice1","indice2","indice3",...]}]}
+	Objet de la forme : {gameTitle: "gameTitle",visited: [], current: "", next: [], puzzleValidated: [{title: «title» nbAttempt: y}], revealedHints: [{puzzleTitle: "puzzleTitle", hintList: ["indice1","indice2","indice3",...]}]}
 
-	Clé pour le localStorage: "save"
+	Clé pour le localStorage: "progression"
 	
 -Vérifier le fonctionnement avec le GPS
 

@@ -23,25 +23,21 @@ class Map extends React.Component {
           
         }
 
-        let progression = {visited: [], current: "", next: [this.props.wrapper.getFirstPlace()],playerPosition : [0,0]};
+        //Get saved progression
+        const savedProgression = JSON.parse(localStorage.getItem("progression"));
 
-        //Reprise ou non de partie
+        let progression = {title: savedProgression["title"], visited: [], current: "", next: [this.props.wrapper.getFirstPlace()],playerPosition : [0,0]};
+
+        //Resume the game
         if(this.props.resume === true){
-            //Récupération de la progression
-            const savedProgression = JSON.parse(localStorage.getItem("progression"));
-            if(savedProgression){
-                progression["visited"] = savedProgression["visited"];
-                progression["current"] = savedProgression["current"];
-                progression["next"] = savedProgression["next"];
-                progression["playerPosition"] = savedProgression["playerPosition"];
-
-            }
-            else{
-                //TO DO --> pas de partie à reprendre
-            }
+            progression["title"] = savedProgression["title"];
+            progression["visited"] = savedProgression["visited"];
+            progression["current"] = savedProgression["current"];
+            progression["next"] = savedProgression["next"];
+            progression["playerPosition"] = savedProgression["playerPosition"];
         }
         else{
-            //Enregistrement de la progression dans le localStorage
+            //Save the current progression in the localStorage
             localStorage.setItem("progression",JSON.stringify(progression));
         }
 
@@ -50,7 +46,6 @@ class Map extends React.Component {
             current : progression.current,
             next : progression.next,
             playerPosition : progression.playerPosition
-
         };
     }
 
@@ -60,7 +55,7 @@ class Map extends React.Component {
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
 
-    /*Update the current, next and visited place when a puzzle is solved */
+    /*Update the current, next and visited places when a puzzle is solved */
     updateState(place) {
         //Remove place from current 
         let tCurrent = this.state.current;
@@ -92,7 +87,7 @@ class Map extends React.Component {
         this.setState({next: tNext});
         this.setState({current: tCurrent});
         
-        //Enregistrement de la progression
+        //Save the current progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
         if(!savedProgression){
             savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
@@ -274,14 +269,9 @@ class Map extends React.Component {
             objet.changerMarker(place);
 
         }
-
-
     }
-
-
-
-
   }
+
 
  function callbackFunction(place) {
     objet.updateState(place);

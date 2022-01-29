@@ -4,11 +4,11 @@ import './App.css';
 import gameWrapper from '../../gameWrapper';
 
 import Map from '../map/Map';
+import Menu from '../menu/Menu';
 
 class App extends React.Component{
 	constructor(props) {
 		super(props);
-		this.wrapper = new gameWrapper("bouloie.json");
 	}
 	
 	//TO DO --> reprise de parties
@@ -16,7 +16,7 @@ class App extends React.Component{
 		return (
 		<div className="App">
 			<header className="App-header">
-				<Map resume={false} wrapper={this.wrapper} geolocation= {true}/>
+				<Menu/>
 			</header>
 		</div>
 		);

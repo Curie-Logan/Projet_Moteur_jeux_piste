@@ -1,0 +1,9 @@
+{
+	"bouloie" : {
+	  "title" : "Parcours campus de la Bouloie",
+	  "file" : "parcours1/parcours_1.json"}, 
+
+	"parcours_2" : {
+	  "title" : "Second parcours",
+	  "file" : "parcours2/parcours_2.json"}
+}

@@ -27,7 +27,7 @@ class Puzzle extends React.Component{
             localStorage.setItem("progression",JSON.stringify(progression));
     
 
-            this.setState({content: <div><button onClick={this.handlerGoodAnswer} id="closeButton">X</button><h2>C'est la bonne réponse !</h2></div>});
+            this.setState({content: <div><h2>C'est la bonne réponse !</h2><button onClick={this.handlerGoodAnswer} id="returnMap">Retourner à la carte</button></div>});
         }
         else{
             this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
