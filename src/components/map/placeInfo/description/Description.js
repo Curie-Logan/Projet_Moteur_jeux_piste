@@ -21,7 +21,7 @@ class Description extends React.Component{
                     if(i < data.length-1){
                         items.push(<li key={i}>{data[i]},</li>);
                     }else{
-                        items.push(<li key={i}>{data[i]}</li>);
+                        items.push(<li key={i}>{data[i]}.</li>);
                     }
                 }
                 content.push(<ul>{items}</ul>);

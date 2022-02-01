@@ -7,25 +7,20 @@ import L from 'leaflet';
 import PlaceInfo from './placeInfo/PlaceInfo';
 
 import './Map.css';
+
 let objet;
-
-
-
 class Map extends React.Component {
     constructor(props){
         super(props);
         objet = this;
         if(this.props.geolocation === true){
-
-        this.timer = window.setInterval(function(){
-            navigator.geolocation.getCurrentPosition(checkPositionCloseMarker);
-          }, 1000);
-          
+            this.timer = window.setInterval(function(){
+                navigator.geolocation.getCurrentPosition(checkPositionCloseMarker);
+            }, 1000);
         }
 
         //Get saved progression
         const savedProgression = JSON.parse(localStorage.getItem("progression"));
-
         let progression = {title: savedProgression["title"], visited: [], current: "", next: [this.props.wrapper.getFirstPlace()],playerPosition : [0,0]};
 
         //Resume the game
@@ -49,9 +44,6 @@ class Map extends React.Component {
         };
     }
 
-
-    
-
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
 
@@ -68,7 +60,6 @@ class Map extends React.Component {
         tVisited.push(place);
     
         //Update current place
-
         let updateCurrent = this.props.wrapper.getNextPlace(place);
         
 
@@ -115,10 +106,10 @@ class Map extends React.Component {
         document.getElementById("placeInfo").scrollTop = 0;
     }
 
-    /*
-        Function called to put the place in parameter in current place
-    */
-       changerMarker(place){
+    /**
+     * Function called to put the place in parameter in current place
+     */
+    changerMarker(place){
         let tNext = this.state.next;
         if(this.state.current !== ""){
              tNext.push(this.state.current);
@@ -166,24 +157,10 @@ class Map extends React.Component {
 
     /**
      * Get the marker of the player to display on the map
-     * @returns the marker
+     * @returns the marker of the player
      */
     displayPlayer(){
-
-        var customIconSelf = L.Icon.extend({
-            options: {
-                iconUrl: "./img/map/marker_player.png", // picture of the marker
-                iconSize:     [50, 50], // size of the marker
-                shadowSize:   [50, 50], // size of the shadow
-                iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
-                shadowAnchor: [27, 50], // the same for the shadow
-                popupAnchor:  [-1, -50],// point from which the popup should open relative to the iconAnchor
-            }
-        });
-        let self = <Marker eventHandlers={{click: () => console.log("tu es la")}} position={this.state.playerPosition} icon={new customIconSelf()} key={999}></Marker>;
-
-        return self;
-        
+        return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
     }
 
 
@@ -287,10 +264,10 @@ class Map extends React.Component {
     var customIcon = L.Icon.extend({
         options: {
             iconUrl: "./img/map/marker_" + color + ".png", // picture of the marker
-            iconSize:     [50, 50], // size of the marker
-            shadowSize:   [50, 50], // size of the shadow
-            iconAnchor:   [27, 50], // point of the icon which will correspond to marker's location
-            shadowAnchor: [27, 50], // the same for the shadow
+            iconSize:     [30, 30], // size of the marker
+            shadowSize:   [30, 30], // size of the shadow
+            iconAnchor:   [17, 30], // point of the icon which will correspond to marker's location
+            shadowAnchor: [17, 30], // the same for the shadow
             popupAnchor:  [-1, -50],// point from which the popup should open relative to the iconAnchor
         }
     });

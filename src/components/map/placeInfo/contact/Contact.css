@@ -10,9 +10,10 @@
    padding-bottom: 8px;
 
    background-color: #F5F5DC;
+   border-radius: 1em;
 
    text-align: left;
-   color: #161515;
+   color: #B83C12;
 }
 
 #contact p{
@@ -27,5 +28,6 @@
 }
 
 #contact a {
+   color: #B83C12;
    text-decoration: none;
 }

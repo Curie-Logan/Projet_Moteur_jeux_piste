@@ -1,9 +1,13 @@
 /**
  * Allow to get informations from the configuration file of the game
  */
-class gameWrapper{
-    constructor(filename){
-        this.data = require("../public/games/"+filename);
+ class Wrapper{
+    constructor(filename = "gameList.json"){
+        this.data = require("../public/games/" + filename);
+    }
+
+    getGameList(){
+        return this.data;
     }
 
     /**
@@ -73,4 +77,4 @@ class gameWrapper{
     }
 }
 
-export default gameWrapper;
+export default Wrapper;

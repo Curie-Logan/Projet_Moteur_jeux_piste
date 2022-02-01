@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom'
 import './Menu.css';
 
 import Map from "../map/Map";
-import gameWrapper from "../../gameWrapper";
-
+import Wrapper from "../../wrapper";
 
 class Menu extends React.Component{
-
     componentDidMount(){
         //Print the new/continue game buttons
         const options = document.createElement("div");
@@ -32,18 +30,16 @@ class Menu extends React.Component{
         document.getElementById("menu").appendChild(options);
     }
 
-
     //TO DO
     printPresentation(){
 
     }
 
-
     resumeGame(){
         document.getElementById("menu").remove();
         
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
-        const wrapper = new gameWrapper(savedProgression["title"]);
+        const wrapper = new Wrapper(savedProgression["title"]);
 
         ReactDOM.render(
             <Map resume={true} wrapper={wrapper} geolocation={true}/>,
@@ -55,7 +51,8 @@ class Menu extends React.Component{
      * Print the list of the saved games in the public directory to the menu
      */
     printGameList(){
-        const data = require("../../gameList.json");
+        // const data = require("../../gameList.json");
+        const data = new Wrapper().getGameList();
         document.getElementById("menu").innerHTML = "";
         
         const title = document.createElement("h2");
@@ -67,21 +64,21 @@ class Menu extends React.Component{
         const divGames = document.createElement("div");
         divGames.setAttribute("id","divGames");
 
-        for(let [gameID, game] of Object.entries(data)){
+        for(let [gameID, title] of Object.entries(data)){
             const gameButton = document.createElement("p");
             gameButton.setAttribute("class","game");
             gameButton.setAttribute("id",gameID);
             gameButton.setAttribute("key",gameID);
-            gameButton.innerText = game.title;
+            gameButton.innerText = title;
 
             divGames.appendChild(gameButton);
 
             gameButton.addEventListener("click",function(){
                 menu.remove();    
-                const wrapper = new gameWrapper(gameID+".json");
+                const wrapper = new Wrapper(gameID+"/"+gameID+".json");
 
                 //Save the current progression
-                let savedProgression = {title: gameID+".json", visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+                let savedProgression = {title: gameID+"/"+gameID+".json", visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
            
                 localStorage.setItem("progression",JSON.stringify(savedProgression));
 

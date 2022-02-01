@@ -29,7 +29,8 @@ class PlaceInfo extends React.Component{
         
         return(
             <div id='placeInfo'>
-                <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerCloseInfo}/>
+                {/* <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerCloseInfo}/> */}
+                <button onClick={this.handlerCloseInfo} id="closeButton">X</button>
 
                 <h2>{name}</h2> 
 

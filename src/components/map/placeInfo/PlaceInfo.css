@@ -16,12 +16,21 @@
 }
 
 /* The close button */
-#placeInfo img:first-child{
+#closeButton{
     width: 30px;
-    position: sticky;
-    top: 15px;
-    right: 4px;
-    margin-left: 15px;
+    height: 30px;
+
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+
+    background-color: #FC7C52;
+    border-radius: 50%;
+    border: none;
+    
+    color: #FFFFFF;
+    font-weight: bold;
 }
 
 /*The titles */

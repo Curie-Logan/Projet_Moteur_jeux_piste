@@ -74,6 +74,7 @@ class Puzzle extends React.Component{
     
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
+            {/* <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerClosePuzzle}/> */}
             <h2 id="question">{question}</h2>
             <Hint revealedHints={saved} title={question} hints={hints}/>
             {fileJsx}
