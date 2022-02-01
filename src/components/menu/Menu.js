@@ -24,12 +24,18 @@ class Menu extends React.Component{
         newGameButton.onclick = this.printGameList;
         options.appendChild(newGameButton);
 
+        const presentation = document.createElement("button");
+        presentation.addEventListener("click",this.printPresentation);
+        presentation.innerText = "Présentation de l'application et de son fonctionnement";
+        options.appendChild(presentation);
+
         document.getElementById("menu").appendChild(options);
     }
 
 
     //TO DO
     printPresentation(){
+
     }
 
 
@@ -94,7 +100,6 @@ class Menu extends React.Component{
         return (
             <div id="menu">
                 <h1>Jeu de piste</h1>
-                <h2 onClick={this.printPresentation}>Présentation de l'application et de son fonctionnement</h2>
             </div>
         );
     }

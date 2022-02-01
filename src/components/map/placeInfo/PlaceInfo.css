@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: #FFE800;
+    background-color: #121D28;
     opacity: 0.85;
 }
 
@@ -20,13 +20,14 @@
     width: 30px;
     position: sticky;
     top: 15px;
+    right: 4px;
     margin-left: 15px;
 }
 
 /*The titles */
 #placeInfo .sectionTitle, #placeInfo h2{
     font-weight: bold;
-    color: #0066FF;
+    color: #FC7C52;
 }
 
 #placeInfo h2{

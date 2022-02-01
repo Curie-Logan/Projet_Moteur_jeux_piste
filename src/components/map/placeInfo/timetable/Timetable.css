@@ -12,7 +12,10 @@
 
     border-collapse: collapse;
     
-    background-color: #F5F5DC;
+    background-color: #546B7E;
+    border-radius: 1em;
+    border: solid #EED8B9 2px;
+
 }
 
 #timetable > tbody {
