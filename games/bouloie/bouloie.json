@@ -9,7 +9,7 @@
         "aqua": {
             "nom" : "L'Aqua",
             "depart" : true,
-            "position" : [47.244954, 5.988162],
+            "position" : [47.244951, 5.988136],
             "targets" : ["bu_sciences"],
             "enigme" : 0,
             "infos" : {
