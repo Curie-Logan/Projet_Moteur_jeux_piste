@@ -9,19 +9,37 @@
     height: 100vh;
     width: 100vw;
     z-index: 2;
-    color: #FC7C52;
+    color: #F1524A;
 }
 
+#puzzle button, #puzzle input[type=submit], #puzzle input[type=text], #retry, #returnMap{
+    height: 2.2em;
+    border-radius: 1em;
+    background-color: #546B7E;
+    color: #FC7C52;
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+}
 
-#closeButton{
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    background-color: #0066FF;
-    border-radius: 50%;
+#puzzle input[type=text]{
+    background-color: #C2D4E2;
+    color: #000000;
+}
+
+#puzzle > #closeButton{
     width: 30px;
     height: 30px;
+
+    position: absolute;
+
+    top: 5px;
+    left: 5px;
+
+    background-color: #F1524A;
+    border-radius: 50%;
+    border: none;
+
     color: #FFFFFF;
     font-weight: bold;
-    border: none;
 }

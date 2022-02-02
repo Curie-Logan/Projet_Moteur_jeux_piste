@@ -18,10 +18,12 @@
 
     font-size: 1.15em;
     font-weight: bold;
-    color: #FC7C52;  
+    color: #F1524A;  
 }
  
 #startPuzzle img{
+    width: 64px;
+
     margin-right: 0.5em;
     margin-left: 0.5em;
     vertical-align: middle;

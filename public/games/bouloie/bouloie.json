@@ -153,11 +153,11 @@
             "infos" : {
                 "description" : [
                     "Lieu d'accueil et d'information pour vous orienter vers les services de l'université et pour répondre à toute question concernant votre vie estudiantine :",
-                    ["aides financières et bourses", "santé", "social", "culture", "sport", "loisirs", "etc."],
+                    ["aides financières et bourses", "santé", "social", "culture", "sport", "loisirs", "etc"],
                     "Lieu d'accompagnement au montage de projets hors-cursus et à la gestion associative :",
-                    ["création et gestion d'associations", "aide au montage de projets", "recherche de subventions", "etc."],
+                    ["création et gestion d'associations", "aide au montage de projets", "recherche de subventions", "etc"],
                     "Service d'accompagnement à l'orientation et au projet professionnel par l'équipe du Service Orientation-Stage-Emploi :",
-                    ["orientation universitaire,", "débouchés,", "recherche de stage,", "rédaction de CV et de lettre de motivation,", "etc."]
+                    ["orientation universitaire", "débouchés", "recherche de stage", "rédaction de CV et de lettre de motivation", "etc"]
                 ], 
                 "horaires" : [
                     ["09:00 - 12:00", "13:00 - 17:00"],
@@ -183,7 +183,7 @@
             "infos" : {
                 "description" : [
                     "Le Département des Enseignements Informatiques offre un ensemble complet de formations depuis l'obtention du baccalauréat :",
-                    ["Licence (Bac+3, orientée vers la poursuite en Master)", "Licence Pro (Bac+3, orientée vers l'activité professionnelle),", "Master (Bac+5, Cadre en informatique ou Poursuite en Doctorat),", "Cursus Master en Ingénierie (CMI Bac+5, complète la Licence et le Master pour les étudiants les plus motivés et délivre un label d'ingénieur)"],
+                    ["Licence (Bac+3, orientée vers la poursuite en Master)", "Licence Pro (Bac+3, orientée vers l'activité professionnelle)", "Master (Bac+5, Cadre en informatique ou Poursuite en Doctorat)", "Cursus Master en Ingénierie (CMI Bac+5, complète la Licence et le Master pour les étudiants les plus motivés et délivre un label d'ingénieur)"],
                     "Dans ce bâtiment (bat. C) se situe:", 
                     ["l'amphi C pour les cours magistraux", "les salles de Travaux Pratiques (TP) équipées de postes de travail informatiques et en accès libre", "une salle de coworking", "les bureaux des enseignants en informatique"]
                 ], 

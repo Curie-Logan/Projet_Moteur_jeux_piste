@@ -18,7 +18,7 @@ class Puzzle extends React.Component{
 
     handleAnswerSubmission(answer){
         this.setState({attempt: this.state.attempt+1});
-        if(answer.trim()===this.puzzle["reponse"].trim()){
+        if(answer.toUpperCase().trim()===this.puzzle["reponse"].toUpperCase().trim()){
             let progression = JSON.parse(localStorage.getItem("progression"));
             if(!progression["puzzleValidated"]){
                 progression["puzzleValidated"] = [];
@@ -30,7 +30,7 @@ class Puzzle extends React.Component{
             this.setState({content: <div><h2>C'est la bonne réponse !</h2><button onClick={this.handlerGoodAnswer} id="returnMap">Retourner à la carte</button></div>});
         }
         else{
-            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
+            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button id="retry" onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
         }
     }
 

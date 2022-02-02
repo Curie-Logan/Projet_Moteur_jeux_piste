@@ -47,7 +47,10 @@ class Map extends React.Component {
     //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
     //Methode pour adapter le zoom de la map
 
-    /*Update the current, next and visited places when a puzzle is solved */
+    /**
+     * Update the current, next and visited places when a puzzle is solved 
+     * @param place the place for wich the puzzle is solved
+     */
     updateState(place) {
         //Remove place from current 
         let tCurrent = this.state.current;
@@ -62,7 +65,6 @@ class Map extends React.Component {
         //Update current place
         let updateCurrent = this.props.wrapper.getNextPlace(place);
         
-
         if(Array.isArray(updateCurrent)){
             for(let next of updateCurrent) {
                 if(!this.state.visited.includes(next)){
@@ -108,6 +110,7 @@ class Map extends React.Component {
 
     /**
      * Function called to put the place in parameter in current place
+     * @param place the place tu put as current
      */
     changerMarker(place){
         let tNext = this.state.next;
@@ -160,7 +163,7 @@ class Map extends React.Component {
      * @returns the marker of the player
      */
     displayPlayer(){
-        return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
+        return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={"player"}></Marker>;
     }
 
 
@@ -182,8 +185,6 @@ class Map extends React.Component {
 
         //The places visited
         for(let place of this.state.visited){
-            console.log(place);
-
             let position = this.props.wrapper.getPlacePosition(place);
             let marker = <Marker eventHandlers={{click: () => this.displayInfo(place)}} position={position} icon={greenMarker} key={key}></Marker>;
             markers.push(marker);
@@ -200,7 +201,6 @@ class Map extends React.Component {
 
         //The next places to visit
         for(let place of this.state.next){
-            console.log(place);
             let position = this.props.wrapper.getPlacePosition(place); 
             
             let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}/>;
@@ -239,7 +239,6 @@ class Map extends React.Component {
         let pos = objet.props.wrapper.getPlacePosition(place);
         //Precision à determiner
         if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.00003){
-            console.log("à coté");
             //Afficher les infos met a jour l'affichage tout le temps et donc bloque sur les infos du lieu
             //objet.displayInfo(place, true);
             //Autre solution met à jour le pin
@@ -273,4 +272,4 @@ class Map extends React.Component {
     });
 
     return new customIcon();
-}
+}	

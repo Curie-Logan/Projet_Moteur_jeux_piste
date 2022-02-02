@@ -23,7 +23,10 @@
 
 /* The lists */
 #description ul{
+    text-align: left;
     margin-top: -15px;
+    margin-left: 0.75em;
+    margin-right: 0.75em;
 }
 
 #description li {

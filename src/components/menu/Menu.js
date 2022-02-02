@@ -24,7 +24,7 @@ class Menu extends React.Component{
 
         const presentation = document.createElement("button");
         presentation.addEventListener("click",this.printPresentation);
-        presentation.innerText = "Présentation de l'application et de son fonctionnement";
+        presentation.innerText = "Comment jouer";
         options.appendChild(presentation);
 
         document.getElementById("menu").appendChild(options);
