@@ -65,7 +65,7 @@ class Menu extends React.Component{
         divGames.setAttribute("id","divGames");
 
         for(let [gameID, title] of Object.entries(data)){
-            const gameButton = document.createElement("p");
+            const gameButton = document.createElement("button");
             gameButton.setAttribute("class","game");
             gameButton.setAttribute("id",gameID);
             gameButton.setAttribute("key",gameID);

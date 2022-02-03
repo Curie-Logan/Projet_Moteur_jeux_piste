@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100vw;
     background-color: #121D28;
-    color: #FC7C52;
+    color: #F1524A;
 
     margin-left: auto;
     margin-right: auto;
@@ -17,12 +17,12 @@
     top: 2.5em;
 }
 
-#options>button{
+#options > button{
     width: 80%;
     height: 2.5em;
     border-radius: 1em;
     background-color: #546B7E;
-    color: #FC7C52;
+    color: #F1524A;
     font-size: larger;
     font-weight: bold;
     margin: 1em;
@@ -38,14 +38,25 @@
 }
 
 .game{
-    margin: 2em;
+    width: 80%;
+    height: 2.5em;
+    border-radius: 1em;
+    background-color: #546B7E;
+    color: #F1524A;
+    font-size: larger;
+    font-weight: bold;
+    margin: 1em;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* margin: 2em;
     color: #FC7C52;
     border: 2px solid;
     border-radius: 1em;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
 }
 
-.game:hover{
-    border: 2px solid blue;
+.game:hover, #options > button:hover{
+    border: 2px solid #F1524A;
 }

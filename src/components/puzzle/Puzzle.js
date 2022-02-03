@@ -1,9 +1,10 @@
 import React from "react";
-import './Puzzle.css';
+
 import AnswerForm from './answerForm/AnswerForm'
 import Hint from './hint/Hint'
 import File from "./file/File";
 
+import './Puzzle.css';
 
 class Puzzle extends React.Component{
     constructor(props){
@@ -46,7 +47,6 @@ class Puzzle extends React.Component{
         document.getElementById("infoDiv").remove();
    }
 
-
     handlerRetry(){
         this.setState({content: this.showQuestion()});
     }
@@ -54,29 +54,35 @@ class Puzzle extends React.Component{
 
     showQuestion(){
         const puzzleType = this.puzzle["type"];
-        const question = this.puzzle["intitule"];
+        const intitule = this.puzzle["intitule"];
+        const description = this.puzzle["description"];
         const hints = this.puzzle["indices"];
         const file = this.puzzle["file"];
-        const fileJsx = file !== undefined ? <File file={file}/> : ""; 
+        const fileJsx = (file !== undefined) ? <File file={file}/> : ""; 
 
-        let choices = puzzleType === "QCM" ? this.puzzle["choix"] : false;
+        let choices = (puzzleType === "QCM") ? this.puzzle["choix"] : false;
 
         const progression = JSON.parse(localStorage.getItem("progression"));
         let saved = false;
         
         if(progression["revealedHints"]){
             for(const hintObject of progression["revealedHints"]){
-                if(hintObject["puzzleTitle"]===question){
+                if(hintObject["puzzleTitle"]===intitule){
                     saved = true;
                 }
             }
         }
     
+        let question = [];
+        for (let paragraph of this.puzzle["description"]){
+            question.push(<p>{paragraph}</p>);
+        }
+
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
-            {/* <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerClosePuzzle}/> */}
-            <h2 id="question">{question}</h2>
-            <Hint revealedHints={saved} title={question} hints={hints}/>
+            <h2>{intitule}</h2>
+            <div id="question">{question}</div>
+            <Hint revealedHints={saved} title={intitule} hints={hints}/>
             {fileJsx}
             <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);

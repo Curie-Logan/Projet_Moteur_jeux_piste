@@ -12,6 +12,26 @@
     color: #F1524A;
 }
 
+#puzzle #question{
+    width: 80%;
+    max-width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vh;
+
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    background-color: #F5F5DC;
+    color: #F1524A;
+
+    text-align: justify;
+    border-radius: 1em;
+}
+
 #puzzle button, #puzzle input[type=submit], #puzzle input[type=text], #retry, #returnMap{
     height: 2.2em;
     border-radius: 1em;

@@ -265,9 +265,8 @@ class Map extends React.Component {
             iconUrl: "./img/map/marker_" + color + ".png", // picture of the marker
             iconSize:     [30, 30], // size of the marker
             shadowSize:   [30, 30], // size of the shadow
-            iconAnchor:   [17, 30], // point of the icon which will correspond to marker's location
-            shadowAnchor: [17, 30], // the same for the shadow
-            popupAnchor:  [-1, -50],// point from which the popup should open relative to the iconAnchor
+            iconAnchor:   [10, 30], // point of the icon which will correspond to marker's location
+            shadowAnchor: [10, 30], // the same for the shadow
         }
     });
 
