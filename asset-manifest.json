@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Projet_Moteur_jeux_piste/static/css/main.f7e79bbe.chunk.css",
-    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.96f783de.chunk.js",
-    "main.js.map": "/Projet_Moteur_jeux_piste/static/js/main.96f783de.chunk.js.map",
+    "main.css": "/Projet_Moteur_jeux_piste/static/css/main.88bcee09.chunk.css",
+    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.226c7576.chunk.js",
+    "main.js.map": "/Projet_Moteur_jeux_piste/static/js/main.226c7576.chunk.js.map",
     "runtime-main.js": "/Projet_Moteur_jeux_piste/static/js/runtime-main.eb1cd9e6.js",
     "runtime-main.js.map": "/Projet_Moteur_jeux_piste/static/js/runtime-main.eb1cd9e6.js.map",
-    "static/js/2.f7b909ed.chunk.js": "/Projet_Moteur_jeux_piste/static/js/2.f7b909ed.chunk.js",
-    "static/js/2.f7b909ed.chunk.js.map": "/Projet_Moteur_jeux_piste/static/js/2.f7b909ed.chunk.js.map",
+    "static/js/2.686feeb8.chunk.js": "/Projet_Moteur_jeux_piste/static/js/2.686feeb8.chunk.js",
+    "static/js/2.686feeb8.chunk.js.map": "/Projet_Moteur_jeux_piste/static/js/2.686feeb8.chunk.js.map",
     "index.html": "/Projet_Moteur_jeux_piste/index.html",
     "service-worker.js": "/Projet_Moteur_jeux_piste/service-worker.js",
     "service-worker.js.map": "/Projet_Moteur_jeux_piste/service-worker.js.map",
-    "static/css/main.f7e79bbe.chunk.css.map": "/Projet_Moteur_jeux_piste/static/css/main.f7e79bbe.chunk.css.map",
-    "static/js/2.f7b909ed.chunk.js.LICENSE.txt": "/Projet_Moteur_jeux_piste/static/js/2.f7b909ed.chunk.js.LICENSE.txt",
+    "static/css/main.88bcee09.chunk.css.map": "/Projet_Moteur_jeux_piste/static/css/main.88bcee09.chunk.css.map",
+    "static/js/2.686feeb8.chunk.js.LICENSE.txt": "/Projet_Moteur_jeux_piste/static/js/2.686feeb8.chunk.js.LICENSE.txt",
     "static/media/caillou.png": "/Projet_Moteur_jeux_piste/static/media/caillou.a3270f1e.png",
     "static/media/file2.mp3": "/Projet_Moteur_jeux_piste/static/media/file2.006bd74b.mp3",
     "static/media/file3.mp4": "/Projet_Moteur_jeux_piste/static/media/file3.1f058b06.mp4",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.eb1cd9e6.js",
-    "static/js/2.f7b909ed.chunk.js",
-    "static/css/main.f7e79bbe.chunk.css",
-    "static/js/main.96f783de.chunk.js"
+    "static/js/2.686feeb8.chunk.js",
+    "static/css/main.88bcee09.chunk.css",
+    "static/js/main.226c7576.chunk.js"
   ]
 }
