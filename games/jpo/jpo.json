@@ -1,0 +1,213 @@
+{
+    "intro" : {
+        "contexte" : "Ce petit jeu de piste a pour objectif de vous faire parcourir, durant cette journée portes ouvertes, le bâtiment Propédeutique et ses abords afin de découvrir quelques lieux fréquentés par les futurs étudiants.",
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route et ne forcez pas l'entrée d'un bâtiment ou d'une salle si son accès ne vous est pas autorisé."
+    },
+
+    "parcours" : {
+        "stand_info" : {
+            "nom" : "Stand informatique", 
+            "depart" : true,
+            "position" : [47.245503458355934, 5.984960773024536],
+            "targets" : ["hall_prope"],
+            "enigme" : 0,
+            "infos" : {
+                "description" : [
+                    "C'est ici que vous aurez toutes les informations utiles sur les formations en informatique à l'université sur Besançon.", 
+                    "Pour être bien vu, proposez un petit café à Mr Dadeau, (en plus c'est la boisson préférée des informaticiens)."
+                ]
+            }
+        },
+
+        "hall_prope" : {
+            "nom" : "Hall Propédeutique", 
+            "position" : [47.24546953143222, 5.9850985667614856],
+            "targets" : ["amphi_croisot"],
+            "enigme" : 1,
+            "infos" : {
+                "description" : [
+                    "Le hall du bâtiment de propédeutique est une sorte d'agora où se croisent les étudiants de première année principalement.",
+                    "De ce hall, 4 amphithéâtres sont accessibles."
+                ]
+            }
+        }, 
+
+        "amphi_croisot" : {
+            "nom" : "Amphithéâtre Croisot",
+            "position" : [47.24523613664159, 5.985274940962397],
+            "targets" : ["bureau_starter"],
+            "enigme" : 2,
+            "infos" : {
+                "description" : [
+                    "Les amphithéâtres sont les lieux incontournables des universités. C'est dans ces vastes salles que les cours magistraux sont dispensés. Les examens s'y déroulent également.",
+                    "Certains des amphithéâtres de l'université portent les noms de personnes mémorables tels que l'amphi Duffieux, en souvenir de Pierre-Michel Duffieux (1891-1976), un physicien français à l'origine de l'optique de Fourier. Il fut professeur d'optique à Besançon après la guerre."
+                ]
+            }
+        }, 
+
+        "bureau_starter" : {
+            "nom" : "Bureau starter",
+            "position" : [47.245413708767074, 5.984936191020921],
+            "targets" : ["coursive_hall"],
+            "enigme" : 3,
+            "infos" : {
+                "description" : [
+                    "C'est dans ce bureau que les nouveaux étudiants viennent rencontrer les responsables de première année."
+                ]
+            }
+        },
+
+        "coursive_hall" : {
+            "nom" : "Coursive du Hall",
+            "position" : [47.245539727548156, 5.985118971067976],
+            "targets" : ["salle_tp"],
+            "enigme" : 4,
+            "infos" : {
+                "description" : [
+                    "La coursive, à l'étage du hall, abrite une exposition de trouvailles géologiques étonnantes."
+                ]
+            }
+        },
+
+        "salle_tp" : {
+            "nom" : "Salles TP multimédia",
+            "position" : [47.24550626990574, 5.985262851471623],
+            "targets" : ["fresque"],
+            "enigme" : 5,
+            "infos" : {
+                "description" : [
+                    "Certaines salles multimédias sont mises à disposition des étudiants, en libre-service, pour leur permettre de travailler même s'ils n'ont pas d'équipement informatique chez eux."
+                ]
+            }
+        },
+
+        "fresque" : {
+            "nom" : "Fresque de l'UFR ST",
+            "position" : [47.245561034920456, 5.985538139836991],
+            "targets" : [],
+            "enigme" : 6,
+            "infos" : {
+                "description" : [
+                    "Cette fresque, présente dès la création de l'UFR ST a vu se succéder plusieurs générations d'étudiants depuis les années 1960."
+                ]
+            }
+        }
+    }, 
+
+    "enigme" : [
+        {
+            "type" : "QR",
+            "intitule" : "Les CMI",
+            "description" : [
+                "Comment s'appelle le nom du réseau d'universités qui propose les Cursus Master en Ingénierie (CMI) ?"
+            ],
+            "reponse" : "FIGURE",
+            "indices" : [
+                "Mot de 6 lettres", "Vous en avez une sous votre masque", 
+                "Vous pouvez vous renseigner auprès d'un intervenant sur le stand", 
+                "FIGURE"
+            ]
+        }, 
+
+        {
+            "type": "QR",
+            "intitule" : "Mot mystère",
+            "description" : [
+                "Observez autour de vous, et complètez les mots manquant afin de retrouver le mot mystère.",
+                "_ _ 1 _ _ _ _ _ _ _",
+                "_ _ _ _ _ _ 3 _",
+                "_ _ _ _ _ _ _ 5 _ _ _ _ 4 _ _ _ _ _",
+                "_ _ _ _ _ 2 _"
+            ],
+            "reponse" : "COURS",
+            "indices" : [
+                "Quels sont les noms des 4 amphithéâtres du hall ?",
+                "Les chiffres indiquent la position de la lettre dans la réponse",
+                "Ils vous sont dispensés dans les amphithéâtres",
+                "COURS"
+            ]
+        },
+
+        {
+            "type" : "QCM",
+            "choix" : ["266 places","285 places", "276 places"],
+            "intitule" : "La vie en cours magistral",
+            "description" : [
+                "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi?"
+            ],
+            "reponse" : "276 places",
+            "indices" : [
+                "Il n'y a pas le même nombre de rangs au centre que sur les côtés", 
+                "276 places"
+            ]
+        },
+
+        {
+            "type" : "QR",
+            "intitule" : "Le bureau starter",
+            "description" : [
+                "Quel est le nom du premier responsable de Starter ST ?"
+            ],
+            "reponse" : "BERNARD",
+            "indices" : [
+                "Observez la porte", 
+                "Une affiche 005K dans son coin supérieur gauche ?", 
+                "Son prénom est Julien", 
+                "BERNARD"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "intitule" : "Les vitrine de géologie",
+            "description" : [
+                "Retrouvez le nom du minéral sur la photo ci-dessous ?"
+            ],
+            "reponse" : "STRONTIANITE",
+            "file" : {
+                "type": "picture", 
+                "src": "caillou.png"
+            },
+            "indices" : [
+                "Observez la vitrine de droite dans le renfoncement au dessus de l'amphi Jacquemain",
+                "12 lettres",
+                "_T_ _ _T_ _ _ _T_",
+                "STRONTIANITE"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "intitule" : "Les salles de TP",
+            "description" : [
+                "Combien de postes contient la salle 102K ?"
+            ],
+            "reponse" : "56",
+            "indices" : [
+                "Observez la porte",
+                "56"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "intitule" : "Un peu d'archéologie",
+            "description" : [
+                "Quel est le nom de ce petit fossile?"
+            ],
+            "reponse" : "PTERICHTYS",
+            "file" : {
+                "type": "picture", 
+                "src": "fresque.png"
+            },
+            "indices" : [
+                "Il est caché dans la moitié gauche de la fresque",
+                "S'agissant d'un fossil, il faut se baisser pour le trouver",
+                "P_ _R_ _ _T_S",
+                "PTERICHTYS"
+            ]
+        }
+    ]
+
+
+}

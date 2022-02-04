@@ -227,60 +227,78 @@
         {"type": "QCM",
             "choix": ["choix 1","choix 2","choix 3"],
             "intitule" : "Intitule de l'enigme 1",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "choix 2",
             "indices" : ["indice1", "indice choix 2"]},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 2",
-            "description" : "Blablabla",
-            "reponse" : "42",
+            "description" : [
+                "Blablabla"
+            ],
+            "reponse" :"42",
             "indices" : ["42 indice"]},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 3",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "Truc",
             "indices" : ["indice1 Truc"],
             "file" : {"type": "picture", "src": "file1.jpg"}},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 4",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "Ouais",
             "indices" : ["indice1 Ouais"],
             "file" : {"type": "audio", "src": "file2.mp3"}},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 5",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "Bidule",
             "indices" : ["indice1","indice2","indice3 Bidule"],
             "file" : {"type": "link", "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}}, 
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 6",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "42",
             "indices" : ["42"],
             "file" : {"type": "video", "src": "file3.mp4"}}, 
         
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 7",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "42",
             "indices" : ["42"],
             "file": {"type": "embeddedContent", "src": "https://www.youtube.com/embed/dQw4w9WgXcQ"}},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 8",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "42",
             "indices" : ["42"]},
 
         {"type": "QR",
             "intitule" : "Intitule de l'enigme 8",
-            "description" : "Blablabla",
+            "description" : [
+                "Blablabla"
+            ],
             "reponse" : "42",
             "indices" : ["42"]}
     ]   
