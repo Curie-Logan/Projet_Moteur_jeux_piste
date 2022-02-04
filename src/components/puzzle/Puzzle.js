@@ -27,7 +27,6 @@ class Puzzle extends React.Component{
             progression["puzzleValidated"].push({title: this.puzzle["intitule"], attempt: this.state.attempt});
             localStorage.setItem("progression",JSON.stringify(progression));
     
-
             this.setState({content: <div><h2>C'est la bonne réponse !</h2><button onClick={this.handlerGoodAnswer} id="returnMap">Retourner à la carte</button></div>});
         }
         else{
@@ -58,7 +57,7 @@ class Puzzle extends React.Component{
         const description = this.puzzle["description"];
         const hints = this.puzzle["indices"];
         const file = this.puzzle["file"];
-        const fileJsx = (file !== undefined) ? <File file={file}/> : ""; 
+        const fileJsx = (file !== undefined) ? <File gamePath={this.props.gamePath} file={file}/> : ""; 
 
         let choices = (puzzleType === "QCM") ? this.puzzle["choix"] : false;
 

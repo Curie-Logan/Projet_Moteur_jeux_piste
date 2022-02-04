@@ -7,6 +7,7 @@ import L from 'leaflet';
 import PlaceInfo from './placeInfo/PlaceInfo';
 
 import './Map.css';
+import Ending from '../ending/Ending';
 
 let objet;
 class Map extends React.Component {
@@ -57,6 +58,7 @@ class Map extends React.Component {
         let tNext = this.state.next;
         let tVisited = this.state.visited;
 
+
         tCurrent = "";
         
         //Update visited place
@@ -64,6 +66,7 @@ class Map extends React.Component {
     
         //Update current place
         let updateCurrent = this.props.wrapper.getNextPlace(place);
+
         
         if(Array.isArray(updateCurrent)){
             for(let next of updateCurrent) {
@@ -79,7 +82,16 @@ class Map extends React.Component {
         this.setState({visited: tVisited});
         this.setState({next: tNext});
         this.setState({current: tCurrent});
-        
+
+
+        if(this.state.next.length===0){
+            ReactDOM.render(
+                <Ending/>,
+                document.getElementsByClassName("App-header")[0]
+            );
+        }
+
+
         //Save the current progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
         if(!savedProgression){
@@ -101,7 +113,7 @@ class Map extends React.Component {
         document.getElementsByClassName("App-header")[0].appendChild(div);
 
         ReactDOM.render(
-            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} response = {callbackFunction}></PlaceInfo>,
+            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} gamePath={this.props.gamePath} response = {callbackFunction}></PlaceInfo>,
             document.getElementById("infoDiv")
         );
         
