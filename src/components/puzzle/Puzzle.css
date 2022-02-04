@@ -43,6 +43,7 @@
 }
 
 #puzzle input[type=text]{
+    margin-top: 10px;
     background-color: #C2D4E2;
     color: #000000;
 }

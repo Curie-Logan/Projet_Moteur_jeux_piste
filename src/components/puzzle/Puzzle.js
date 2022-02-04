@@ -82,8 +82,8 @@ class Puzzle extends React.Component{
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
             <h2>{intitule}</h2>
             <div id="question">{question}</div>
-            <Hint revealedHints={saved} title={intitule} hints={hints}/>
             {fileJsx}
+            <Hint revealedHints={saved} title={intitule} hints={hints}/>
             <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }
