@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import './Menu.css';
 
 import Map from "../map/Map";
+import Presentation from "../presentation/Presentation";
+
 import Wrapper from "../../wrapper";
 
 class Menu extends React.Component{
@@ -12,10 +14,13 @@ class Menu extends React.Component{
         options.setAttribute("id","options");
 
         if(JSON.parse(localStorage.getItem("progression"))){
-            const resumeButton = document.createElement("button");
-            resumeButton.innerText = "Continuer la partie en cours";
-            resumeButton.onclick = this.resumeGame;
-            options.appendChild(resumeButton);
+            let savedProgression = JSON.parse(localStorage.getItem("progression"));
+            if(!savedProgression["presentation"]){
+                const resumeButton = document.createElement("button");
+                resumeButton.innerText = "Continuer la partie en cours";
+                resumeButton.onclick = this.resumeGame;
+                options.appendChild(resumeButton);
+            }
         }
         const newGameButton = document.createElement("button");
         newGameButton.innerText = "Démarrer une nouvelle partie";
@@ -32,7 +37,16 @@ class Menu extends React.Component{
 
     //TO DO
     printPresentation(){
+        const menu = document.getElementById("menu");
 
+        const div = document.createElement("div");
+        div.setAttribute("id", "presentation");
+        document.getElementsByClassName("App-header")[0].appendChild(div);
+
+        ReactDOM.render(
+            <Presentation></Presentation>, document.getElementsByClassName("App-header")[0]
+        );
+        menu.appendChild(div);
     }
 
     resumeGame(){

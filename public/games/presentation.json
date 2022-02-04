@@ -1,0 +1,37 @@
+{   
+    "parcours": {
+        "colisee": {
+            "nom" : "Colisée",
+            "depart" : true,
+            "position" : [41.8901, 12.4923],
+            "targets" : [],
+            "enigme" : 0,
+            "infos" : {
+                "description" : [
+                    "Ici vous pouvez trouver diverses informations concernant le lieu comme les horaires par exemple. Pour aller à l'énigme vous pouvez glisser ou cliquer au niveau des flèches."
+                    
+                ], 
+                "horaires" : [
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"]
+                ]
+            }
+        }
+
+    }, 
+
+
+    "enigme":[
+        {"type": "QR",
+            "intitule" : "Ici il faut répondre à la question, on peut révéler des indices si c'est compliqué, par exemple repondre à la question suivante :",
+            "description" :["Quelle est la couleur du cheval blanc d'Henry IV ?"],
+            "reponse" : "blanc",
+            "indices" : ["Une couleur","Bleu Blanc Rouge","La réponse est dans la question"]
+        }
+    ]   
+}

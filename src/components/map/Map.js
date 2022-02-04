@@ -22,7 +22,7 @@ class Map extends React.Component {
 
         //Get saved progression
         const savedProgression = JSON.parse(localStorage.getItem("progression"));
-        let progression = {title: savedProgression["title"], visited: [], current: "", next: [this.props.wrapper.getFirstPlace()],playerPosition : [0,0]};
+        let progression = {title: savedProgression["title"], visited: [], current: "", next: [this.props.wrapper.getFirstPlace()]};
 
         //Resume the game
         if(this.props.resume === true){
@@ -30,7 +30,6 @@ class Map extends React.Component {
             progression["visited"] = savedProgression["visited"];
             progression["current"] = savedProgression["current"];
             progression["next"] = savedProgression["next"];
-            progression["playerPosition"] = savedProgression["playerPosition"];
         }
         else{
             //Save the current progression in the localStorage
@@ -41,7 +40,7 @@ class Map extends React.Component {
             visited : progression.visited, 
             current : progression.current,
             next : progression.next,
-            playerPosition : progression.playerPosition
+            playerPosition : []
         };
     }
 
@@ -141,7 +140,7 @@ class Map extends React.Component {
 
         //Enregistrement de la progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
-        if(!savedProgression){
+        if(!savedProgression || savedProgression["presentation"] ){
             savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
         }
         savedProgression["visited"] = this.state.visited;
@@ -174,9 +173,86 @@ class Map extends React.Component {
      * Get the marker of the player to display on the map
      * @returns the marker of the player
      */
-    displayPlayer(){
-        return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={"player"}></Marker>;
+     displayPlayer(){
+        
+        if(this.props.geolocation === true){
+            if(this.state.playerPosition.length != 0){
+            console.log("ahahha");
+            return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
+        }
+        }
     }
+
+    displayCenter(){
+        
+        if(this.props.resume === true){
+    
+            let avgLong = 0;
+            let avgLat = 0;
+            let size = 0;
+    
+            if(Array.isArray(this.state.visited)){
+                for(let place of this.state.visited){
+                    let position = this.props.wrapper.getPlacePosition(place);
+                    console.log("current");
+                    console.log(position);
+                    avgLong += position[0];
+                    avgLat += position[1];
+                    size++;
+                }
+            }else{
+                let position = this.props.wrapper.getPlacePosition(this.state.visited);
+                console.log(position);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+            }
+    
+            
+            if(this.state.current){
+    
+                console.log(this.state.current);
+                let position = this.props.wrapper.getPlacePosition(this.state.current);
+                console.log(position);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+            }
+    
+    
+    
+    
+            if(Array.isArray(this.state.next)){
+                for(let place of this.state.next){
+                    let position = this.props.wrapper.getPlacePosition(place);
+                    console.log("current");
+                    console.log(position);
+                    avgLong += position[0];
+                    avgLat += position[1];
+                    size++;
+    
+                }
+            }else{
+                let position = this.props.wrapper.getPlacePosition(this.state.next);
+                console.log(position);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+    
+            }
+    
+    
+    
+            avgLong = avgLong / size;
+    
+            avgLat = avgLat / size ;
+    
+            return [avgLong,avgLat];
+            
+        }
+            return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
+        }
+
 
 
     /**
@@ -227,7 +303,7 @@ class Map extends React.Component {
     render() {
         return (
             <MapContainer id="map"
-                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} //Adapter le center
+            center = {this.displayCenter()}
                 zoom = {17} minZoom = {3} zoomControl={false}>
 
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
@@ -250,7 +326,7 @@ class Map extends React.Component {
     for(let place of objet.state.next){
         let pos = objet.props.wrapper.getPlacePosition(place);
         //Precision à determiner
-        if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.00003){
+        if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.00012){
             //Afficher les infos met a jour l'affichage tout le temps et donc bloque sur les infos du lieu
             //objet.displayInfo(place, true);
             //Autre solution met à jour le pin
