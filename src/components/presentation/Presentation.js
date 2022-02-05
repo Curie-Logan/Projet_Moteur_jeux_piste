@@ -117,7 +117,7 @@ class Presentation extends React.Component{
 
     displayContain(){
         let contenue = [];
-         contenue.push(<input type="image" id="closeButton" onClick={this.handlerClosePresentation} src="./img/puzzle/answerForm/arrow.png"/>);
+         contenue.push(<input type="image" id="returnButton" onClick={this.handlerClosePresentation} src="./img/puzzle/answerForm/arrow.png"/>);
         switch(this.state.step){
                 case 4 :
                 case 1 :
