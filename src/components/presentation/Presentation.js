@@ -7,10 +7,10 @@ import PlaceInfo from '../map/placeInfo/PlaceInfo';
 import {MapContainer, TileLayer, Marker,Circle} from 'react-leaflet';
 import L from 'leaflet';
 
- import './Presentation.css';
+import './Presentation.css';
 
 
-let wrapper = new Wrapper("presentation.json");
+let wrapper = new Wrapper("presentation/presentation.json");
 let objet ;
 class Presentation extends React.Component{
     constructor(props){
@@ -117,18 +117,17 @@ class Presentation extends React.Component{
 
     displayContain(){
         let contenue = [];
-         contenue.push(<input type="image" id="returnButton" onClick={this.handlerClosePresentation} src="./img/puzzle/answerForm/arrow.png"/>);
+        contenue.push(<button onClick={this.handlerClosePresentation} id="closeButton">X</button>);
         switch(this.state.step){
                 case 4 :
                 case 1 :
-                    contenue.push(<div id="contenue">On peut accéder à un marqueur en rouge en étant dans la zone proche si le GPS est activé (en bleu ici). Si le gps ne fonctionne pas on peut cliquer sur le marqueur pour y accéder.</div>);
+                    contenue.push(<p id="contenue">On peut accéder à un marqueur en rouge en étant dans la zone proche si le GPS est activé (en bleu ici). Si le gps ne fonctionne pas on peut cliquer sur le marqueur pour y accéder.</p>);
                     break;
                 case 2 :
-
-                    contenue.push(<div id="contenue">Une fois à proximité du lieu, le marqueur devient bleu et on peut accéder aux informations du lieu en cliquant dessus.</div>);
+                    contenue.push(<p id="contenue">Une fois à proximité du lieu, le marqueur devient bleu et on peut accéder aux informations du lieu en cliquant dessus.</p>);
                     break;
                 case 3 :
-                    contenue.push(<div id="contenue">Une fois l'énigme complétée le marqueur devient vert,les informations du lieu peuvent être reconsultées et les prochains marqueurs sont affichés(en rouge). Vous disposez de toutes les informations nécessaires au déroulement du jeu ! </div>);
+                    contenue.push(<p id="contenue">Une fois l'énigme complétée le marqueur devient vert,les informations du lieu peuvent être reconsultées et les prochains marqueurs sont affichés(en rouge). Vous disposez de toutes les informations nécessaires au déroulement du jeu ! </p>);
                     break;
                 default :
                     break;    
@@ -139,8 +138,6 @@ class Presentation extends React.Component{
 
     render(){
         return (
-                  
-
             <MapContainer id="map"
                 
             center={[ 41.89097795180586, 12.491085966766292 ]}

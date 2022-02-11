@@ -36,7 +36,7 @@
      * @returns a string or an array of strings which represent the next place(s)
      */
     getNextPlace(currentPlace){
-        return this.data.parcours[currentPlace].targets;
+        return this.data.parcours[currentPlace].suivants;
     }
 
     /**

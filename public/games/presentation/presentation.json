@@ -28,7 +28,7 @@
 
     "enigme":[
         {"type": "QR",
-            "intitule" : "Ici il faut répondre à la question, on peut révéler des indices si c'est compliqué, par exemple repondre à la question suivante :",
+            "titre" : "Ici il faut répondre à la question, on peut révéler des indices si c'est compliqué, par exemple repondre à la question suivante :",
             "description" :["Quelle est la couleur du cheval blanc d'Henry IV ?"],
             "reponse" : "blanc",
             "indices" : ["Une couleur","Bleu Blanc Rouge","La réponse est dans la question"]

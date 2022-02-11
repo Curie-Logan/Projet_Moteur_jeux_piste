@@ -24,7 +24,7 @@ class Puzzle extends React.Component{
             if(!progression["puzzleValidated"]){
                 progression["puzzleValidated"] = [];
             }
-            progression["puzzleValidated"].push({title: this.puzzle["intitule"], attempt: this.state.attempt});
+            progression["puzzleValidated"].push({title: this.puzzle["titre"], attempt: this.state.attempt});
             localStorage.setItem("progression",JSON.stringify(progression));
     
             this.setState({content: <div><h2>C'est la bonne réponse !</h2><button onClick={this.handlerGoodAnswer} id="returnMap">Retourner à la carte</button></div>});
@@ -53,7 +53,7 @@ class Puzzle extends React.Component{
 
     showQuestion(){
         const puzzleType = this.puzzle["type"];
-        const intitule = this.puzzle["intitule"];
+        const intitule = this.puzzle["titre"];
         const description = this.puzzle["description"];
         const hints = this.puzzle["indices"];
         const file = this.puzzle["file"];

@@ -9,7 +9,7 @@
             "nom" : "Stand informatique", 
             "depart" : true,
             "position" : [47.245503458355934, 5.984960773024536],
-            "targets" : ["hall_prope"],
+            "suivants" : ["hall_prope"],
             "enigme" : 0,
             "infos" : {
                 "description" : [
@@ -22,7 +22,7 @@
         "hall_prope" : {
             "nom" : "Hall Propédeutique", 
             "position" : [47.24546953143222, 5.9850985667614856],
-            "targets" : ["amphi_croisot"],
+            "suivants" : ["amphi_croisot"],
             "enigme" : 1,
             "infos" : {
                 "description" : [
@@ -35,7 +35,7 @@
         "amphi_croisot" : {
             "nom" : "Amphithéâtre Croisot",
             "position" : [47.24523613664159, 5.985274940962397],
-            "targets" : ["bureau_starter"],
+            "suivants" : ["bureau_starter"],
             "enigme" : 2,
             "infos" : {
                 "description" : [
@@ -48,7 +48,7 @@
         "bureau_starter" : {
             "nom" : "Bureau starter",
             "position" : [47.245413708767074, 5.984936191020921],
-            "targets" : ["coursive_hall"],
+            "suivants" : ["coursive_hall"],
             "enigme" : 3,
             "infos" : {
                 "description" : [
@@ -60,7 +60,7 @@
         "coursive_hall" : {
             "nom" : "Coursive du Hall",
             "position" : [47.245539727548156, 5.985118971067976],
-            "targets" : ["salle_tp"],
+            "suivants" : ["salle_tp"],
             "enigme" : 4,
             "infos" : {
                 "description" : [
@@ -72,7 +72,7 @@
         "salle_tp" : {
             "nom" : "Salles TP multimédia",
             "position" : [47.24550626990574, 5.985262851471623],
-            "targets" : ["fresque"],
+            "suivants" : ["fresque"],
             "enigme" : 5,
             "infos" : {
                 "description" : [
@@ -84,7 +84,7 @@
         "fresque" : {
             "nom" : "Fresque de l'UFR ST",
             "position" : [47.245561034920456, 5.985538139836991],
-            "targets" : [],
+            "suivants" : [],
             "enigme" : 6,
             "infos" : {
                 "description" : [
@@ -97,7 +97,7 @@
     "enigme" : [
         {
             "type" : "QR",
-            "intitule" : "Les CMI",
+            "titre" : "Les CMI",
             "description" : [
                 "Comment s'appelle le nom du réseau d'universités qui propose les Cursus Master en Ingénierie (CMI) ?"
             ],
@@ -111,7 +111,7 @@
 
         {
             "type": "QR",
-            "intitule" : "Mot mystère",
+            "titre" : "Mot mystère",
             "description" : [
                 "Observez autour de vous, et complètez les mots manquant afin de retrouver le mot mystère.",
                 "_ _ 1 _ _ _ _ _ _ _",
@@ -130,11 +130,11 @@
 
         {
             "type" : "QCM",
-            "choix" : ["266 places","285 places", "276 places"],
-            "intitule" : "La vie en cours magistral",
+            "titre" : "La vie en cours magistral",
             "description" : [
-                "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi?"
+                "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi ?"
             ],
+            "choix" : ["266 places","285 places", "276 places"],
             "reponse" : "276 places",
             "indices" : [
                 "Il n'y a pas le même nombre de rangs au centre que sur les côtés", 
@@ -144,7 +144,7 @@
 
         {
             "type" : "QR",
-            "intitule" : "Le bureau starter",
+            "titre" : "Le bureau starter",
             "description" : [
                 "Quel est le nom du premier responsable de Starter ST ?"
             ],
@@ -159,7 +159,7 @@
 
         {
             "type": "QR",
-            "intitule" : "Les vitrine de géologie",
+            "titre" : "Les vitrine de géologie",
             "description" : [
                 "Retrouvez le nom du minéral sur la photo ci-dessous ?"
             ],
@@ -178,7 +178,7 @@
 
         {
             "type": "QR",
-            "intitule" : "Les salles de TP",
+            "titre" : "Les salles de TP",
             "description" : [
                 "Combien de postes contient la salle 102K ?"
             ],
@@ -191,7 +191,7 @@
 
         {
             "type": "QR",
-            "intitule" : "Un peu d'archéologie",
+            "titre" : "Un peu d'archéologie",
             "description" : [
                 "Quel est le nom de ce petit fossile?"
             ],

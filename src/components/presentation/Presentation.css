@@ -1,24 +1,27 @@
-#map {
-
-}
-
-
-#returnButton{
-
+#closeButton{
+    z-index: 1050;
     width: 30px;
     height: 30px;
 
     position: absolute;
-    border-radius: 50%;
-    border: none;
+
     top: 5px;
     left: 5px;
 
-    z-index: 1050;
-    background:#121D28;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+    background-color: #F1524A;
+    border-radius: 50%;
+    border: none;
+    
+    color: #FFFFFF;
+    font-size: medium;
+    font-weight: bold;
+}
 
+#contenue{
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+    background-color: #F1524A;
+    background-color: #121D28;
 }
 
 

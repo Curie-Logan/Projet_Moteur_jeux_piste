@@ -21,7 +21,8 @@ class Hint extends React.Component{
         if(this.state.revealed<this.props.hints.length){
             let currentContent = [this.state.content];
             this.setState({revealed: this.state.revealed+1});
-            currentContent.push(<h3 key={this.state.revealed}>{this.props.hints[this.state.revealed]}</h3>);
+            let content = (isURL(this.props.hints[this.state.revealed]))? <a href={this.props.hints[this.state.revealed]} target="_blank">Consulter une ressource externe</a> : <h3 key={this.state.revealed}>{this.props.hints[this.state.revealed]}</h3>;
+            currentContent.push(content);
             this.setState({content: currentContent});
 
             let savedProgression = JSON.parse(localStorage.getItem("progression"));
@@ -78,5 +79,14 @@ class Hint extends React.Component{
         );
     }
 }
-
 export default Hint;
+
+function isURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+  }
