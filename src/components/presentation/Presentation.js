@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import Wrapper from "../../wrapper";
 import PlaceInfo from '../map/placeInfo/PlaceInfo';
+import Menu from '../menu/Menu';
+ 
 
 
 import {MapContainer, TileLayer, Marker,Circle} from 'react-leaflet';
@@ -98,21 +100,10 @@ class Presentation extends React.Component{
     }
 
     handlerClosePresentation(){
-        //Provisoire
-
-        // let a =  document.getElementById("presentation");
-        // if(a)
-        //   document.getElementById("presentation").remove();
-        window.location.reload();
-
-        //   ReactDOM.unmountComponentAtNode(document.getElementsByClassName("App-header")[0]);
-        // ReactDOM.render(
-        //     <Menu/>
-        //     ,
-        //     document.getElementsByClassName("App-header")[0]
-        // );
-
-
+        //Return to the menu
+        ReactDOM.render(
+            <Menu/>,document.getElementsByClassName("App-header")[0]
+        );
     }
 
     displayContain(){

@@ -104,6 +104,17 @@ class Menu extends React.Component{
 
             menu.appendChild(divGames);
         }
+
+        const returnButton = document.createElement("button");
+        returnButton.innerText = "Retourner au menu";
+        returnButton.setAttribute("id","returnMenu");
+        returnButton.addEventListener("click",function(){
+            ReactDOM.render(
+                <Menu/>,document.getElementsByClassName("App-header")[0]
+            );
+        });
+
+        menu.appendChild(returnButton);
     }
     
     

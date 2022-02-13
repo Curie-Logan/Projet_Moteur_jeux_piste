@@ -45,9 +45,12 @@ class Hint extends React.Component{
             }
             
             localStorage.setItem("progression",JSON.stringify(savedProgression));
+
+         
         }
         else{
             document.getElementById("hints").remove();
+
             alert("Tous les indices ont été révélés");
         }
     }

@@ -12,12 +12,20 @@
     justify-content: space-between;
 }
 
-#menu>h1, #menu>h2{
+#menu>h1{
     position: relative;
     top: 2.5em;
 }
 
-#options > button{
+#menu>h2{
+    position: relative;
+    top: 2.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+button{
     width: 80%;
     height: 2.5em;
     border-radius: 1em;
@@ -27,6 +35,14 @@
     font-weight: bold;
     margin: 1em;
 }
+
+#returnMenu{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 2.5em;
+}
+
 
 #divGames{
     margin-bottom: 15rem;
