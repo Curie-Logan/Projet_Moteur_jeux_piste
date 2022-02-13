@@ -246,7 +246,7 @@
             }
         }, 
 
-        "bu_sciences": {
+        "bu_sciences" : {
             "nom" : "BU Sciences",
             "position" : [47.246297105047766, 5.9864160097071775],
             "suivants" : ["fresque"],
@@ -293,7 +293,7 @@
         {
             "type": "QR",
             "titre" : "Mot mystère",
-            "description" : [
+            "intitule" : [
                 "Observez autour de vous, et complètez les mots manquant afin de retrouver le mot mystère.",
                 "_ _ 1 _ _ _ _ _ _ _",
                 "_ _ _ _ _ _ 3 _",
@@ -312,7 +312,7 @@
         {
             "type" : "QCM",
             "titre" : "La vie en cours magistral",
-            "description" : [
+            "intitule" : [
                 "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi ?"
             ],
             "choix" : ["266 places","285 places", "276 places"],
@@ -326,13 +326,14 @@
         {
             "type": "QR",
             "titre" : "Le distributeur",
-            "description" : [
+            "intitule" : [
                 "Quel est le code à saisir pour avoir une gaufre"
             ],
             "reponse" : "A26",
             "file" : {
-                "type": "picture", 
-                "src": "distributeur.jpg"
+                "type" : "picture", 
+                "src" : "distributeur.jpg", 
+                "description": "Distributeur de nourriture"
             },
             "indices" : [
                 "Le code est composé d'une lettre et de deux chiffres",
@@ -343,7 +344,7 @@
         {
             "type": "QR",
             "titre" : "Question Amphi A",
-            "description" : [
+            "intitule" : [
                 "faire deviner un truc gravé sur une table"
             ],
             "reponse" : "OUAIS",
@@ -355,7 +356,7 @@
         {
             "type" : "QCM",
             "titre" : "Circuler dans la fac",
-            "description" : [
+            "intitule" : [
                 "Quels bâtiments la passerelle permet-elle de relier ?"
             ],
             "choix" : ["A et C", "B et C", "A et B"],
@@ -370,7 +371,7 @@
         {
             "type": "QR",
             "titre" : "Question département info",
-            "description" : [
+            "intitule" : [
                 "Question sur une affiche concernant Mr Deville"
             ],
             "reponse" : "OUAIS",
@@ -382,7 +383,7 @@
         {
             "type": "QR",
             "titre" : "Le vrai nom de la BU",
-            "description" : [
+            "intitule" : [
                 "Quel est le vrai nom de la \"BU de Droit\" ?"
             ],
             "reponse" : "PROUDHON",
@@ -397,7 +398,7 @@
         {
             "type": "QR",
             "titre" : "Acronyme",
-            "description" : [
+            "intitule" : [
                 "Donnez la signification de l'acronyme \"SUMPPS\" : "
             ],
             "reponse" : "SERVICE UNIVERSITAIRE DE MÉDECINE PRÉVENTIVE ET DE PROMOTION DE LA SANTÉ",
@@ -411,7 +412,7 @@
         {
             "type" : "QCM",
             "titre" : "Jeu de couleurs",
-            "description" : [
+            "intitule" : [
                 "Quel est l'ordre des couleurs de l'arc-en-ciel peint sur la façade du restaurant ?"
             ],
             "choix" : ["Rouge jaune orange bleu", "Vert jaune orange rouge", "Rouge orange jaune bleu", "Rouge orange bleu"],
@@ -426,7 +427,7 @@
         {
             "type": "QR",
             "titre" : "Des espaces pour se réunir",
-            "description" : [
+            "intitule" : [
                 "Quel service se trouve sur 3 étages différents ?"
             ],
             "reponse" : "WORKORAMA",
@@ -441,7 +442,7 @@
         {
             "type": "QR",
             "titre" : "Un sigle cette fois",
-            "description" : [
+            "intitule" : [
                 "Dans le sigle \"SJEPG\", que signifie la lettre 'P' ?"
             ],
             "reponse" : "POLITIQUES",
@@ -455,7 +456,7 @@
         {
             "type" : "QCM",
             "titre" : "Ça travail",
-            "description" : [
+            "intitule" : [
                 "Que fait l'étudiant peint sur la façade arrière de la BU ?"
             ],
             "choix" : ["Il regarde un livre", "Il fait du sport", "Il est sur son ordinateur", "Il observe dans un microscope"],
@@ -470,13 +471,14 @@
         {
             "type": "QR",
             "titre" : "Un peu d'archéologie",
-            "description" : [
+            "intitule" : [
                 "Quel est le nom de ce petit fossile?"
             ],
             "reponse" : "PTERICHTYS",
             "file" : {
-                "type": "picture", 
-                "src": "fresque.png"
+                "type" : "picture", 
+                "src" : "fresque.png", 
+                "description" : "Extrait de la fresque du bâtiment Propédeutique"
             },
             "indices" : [
                 "Il est caché dans la moitié gauche de la fresque",

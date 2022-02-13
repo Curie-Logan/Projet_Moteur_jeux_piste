@@ -25,7 +25,7 @@ class PlaceInfo extends React.Component{
         let info = this.props.wrapper.getPlaceInfo(this.props.place);
         let name = this.props.wrapper.getPlaceName(this.props.place);
         let description = info["description"];
-        let startPuzzle = (this.props.puzzle)? <StartPuzzle wrapper={this.props.wrapper} gamePath={this.props.gamePath} place={this.props.place} callbackFunction={callbackFunction}/> : '';
+        let startPuzzle = (this.props.puzzle)? <StartPuzzle wrapper={this.props.wrapper} gameID={this.props.gameID} place={this.props.place} callbackFunction={callbackFunction}/> : '';
         
         return(
             <div id='placeInfo'>

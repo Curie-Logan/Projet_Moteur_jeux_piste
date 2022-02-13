@@ -6,6 +6,10 @@
         this.data = require("../public/games/" + filename);
     }
 
+    /**
+     * Get the list of available games
+     * @returns  the list of games
+     */
     getGameList(){
         return this.data;
     }

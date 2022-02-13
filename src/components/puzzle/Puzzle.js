@@ -13,17 +13,24 @@ class Puzzle extends React.Component{
         this.handleAnswerSubmission = this.handleAnswerSubmission.bind(this);
         this.showQuestion = this.showQuestion.bind(this);
         this.handlerRetry = this.handlerRetry.bind(this);
-        this.state = {hint: <button onClick={this.revealHint} id="hint"></button>, content: this.showQuestion(), attempt: 0};
+        this.state = {  hint: <button onClick={this.revealHint} id="hint"></button>, 
+                        content: this.showQuestion(), 
+                        attempt: 0};
     }
 
-
+    /**
+     * Handler when an answer is submitted 
+     * @param answer the answer submitted
+     */
     handleAnswerSubmission(answer){
         this.setState({attempt: this.state.attempt+1});
-        if(answer.toUpperCase().trim()===this.puzzle["reponse"].toUpperCase().trim()){
+        if(answer.toUpperCase().trim() === this.puzzle["reponse"].toUpperCase().trim()){
             let progression = JSON.parse(localStorage.getItem("progression"));
+
             if(!progression["puzzleValidated"]){
                 progression["puzzleValidated"] = [];
             }
+
             progression["puzzleValidated"].push({title: this.puzzle["titre"], attempt: this.state.attempt});
             localStorage.setItem("progression",JSON.stringify(progression));
     
@@ -34,30 +41,41 @@ class Puzzle extends React.Component{
         }
     }
 
+    /**
+     * Handler when the button to close is pressed
+     */
     handlerClosePuzzle(){
-        //Solution temporaire ptêtre gérer autrement
         document.getElementById("puzzleDiv").remove();
         document.getElementById("infoDiv").style.display = "block";
     }
 
+    /**
+     * Handler when a good answer is entered
+     */
     handlerGoodAnswer = () => {
         this.props.response("Good Response");
         document.getElementById("puzzleDiv").remove();
         document.getElementById("infoDiv").remove();
-   }
+    }
 
+    /**
+     * Handler when the button to retry is pressed
+     */
     handlerRetry(){
         this.setState({content: this.showQuestion()});
     }
 
-
+    /**
+     * Constructs the content of the question
+     */
     showQuestion(){
         const puzzleType = this.puzzle["type"];
-        const intitule = this.puzzle["titre"];
-        const description = this.puzzle["description"];
+        const title = this.puzzle["titre"];
+        const entitled = this.puzzle["intitule"];
         const hints = this.puzzle["indices"];
         const file = this.puzzle["file"];
-        const fileJsx = (file !== undefined) ? <File gamePath={this.props.gamePath} file={file}/> : ""; 
+
+        const fileJsx = (file !== undefined) ? <File gameID={this.props.gameID} file={file}/> : ""; 
 
         let choices = (puzzleType === "QCM") ? this.puzzle["choix"] : false;
 
@@ -66,23 +84,23 @@ class Puzzle extends React.Component{
         
         if(progression["revealedHints"]){
             for(const hintObject of progression["revealedHints"]){
-                if(hintObject["puzzleTitle"]===intitule){
+                if(hintObject["puzzleTitle"]===title){
                     saved = true;
                 }
             }
         }
     
         let question = [];
-        for (let paragraph of this.puzzle["description"]){
+        for (let paragraph of entitled){
             question.push(<p>{paragraph}</p>);
         }
 
         return (<div id="puzzle">
             <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
-            <h2>{intitule}</h2>
+            <h2>{title}</h2>
             <div id="question">{question}</div>
             {fileJsx}
-            <Hint revealedHints={saved} title={intitule} hints={hints}/>
+            <Hint revealedHints={saved} title={title} hints={hints}/>
             <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
         </div>);
     }

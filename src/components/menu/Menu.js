@@ -89,15 +89,15 @@ class Menu extends React.Component{
 
             gameButton.addEventListener("click",function(){
                 menu.remove();    
-                const wrapper = new Wrapper(gameID+"/"+gameID+".json");
+                const wrapper = new Wrapper(`${gameID}/${gameID}.json`);
 
                 //Save the current progression
-                let savedProgression = {title: gameID+"/"+gameID+".json", visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+                let savedProgression = {title: `${gameID}/${gameID}.json`, visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
            
                 localStorage.setItem("progression",JSON.stringify(savedProgression));
 
                 ReactDOM.render(
-                    <Map resume={false} wrapper={wrapper} geolocation={true}/>,
+                    <Map resume={false} wrapper={wrapper} geolocation={true} gameID={gameID}/>,
                     document.getElementsByClassName("App-header")[0]
                 );
             });

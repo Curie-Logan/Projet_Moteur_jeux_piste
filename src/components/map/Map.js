@@ -112,7 +112,7 @@ class Map extends React.Component {
         document.getElementsByClassName("App-header")[0].appendChild(div);
 
         ReactDOM.render(
-            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} gamePath={this.props.gamePath} response = {callbackFunction}></PlaceInfo>,
+            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} gameID={this.props.gameID} response = {callbackFunction}></PlaceInfo>,
             document.getElementById("infoDiv")
         );
         
