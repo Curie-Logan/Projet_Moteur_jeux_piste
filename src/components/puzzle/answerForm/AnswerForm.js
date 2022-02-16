@@ -46,8 +46,11 @@ class AnswerForm extends React.Component{
                 for(const element of this.props.choices){
                     arrayChoices.push(<div><input type="checkbox" onChange={this.handleChange} key={element} value={element} name={element}/><label for={element}>{element}</label></div>);
                 }
-                this.setState({content: <form onSubmit={this.handleSubmit} id="answer">       
-                    {arrayChoices}
+                this.setState({content: <form onSubmit={this.handleSubmit} id="answer"> 
+                    <div id='choices'>
+                        {arrayChoices}
+                    </div>      
+                    
                     <input type="submit" style={{margin: "5rem"}} value="Soumettre la réponse"/>
                 </form>}); 
                 break;

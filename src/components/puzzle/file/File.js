@@ -12,7 +12,7 @@ class File extends React.Component{
         const path = `${process.env.PUBLIC_URL}/games/${this.props.gameID}/resources/${this.props.file["src"]}`;
         switch(this.props.file["type"]){
             case "picture":
-                return <img alt="" src={path}/>;
+                return <img alt={this.props.file["description"]} src={path}/>;
             case "audio":
                 return <audio controls src={path}/>;
             case "link":

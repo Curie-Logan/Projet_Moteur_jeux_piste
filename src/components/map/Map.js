@@ -5,9 +5,9 @@ import {MapContainer, TileLayer, Marker} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
+import Ending from '../ending/Ending';
 
 import './Map.css';
-import Ending from '../ending/Ending';
 
 let objet;
 class Map extends React.Component {
@@ -149,6 +149,11 @@ class Map extends React.Component {
         localStorage.setItem("progression",JSON.stringify(savedProgression));
     }
 
+    handlerClickPin(place, puzzle = false){
+        this.changerMarker(place);
+        this.displayInfo(place, puzzle);
+    }
+
     //Centrer la map avec le point entre le joueur et le premier lieu, mais probleme avec la position du joueur qui est obtenue de manière asynchrone
 
     // centerF(){
@@ -176,8 +181,7 @@ class Map extends React.Component {
      displayPlayer(){
         
         if(this.props.geolocation === true){
-            if(this.state.playerPosition.length != 0){
-            console.log("ahahha");
+            if(this.state.playerPosition.length !== 0){
             return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
         }
         }
@@ -290,8 +294,8 @@ class Map extends React.Component {
         //The next places to visit
         for(let place of this.state.next){
             let position = this.props.wrapper.getPlacePosition(place); 
-            
-            let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}/>;
+            //{click: () => this.changerMarker(place)}
+            let marker = <Marker position={position} eventHandlers={{click: () => this.handlerClickPin(place, true)}}  icon={redMarker} key={key}/>;
             
             markers.push(marker);
             key++;

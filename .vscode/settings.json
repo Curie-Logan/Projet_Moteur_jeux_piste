@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "system_error": "cpp",
-        "deque": "cpp",
-        "string": "cpp",
-        "vector": "cpp",
-        "typeinfo": "cpp"
-    }
-}

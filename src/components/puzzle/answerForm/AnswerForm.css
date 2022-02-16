@@ -1,3 +1,11 @@
 #answer input[type=checkbox]{
     margin-right: 1em;
 }
+
+#answer #choices{
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: left;
+}

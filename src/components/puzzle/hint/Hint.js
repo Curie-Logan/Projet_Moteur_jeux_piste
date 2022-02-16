@@ -18,10 +18,10 @@ class Hint extends React.Component{
     
 
     handleRevealHint(){
-        if(this.state.revealed<this.props.hints.length){
+        if(this.state.revealed < this.props.hints.length){
             let currentContent = [this.state.content];
             this.setState({revealed: this.state.revealed+1});
-            let content = (isURL(this.props.hints[this.state.revealed]))? <a href={this.props.hints[this.state.revealed]} target="_blank">Consulter une ressource externe</a> : <h3 key={this.state.revealed}>{this.props.hints[this.state.revealed]}</h3>;
+            let content = (isURL(this.props.hints[this.state.revealed]))? <a href={this.props.hints[this.state.revealed]} target="_blank" without rel="noreferrer">Consulter une ressource externe</a> : <h3 key={this.state.revealed}>{this.props.hints[this.state.revealed]}</h3>;
             currentContent.push(content);
             this.setState({content: currentContent});
 
@@ -45,8 +45,6 @@ class Hint extends React.Component{
             }
             
             localStorage.setItem("progression",JSON.stringify(savedProgression));
-
-         
         }
         else{
             document.getElementById("hints").remove();

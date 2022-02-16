@@ -40,7 +40,7 @@
        "aqua" : {
             "nom" : "L'Aqua",
             "position" : [47.244978793500785, 5.988310699640197],
-            "suivants" : ["amphi_A"],
+            "suivants" : ["passerelle"],
             "enigme" : 2,
             "infos" : {
                 "description" : [
@@ -60,24 +60,11 @@
             }
        }, 
 
-       "amphi_A": {
-            "nom" : "Amphithéâtre A",
-            "position" : [47.244764420701124, 5.988438287720328],
-            "suivants" : ["passerelle"],
-            "enigme" : 3,
-            "infos" : {
-                "description" : [
-                    "Amphithéâtre dans lequel se déroulent les cours magistraux de différentes unités d'enseignement (mathématiques, informatique, chimie, physique, méca, etc.).", 
-                    "Comme d'autres amphis du campus il accueil également les examens et les réunions."
-                ]
-            }
-        }, 
-
         "passerelle" : {
             "nom" : "Passerelle",
             "position" : [47.24511954284697, 5.987653621027516],
             "suivants" : ["dpt_info"], 
-            "enigme" : 4,
+            "enigme" : 3,
             "infos" : {
                 "description" : [
                     "L'emploi du temps alternant beaucoup entre Cours Magistraux (CM), Travaux Dirigés (TD) et Travaux Pratiques, au cours d'une journée les étudiants sont amenés à changer plusieurs fois de bâtiment, pour passer d'un amphithéâtre à une salle de TP par exemple.",
@@ -90,7 +77,7 @@
             "nom" : "Département informatique", 
             "position" : [47.245732013564, 5.987537901636956],
             "suivants" : ["bu_droit"],
-            "enigme" : 5,
+            "enigme" : 4,
             "infos" : {
                 "description" : [
                     "Le Département des Enseignements Informatiques offre un ensemble complet de formations depuis l'obtention du baccalauréat :",
@@ -113,7 +100,7 @@
             "nom" : "BU Droit",
             "position" : [47.24714063557295, 5.987861629990677], 
             "suivants" : ["sumpps"],
-            "enigme" : 6,
+            "enigme" : 5,
             "infos" : {
                 "description" : [
                     "Bibliothèque universitaire Droit Economie Politique et Gestion.", 
@@ -142,7 +129,7 @@
             "nom" : "SUMPPS",
             "position" : [47.24677973021691, 5.987223649656107], 
             "suivants" : ["ru_lumiere"],
-            "enigme" : 7,
+            "enigme" : 6,
             "infos" : {
                 "description" : [
                     "Le service de médecine préventive propose gratuitement des soins, des renseigmements, des consultations auprès des atudiants.",
@@ -171,7 +158,7 @@
             "nom" : "Restaurant Lumière",
             "position" : [47.248774239797456, 5.9871213956161125],
             "suivants" : ["MDE"],
-            "enigme" : 8,
+            "enigme" : 7,
             "infos" : {
                 "description" : [
                     "Restaurant universitaire disposant de 1150 places permettant de partager un repas équilibré entre amis.", 
@@ -200,7 +187,7 @@
             "nom" : "Maison des Étudiants",
             "position" : [47.248209, 5.988368],
             "suivants" : ["fac_droit"],
-            "enigme" : 9,
+            "enigme" : 8,
             "infos" : {
                 "description" : [
                     "Lieu d'accueil et d'information pour vous orienter vers les services de l'université et pour répondre à toute question concernant votre vie estudiantine :",
@@ -232,7 +219,7 @@
             "nom" : "Fac de Droit",
             "position" : [47.247089719228576, 5.986140420800996],
             "suivants" : ["bu_sciences"],
-            "enigme" : 10,
+            "enigme" : 9,
             "infos" : {
                 "description" : [
                     "L'UFR SJEPG forme les étudiants qui souhaitent entreprendre des études juridiques ou économiques et se préparer aux carrières libérales traditionnelles (barreau, notariat), aux carrières de la fonction publique (administration, magistrature, enseignement) ou aux carrières du secteur privé (gestion et administration des entreprises industrielles ou de services).",
@@ -250,7 +237,7 @@
             "nom" : "BU Sciences",
             "position" : [47.246297105047766, 5.9864160097071775],
             "suivants" : ["fresque"],
-            "enigme" : 11,
+            "enigme" : 10,
             "infos" : {
                 "description" : [
                     "Bibliothèque universitaire Sciences Sport Claude Oytana.", 
@@ -280,7 +267,7 @@
             "nom" : "Fresque de l'UFR ST",
             "position" : [47.245561034920456, 5.985538139836991],
             "suivants" : [],
-            "enigme" : 12,
+            "enigme" : 11,
             "infos" : {
                 "description" : [
                     "Cette fresque, présente dès la création de l'UFR ST a vu se succéder plusieurs générations d'étudiants depuis les années 1960."
@@ -342,18 +329,6 @@
         },
 
         {
-            "type": "QR",
-            "titre" : "Question Amphi A",
-            "intitule" : [
-                "faire deviner un truc gravé sur une table"
-            ],
-            "reponse" : "OUAIS",
-            "indices" : [
-                "OUAIS"
-            ]
-        },
-
-        {
             "type" : "QCM",
             "titre" : "Circuler dans la fac",
             "intitule" : [
@@ -369,14 +344,23 @@
         },
 
         {
-            "type": "QR",
-            "titre" : "Question département info",
+            "type": "QCM",
+            "titre" : "Les filles en informatique",
             "intitule" : [
-                "Question sur une affiche concernant Mr Deville"
+                "D'après la bande dessinée, comparées aux garçons, les filles en informatique sont :"
             ],
-            "reponse" : "OUAIS",
+            "choix" : ["Plus calmes et organisées", "Multi-'tâches", "Pareilles que les garçons", "Plus créatives", "Meilleures en webdesign"],
+            "reponse" : "Pareilles que les garçons",
+            "file" : {
+                "type" : "picture", 
+                "src" : "bd.jpg", 
+                "description" : "Planche de bande dessinée"
+            },
             "indices" : [
-                "OUAIS"
+                "Avez-vous compris le sens principal de la BD?",
+                "Oubliez un peu les clichés",
+                "Concentrez-vous sur la dernière vignette",
+                "Pareilles que les garçons"
             ]
         },
 

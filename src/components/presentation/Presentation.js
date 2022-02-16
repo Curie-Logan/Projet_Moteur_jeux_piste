@@ -91,7 +91,7 @@ class Presentation extends React.Component{
 
 
     changePresentation(){
-        if(this.state.step == 4){
+        if(this.state.step === 4){
             this.setState({step: 1});
         }else{
             this.setState({step: this.state.step + 1});
