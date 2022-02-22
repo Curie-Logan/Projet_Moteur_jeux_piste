@@ -22,7 +22,7 @@ class StartPuzzle extends React.Component{
         document.getElementsByClassName("App-header")[0].appendChild(div);
 
         ReactDOM.render(
-            <Puzzle wrapper={this.props.wrapper} place={this.props.place} gamePath={this.props.gamePath} response={this.props.callbackFunction} />, 
+            <Puzzle wrapper={this.props.wrapper} place={this.props.place} gameID={this.props.gameID} response={this.props.callbackFunction} />, 
             document.getElementById("puzzleDiv")
         );
     }

@@ -5,25 +5,30 @@ import {MapContainer, TileLayer, Marker, useMap} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
+import Ending from '../ending/Ending';
 
 import './Map.css';
+<<<<<<< HEAD
 import Ending from '../ending/Ending';
 import { LatLng } from 'leaflet';
+=======
+>>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
 
-let objet;
+let component;
 class Map extends React.Component {
     constructor(props){
         super(props);
-        objet = this;
+        component = this;
         if(this.props.geolocation === true){
-            this.timer = window.setInterval(function(){
-                navigator.geolocation.getCurrentPosition(checkPositionCloseMarker);
-            }, 1000);
+            this.timer = window.setInterval(function(){navigator.geolocation.getCurrentPosition(checkPlayerCloseMarker);}, 1000);
         }
 
         //Get saved progression
         const savedProgression = JSON.parse(localStorage.getItem("progression"));
-        let progression = {title: savedProgression["title"], visited: [], current: "", next: [this.props.wrapper.getFirstPlace()]};
+        let progression = { title: savedProgression["title"], 
+                            visited: [], 
+                            current: "", 
+                            next: [this.props.wrapper.getFirstPlace()]};
 
         //Resume the game
         if(this.props.resume === true){
@@ -31,8 +36,7 @@ class Map extends React.Component {
             progression["visited"] = savedProgression["visited"];
             progression["current"] = savedProgression["current"];
             progression["next"] = savedProgression["next"];
-        }
-        else{
+        }else{
             //Save the current progression in the localStorage
             localStorage.setItem("progression",JSON.stringify(progression));
         }
@@ -45,9 +49,6 @@ class Map extends React.Component {
         };
     }
 
-    //Methode pour centrer la map par rapport à la position du joueur et le lieu suivant
-    //Methode pour adapter le zoom de la map
-
     /**
      * Update the current, next and visited places when a puzzle is solved 
      * @param place the place for wich the puzzle is solved
@@ -58,7 +59,6 @@ class Map extends React.Component {
         let tNext = this.state.next;
         let tVisited = this.state.visited;
 
-
         tCurrent = "";
         
         //Update visited place
@@ -66,7 +66,6 @@ class Map extends React.Component {
     
         //Update current place
         let updateCurrent = this.props.wrapper.getNextPlace(place);
-
         
         if(Array.isArray(updateCurrent)){
             for(let next of updateCurrent) {
@@ -83,19 +82,22 @@ class Map extends React.Component {
         this.setState({next: tNext});
         this.setState({current: tCurrent});
 
-
-        if(this.state.next.length===0){
+        //All the places of the course were visited, the game is finish
+        if(this.state.next.length === 0){
             ReactDOM.render(
                 <Ending/>,
                 document.getElementsByClassName("App-header")[0]
             );
         }
 
-
         //Save the current progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
         if(!savedProgression){
-            savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+            savedProgression = {visited: [], 
+                                current: "", 
+                                next: [], 
+                                puzzleValidated: [], 
+                                revealedHints: []};
         }
         savedProgression["visited"] = tVisited;
         savedProgression["current"] = tCurrent;
@@ -104,8 +106,8 @@ class Map extends React.Component {
     }
 
     /**
-     * Handler for click on a place, 
-     * display a popup with information on this place
+     * Handler when the player is near a place, 
+     * display a popup with informations on this place
      */
     displayInfo(place, puzzle = false){
         const div = document.createElement("div");
@@ -113,7 +115,7 @@ class Map extends React.Component {
         document.getElementsByClassName("App-header")[0].appendChild(div);
 
         ReactDOM.render(
-            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} gamePath={this.props.gamePath} response = {callbackFunction}></PlaceInfo>,
+            <PlaceInfo wrapper={this.props.wrapper} place={place} puzzle={puzzle} gameID={this.props.gameID} response = {callbackFunction}/>,
             document.getElementById("infoDiv")
         );
         
@@ -134,7 +136,6 @@ class Map extends React.Component {
         if (indexVal > -1) {
             tNext.splice(indexVal, 1);
         }
-        
 
         this.setState({next: tNext});
         this.setState({current: place});
@@ -142,38 +143,33 @@ class Map extends React.Component {
         //Enregistrement de la progression
         let savedProgression = JSON.parse(localStorage.getItem("progression"));
         if(!savedProgression || savedProgression["presentation"] ){
-            savedProgression = {visited: [], current: "", next: [], puzzleValidated: [], revealedHints: []};
+            savedProgression = {visited: [], 
+                                current: "", 
+                                next: [], 
+                                puzzleValidated: [], 
+                                revealedHints: []};
         }
         savedProgression["visited"] = this.state.visited;
         savedProgression["current"] = this.state.current;
         savedProgression["next"] = this.state.next;
         localStorage.setItem("progression",JSON.stringify(savedProgression));
     }
-
-    //Centrer la map avec le point entre le joueur et le premier lieu, mais probleme avec la position du joueur qui est obtenue de manière asynchrone
-
-    // centerF(){
-    //     let t = [];
-        
-    //     let posFirstPlace =this.gameW.getPlacePosition(this.gameW.getFirstPlace());
-    //     if(this.state.playerPosition[0] != 0 && this.state.playerPosition[1] != 0 ){
-    //         t.push( (this.state.playerPosition[0] + posFirstPlace[0]) / 2);
-    //         t.push( (this.state.playerPosition[1] + posFirstPlace[1])  / 2);
-    //     }else{
-    //         console.log("Position du joueur egal à 0");
-    //         return posFirstPlace;
-    //     } 
-
-    //     return t;
-
-    // }
-
-
+    
+    /**
+     * Handler when the player click on a marker (use in degraded mode without GPS)
+     * @param place the place on which the player clicked
+     * @param puzzle indicate if a puzzle must be proposed or not
+     */
+    handlerClickPin(place, puzzle = false){
+        this.changerMarker(place);
+        this.displayInfo(place, puzzle);
+    }
 
     /**
      * Get the marker of the player to display on the map
      * @returns the marker of the player
      */
+<<<<<<< HEAD
     displayPlayer(){
         if(this.props.geolocation === true){
             if(this.state.playerPosition.length != 0){
@@ -255,10 +251,28 @@ class Map extends React.Component {
         
         let t = [];
 
+=======
+     displayPlayer(){
+        if(this.props.geolocation === true && this.state.playerPosition.length !== 0){
+            return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={this.state.playerPosition[1]}/>;
+        }
+    }
+
+    /**
+     * Calculates on which position the map should be centered
+     * @returns the geographical position of the center of the map
+     */
+    calculateCenter(){
+        if(this.props.resume === true){
+            let avgLong = 0;
+            let avgLat = 0;
+            let size = 0;
+>>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
     
             if(Array.isArray(this.state.visited)){
                 for(let place of this.state.visited){
                     let position = this.props.wrapper.getPlacePosition(place);
+<<<<<<< HEAD
                     t.push(position);
                 }
             }else{
@@ -288,9 +302,49 @@ class Map extends React.Component {
             }
             return t;
     
+=======
+                    avgLong += position[0];
+                    avgLat += position[1];
+                    size++;
+                }
+            }else{
+                let position = this.props.wrapper.getPlacePosition(this.state.visited);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+            }
+    
+            if(this.state.current){
+                let position = this.props.wrapper.getPlacePosition(this.state.current);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+            }
+    
+            if(Array.isArray(this.state.next)){
+                for(let place of this.state.next){
+                    let position = this.props.wrapper.getPlacePosition(place);
+                    avgLong += position[0];
+                    avgLat += position[1];
+                    size++;
+                }
+            }else{
+                let position = this.props.wrapper.getPlacePosition(this.state.next);
+                avgLong += position[0];
+                avgLat += position[1];
+                size++;
+    
+            }
+    
+            avgLong = avgLong / size;
+            avgLat = avgLat / size ;
+
+            return [avgLong,avgLat];
+>>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
         }
 
-
+        return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
+    }
 
     /**
      * Get the markers for the places to display on the map
@@ -305,32 +359,26 @@ class Map extends React.Component {
         var redMarker = getMarkerIcon("red");
 
         var markers = []; 
-
         let key = 0;
 
         //The places visited
         for(let place of this.state.visited){
             let position = this.props.wrapper.getPlacePosition(place);
-            let marker = <Marker eventHandlers={{click: () => this.displayInfo(place)}} position={position} icon={greenMarker} key={key}></Marker>;
-            markers.push(marker);
+            markers.push(<Marker eventHandlers={{click: () => this.displayInfo(place)}} position={position} icon={greenMarker} key={key}/>);
             key++;
         }
 
         //The current place
         if(this.state.current){
             let position = this.props.wrapper.getPlacePosition(this.state.current);
-            let marker = <Marker eventHandlers={{click: () => this.displayInfo(this.state.current, true)}} position={position} icon={blueMarker} key={key}></Marker>;
-            markers.push(marker);
+            markers.push(<Marker eventHandlers={{click: () => this.displayInfo(this.state.current, true)}} position={position} icon={blueMarker} key={key}/>);
             key++;
         }
 
         //The next places to visit
         for(let place of this.state.next){
             let position = this.props.wrapper.getPlacePosition(place); 
-            
-            let marker = <Marker position={position} eventHandlers={{click: () => this.changerMarker(place)}}  icon={redMarker} key={key}/>;
-            
-            markers.push(marker);
+            markers.push(<Marker position={position} eventHandlers={{click: () => this.handlerClickPin(place, true)}}  icon={redMarker} key={key}/>);
             key++;
         }
 
@@ -341,7 +389,13 @@ class Map extends React.Component {
 
         return (
             <MapContainer id="map"
+<<<<<<< HEAD
                 center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={true}>
+=======
+                center = {this.calculateCenter()}
+                zoom = {17} minZoom = {3} zoomControl={false}>
+
+>>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
                 {this.displayMarkers()}
                 {this.displayPlayer()}
@@ -349,48 +403,49 @@ class Map extends React.Component {
             </MapContainer>  
         );
     }
- } export default Map;
 
+<<<<<<< HEAD
  function Center() {
     const map = useMap()
     map.fitBounds(objet.displayCenter())
     return null
   }
+=======
+} export default Map;
+>>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
 
- function checkPositionCloseMarker(pos){
+
+/**
+ * Check that the player using his geolocation is close to a place to visit
+ * @param pos 
+ */
+function checkPlayerCloseMarker(pos){
     let cord = pos.coords;
-    let tab = [];
-    tab.push(cord.latitude);
-    tab.push(cord.longitude);
-    objet.setState({playerPosition: tab});
-    for(let place of objet.state.next){
-        let pos = objet.props.wrapper.getPlacePosition(place);
-        //Precision à determiner
-        if(Math.abs( (pos[0] + pos[1] ) - (cord.latitude + cord.longitude) ) < 0.00012){
-            //Afficher les infos met a jour l'affichage tout le temps et donc bloque sur les infos du lieu
-            //objet.displayInfo(place, true);
-            //Autre solution met à jour le pin
-            objet.changerMarker(place);
-
+    let playerPos = [];
+    playerPos.push(cord.latitude);
+    playerPos.push(cord.longitude);
+    component.setState({playerPosition: playerPos});
+    for(let place of component.state.next){
+        let pos = component.props.wrapper.getPlacePosition(place);
+        if(Math.abs((pos[0] + pos[1]) - (cord.latitude + cord.longitude)) < 0.00012){
+            component.changerMarker(place);
         }
     }
-  }
+}
 
+function callbackFunction(place) {
+    component.updateState(place);
+}
 
- function callbackFunction(place) {
-    objet.updateState(place);
-  }
-
-
- /**
- * Return a marker icon of a specific color
- * @param {String} color the color of the icon
- * @returns the marker icon with the color indicated
+/**
+ * Return a specific marker icon
+ * @param {String} icon the type of icon (a colored pin or the player icon)
+ * @returns the marker icon desired
  */
- function getMarkerIcon(color){
+function getMarkerIcon(icon){
     var customIcon = L.Icon.extend({
         options: {
-            iconUrl: "./img/map/marker_" + color + ".png", // picture of the marker
+            iconUrl: "./img/map/marker_" + icon + ".png", // picture of the marker
             iconSize:     [30, 30], // size of the marker
             shadowSize:   [30, 30], // size of the shadow
             iconAnchor:   [10, 30], // point of the icon which will correspond to marker's location

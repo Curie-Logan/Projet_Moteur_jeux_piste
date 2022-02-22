@@ -1,0 +1,42 @@
+{   
+    "parcours": {
+        "colisee": {
+            "nom" : "Colisée",
+            "depart" : true,
+            "position" : [41.8901, 12.4923],
+            "targets" : [],
+            "enigme" : 0,
+            "infos" : {
+                "description" : [
+                    "Sur cette page diverses informations concernant le lieu visité vous sont données. On retrouve par exemple une description du lieu, éventuellement ses horaires d'ouverture et ses informations de contact.",
+                    "En glissant votre doigt sur les chevrons en bas de la page, vous serez renvoyer vers l'énigme relative au lieu."
+                ], 
+                "horaires" : [
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"],
+                    ["09:00 - 16:30"]
+                ], 
+                "contact" : {
+                    "telephone" : "+39 06 3996 7700",
+                    "web" :  {"lien": "https://www.il-colosseo.it", "label": "Site Web du Colisée de Rome"}
+                }
+            }
+        }
+
+    }, 
+
+
+    "enigme":[
+        {
+            "type": "QR",
+            "titre" : "Plusieurs type d'énigmes vous seront proposé, pensez à bien observer votre environnement pour trouver la réponse. Si l'énigme s'avère compliquée vous pouvez demander des indices pour vous aider.",
+            "intitule" :["Quelle était la couleur du cheval blanc d'Henri IV ?"],
+            "reponse" : "BLANC",
+            "indices" : ["Une couleur", "La réponse est dans la question", "blanc"]
+        }
+    ]   
+}

@@ -1,15 +1,48 @@
-#puzzle, #puzzleDiv, #puzzleInformations{
+#puzzle{
+    position: relative;
+
+    min-height: 100vh;
+    width: 100vw;
+
+    margin: auto;
+
+    overflow: scroll;
+
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    position: relative;
-    margin: auto;
+    
     background-color: #121D28;
-    height: 100vh;
-    width: 100vw;
-    z-index: 2;
+
     color: #F1524A;
+}
+
+#puzzle #closeButton{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: #F1524A;
+
+    color: #FFFFFF;
+    font-size: medium;
+    font-weight: bold;
+}
+
+#puzzle #title{
+    width: 95%;
+
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #puzzle #question{
@@ -25,42 +58,45 @@
     padding-left: 1em;
     padding-right: 1em;
 
+    border-radius: 1em;
+
     background-color: #F5F5DC;
-    color: #F1524A;
 
     text-align: justify;
-    border-radius: 1em;
 }
 
-#puzzle button, #puzzle input[type=submit], #puzzle input[type=text], #retry, #returnMap{
-    height: 2.2em;
+#puzzle button:not(#closeButton), #puzzle input[type=submit], #puzzle input[type=text], #retry, #returnMap{
+    min-width: 50vw;
+    width: max-content;
+    min-height: 2.5em;
+    height: max-content;
+
+    margin: 1em;
+    padding: 0.3em;
+
     border-radius: 1em;
+
     background-color: #546B7E;
-    color: #FC7C52;
-    text-align: center;
+    
+    color: #F1524A;
     font-size: medium;
     font-weight: bold;
 }
 
-#puzzle input[type=text]{
-    margin-top: 10px;
-    background-color: #C2D4E2;
-    color: #000000;
+#puzzle button:active, #puzzle input:not([type=text]):active{
+    border: 3px solid #F1524A;
 }
 
-#puzzle > #closeButton{
-    width: 30px;
-    height: 30px;
+#puzzle input[type=text]{
+    background-color: #C2D4E2;
+    color: #000000;
+    text-align: center;
+}
+#puzzle input[type=text]:focus{
+    outline: none;
+    border: 3px solid #F1524A;
+}
 
-    position: absolute;
-
-    top: 5px;
-    left: 5px;
-
-    background-color: #F1524A;
-    border-radius: 50%;
-    border: none;
-
-    color: #FFFFFF;
-    font-weight: bold;
+#puzzle a{
+    color: #F1524A;
 }

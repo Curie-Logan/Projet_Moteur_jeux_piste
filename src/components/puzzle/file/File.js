@@ -1,22 +1,23 @@
 import React from "react";
+
 import './File.css';
 
-
 class File extends React.Component{
-
+    /**
+     * Get an appropriate HTML element to display the content of the file
+     * @returns the file to show
+     */
     showFile(){
-        const src = this.props.file["src"];
+        const path = `${process.env.PUBLIC_URL}/games/${this.props.gameID}/resources/${this.props.file["src"]}`;
         switch(this.props.file["type"]){
             case "picture":
-                return <img alt="" src={process.env.PUBLIC_URL+"/games/jpo/resources/"+src}></img>;
+                return <img alt={this.props.file["description"]} src={path}/>;
             case "audio":
-                return <audio controls src={process.env.PUBLIC_URL+"/games/jpo/resources/"+src}></audio>;
+                return <audio controls src={path}/>;
             case "link":
-                return <a href={src}>{src}</a>;
+                return <a href={this.props.file["src"]}>{this.props.file["texte"]}</a>;
             case "video":
-                return <video controls src={process.env.PUBLIC_URL+"/games/jpo/resources/"+src}></video>;
-            case "embeddedContent":
-                return <iframe src={src}></iframe>;
+                return <video controls src={path}/>;
             default:
                 return false;
         }
@@ -29,6 +30,5 @@ class File extends React.Component{
            </div>
         );
     }
-}
-
-export default File;
+    
+} export default File;

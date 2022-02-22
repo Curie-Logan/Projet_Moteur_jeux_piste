@@ -1,6 +1,4 @@
 #ending{
-    background-color: #121D28;
-    color: #FC7C52;
     height: 100vh;
     width: 100vw;
 
@@ -10,9 +8,54 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    background-color: #121D28;
+    color: #F1524A;
 }
 
-footer{
-    font-size: smaller;
+#ending h2{
+    position: relative;
+    top: 5vh;
+
+    width: 95%;
+
+    font-size: 1.8em;
+}
+
+#ending p{
+    font-size: 1.5em;
+}
+
+#ending button{
+    position: relative;
+
+    width: 80%;
+    min-height: 2.5em;
+    height: max-content;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.3em;
+
+    overflow: hidden;
+
+    border-radius: 1em;
+    background-color: #546B7E;
+    color: #F1524A;
+    font-size: larger;
+    font-weight: bold;
+}
+#ending button:active{
+    border: 3px solid #F1524A;
+}
+
+#ending footer{
+    font-size: 0.8em;
     margin: 1em;
+}
+#ending footer a{
+    color: #F1524A;
+}
+#ending footer a:active{
+    font-weight: bold;
 }

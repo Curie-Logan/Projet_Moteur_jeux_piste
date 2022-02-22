@@ -2,10 +2,19 @@
  * Allow to get informations from the configuration file of the game
  */
  class Wrapper{
+     /**
+      * Constructor of wrapper of a configuration file
+      * @param {String} filename the name of the configuration file, 
+      * by default use the file listing the available games
+      */
     constructor(filename = "gameList.json"){
         this.data = require("../public/games/" + filename);
     }
 
+    /**
+     * Get the list of available games
+     * @returns the list of games
+     */
     getGameList(){
         return this.data;
     }
@@ -33,15 +42,15 @@
     /**
      * Get the next place of the course
      * @param {String} currentPlace the current place 
-     * @returns a string or an array of strings which represent the next place(s)
+     * @returns an array of strings which represent the next place(s)
      */
     getNextPlace(currentPlace){
-        return this.data.parcours[currentPlace].targets;
+        return this.data.parcours[currentPlace].suivants;
     }
 
     /**
      * Get the name of a place
-     * @param {String} place the place for which we want the name
+     * @param {String} place the identifier of the place for which we want the name
      * @returns the name of the place
      */
      getPlaceName(place){
@@ -59,7 +68,7 @@
 
     /**
      * Get the informations related to a place
-     * @param {String} place the place for which we want the information 
+     * @param {String} place the place for which we want the informations
      * @returns the informations related to the place
      */
     getPlaceInfo(place){
@@ -72,9 +81,6 @@
      * @returns the puzzle associated to the place
      */
     getPuzzleForPlace(place){
-        let numPuzzle = this.data.parcours[place].enigme;
-        return this.data.enigme[numPuzzle];
+        return this.data.enigme[this.data.parcours[place].enigme];
     }
-}
-
-export default Wrapper;
+} export default Wrapper;

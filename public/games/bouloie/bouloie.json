@@ -1,22 +1,52 @@
 {   
     "intro":{
         "contexte" : "Ce jeu de piste a pour objectif de vous faire visiter le campus universitaire de la Bouloie pour découvrir les principaux lieux fréquentés par les étudiants.",
-        "temps" : 1.5,
         "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route et ne forcez pas l'entrée d'un bâtiment si celle-ci ne vous est pas autorisée."
     },
 
     "parcours": {
-        "aqua": {
-            "nom" : "L'Aqua",
-            "depart" : true,
-            "position" : [47.244951, 5.988136],
-            "targets" : ["bu_sciences"],
-            "enigme" : 0,
+       "hall_prope" : {
+           "nom" : "Hall Propédeutique", 
+           "depart" : true,
+           "position" : [47.245465148094425, 5.985157011545738],
+           "suivants" : ["amphi_croisot"],
+           "enigme" : 0,
+           "infos" : {
+               "description" : [
+                "Le hall du bâtiment de propédeutique est une sorte d'agora où se croisent les étudiants de première année principalement.",
+                "Ce bâtiment abrite les départements d'anglais, de géosciences, de SVT.",
+                "Dans les différentes ailes du bâtiment se situent les salles de TP de géologie, chimie, SVT.",
+                "À l'étage, des salles multimédias sont mises à disposition des étudiants, en libre-service, pour leur permettre de travailler même s'ils n'ont pas d'équipement informatique chez eux.",
+                "La coursive, à l'étage du hall, abrite une exposition de trouvailles géologiques étonnantes.",
+                "Le secrétariat pour les nouveaux venus (Starter ST/SVT) quant à lui se trouve au fond du hall, les nouveaux étudiants y viennent rencontrer les responsables de première année.",
+                "De ce hall, 4 amphithéâtres sont accessibles, dans lesquels se déroulent les cours magistraux et les examens."
+               ]
+           }
+       }, 
+
+       "amphi_croisot" : {
+            "nom" : "Amphithéâtre Croisot",
+            "position" : [47.245285483243016, 5.985331127789792],
+            "suivants" : ["aqua"],
+            "enigme" : 1,
             "infos" : {
                 "description" : [
-                    "Cafétaria universitaire.", 
-                    "Lieu de détente disposant d'un espace de restauration rapide et de snack.", 
-                    "Un distributeur proposant diverse spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."
+                    "Les amphithéâtres sont les lieux incontournables des universités. C'est dans ces vastes salles que les cours magistraux sont dispensés. Les examens s'y déroulent également.",
+                    "Certains des amphithéâtres de l'université portent les noms de personnes mémorables tels que l'amphi Duffieux, en souvenir de Pierre-Michel Duffieux (1891-1976), un physicien français à l'origine de l'optique de Fourier. Il fut professeur d'optique à Besançon après la guerre."
+                ]
+            }
+       }, 
+
+       "aqua" : {
+            "nom" : "L'Aqua",
+            "position" : [47.244978793500785, 5.988310699640197],
+            "suivants" : ["passerelle"],
+            "enigme" : 2,
+            "infos" : {
+                "description" : [
+                    "Cafétéria universitaire.", 
+                    "Lieu de détente disposant d'un espace de restauration rapide et de snack.",
+                    "Un distributeur proposant diverses spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."
                 ], 
                 "horaires" : [
                     ["08:30 - 16:30"],
@@ -28,46 +58,52 @@
                     []
                 ]
             }
-        },
+       }, 
 
-        "bu_sciences": {
-            "nom" : "BU Sciences",
-            "position" : [47.246310, 5.986775],
-            "targets" : ["bu_droit", "petit_bouloie"],
+        "passerelle" : {
+            "nom" : "Passerelle",
+            "position" : [47.24511954284697, 5.987653621027516],
+            "suivants" : ["dpt_info"], 
+            "enigme" : 3,
+            "infos" : {
+                "description" : [
+                    "L'emploi du temps alternant beaucoup entre Cours Magistraux (CM), Travaux Dirigés (TD) et Travaux Pratiques, au cours d'une journée les étudiants sont amenés à changer plusieurs fois de bâtiment, pour passer d'un amphithéâtre à une salle de TP par exemple.",
+                    "Cette passerelle permet de rejoindre deux bâtiments du campus sans avoir à sortir."
+                ]
+            }
+        }, 
+
+        "dpt_info" : {
+            "nom" : "Département informatique", 
+            "position" : [47.245732013564, 5.987537901636956],
+            "suivants" : ["bu_droit"],
             "enigme" : 4,
             "infos" : {
                 "description" : [
-                    "Bibliothèque universitaire Sciences Sport Claude Oytana.", 
-                    "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs aux domaines scientifiques tel que : ", 
-                    ["la chimie", "la physique", "les mathématiques", "la mécanique", "l'informatique"], 
-                    "Des postes de travail informatiques sont également accessibles permettant de consulter une grande quantité de ressources numériques.", 
-                    "Actuellement fermée pour cause de transformation en Learning Center, la BU a été déménagée provisoirement dans le bâtiment Propédeutique en salle 11K."
-                ],
-                "horaires" : [
-                    ["08:30 - 16:30"],
-                    ["08:30 - 16:30"],
-                    ["08:30 - 16:30"],
-                    ["08:30 - 16:30"],
-                    ["08:30 - 16:30"],
-                    [],
-                    []
-                ],
+                    "Le Département des Enseignements Informatiques offre un ensemble complet de formations depuis l'obtention du baccalauréat :",
+                    ["Licence (Bac+3, orientée vers la poursuite en Master)", "Licence Pro (Bac+3, orientée vers l'activité professionnelle)", "Master (Bac+5, Cadre en informatique ou Poursuite en Doctorat)", "Cursus Master en Ingénierie (CMI Bac+5, complète la Licence et le Master pour les étudiants les plus motivés et délivre un label d'ingénieur)"],
+                    "Dans ce bâtiment (bat. C) se situe:", 
+                    ["l'amphi Deville pour les cours magistraux", "les salles de Travaux Pratiques (TP) équipées de postes de travail informatiques et en accès libre", "une salle de coworking", "les bureaux des enseignants en informatique"],
+                    "En décembre 2018 l'amphithéâtre du bâtiment C a pris le nom de «Amphithéâtre Deville» en hommage à Henri Sainte-Claire Deville (1818-1881).",
+                    "En effet en 1945, à l'âge de 26 ans, en plus d'avoir été nommé professeur de chimie, il fût le premier doyen de la faculté des sciences de Besançon où il y restera pendant 6 années.",
+                    "Ses travaux les plus connus sont relatifs aux métaux et à la chimie métallurgique."
+                ], 
                 "contact" : {
-                    "telephone" : "03 81 66 61 87",
-                    "mail" : "bu-sciences@univ-fcomte.fr",
-                    "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+                    "telephone" : "03 81 66 64 55", 
+                    "mail" : "corinne.charles@univ-fcomte.fr ",
+                    "web" : {"lien": "https://dept-info.univ-fcomte.fr/", "label": "Site Web du département informatique"}
                 }
             }
-        },
+        }, 
 
         "bu_droit" : {
             "nom" : "BU Droit",
-            "position" : [47.247407, 5.987801], 
-            "targets" : ["petit_bouloie"],
-            "enigme" : 1,
+            "position" : [47.24714063557295, 5.987861629990677], 
+            "suivants" : ["sumpps"],
+            "enigme" : 5,
             "infos" : {
                 "description" : [
-                    "Bibliothèque universitaire Proudhon Droit Economie Politique et Gestion.", 
+                    "Bibliothèque universitaire Droit Economie Politique et Gestion.", 
                     "Espace de travail et de révision disposant de nombreux ouvrages et documents relatifs au droit, à la politique, à l'économie et la gestion qu'il est possible de consulter sur place ou d'emprunter.", 
                     "Des postes de travail informatiques sont également mis à disposition permettant de consulter une grande quantité de ressources numériques.", 
                     "Des expositions sont régulièrement organisées dans la salle dédiée au rez-de-chaussée."
@@ -84,49 +120,51 @@
                 "contact" : {
                     "telephone" : "03 81 66 61 92",
                     "mail" : "bu-droit@univ-fcomte.fr",
-                    "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+                    "web" :  {"lien" : "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/", "label" : "Site Web de la BU"}
                 }
             }
-        },
+        }, 
 
-        "petit_bouloie" :{
-            "nom" : "Restaurant Petit Bouloie",
-            "position" : [47.246535, 5.987691],
-            "targets" : ["ru_lumiere"],
-            "enigme" : 3,
+        "sumpps" : {
+            "nom" : "SUMPPS",
+            "position" : [47.24677973021691, 5.987223649656107], 
+            "suivants" : ["ru_lumiere"],
+            "enigme" : 6,
             "infos" : {
                 "description" : [
-                    "Restaurant universitaire disposant de 431 places permettant de partager un repas équilibré entre amis.", 
-                    "Des menus végétariens sont également proposés."
+                    "Le service de médecine préventive propose gratuitement des soins, des renseignements, des consultations auprès des étudiants.",
+                    "Il est constitué : ",
+                    ["de médecins", "d'infirmières", "d'une diététicienne", "d'une psychologue"],
+                    "Il met également en place des actions de préventions sur des sujets divers (tabac, alcool, sida, etc.) et organise des collectes de sang et des formations de secouriste."
                 ],
                 "horaires" : [
-                    ["11:30 - 13:30"],
-                    ["11:30 - 13:30"],
-                    ["11:30 - 13:30"],
-                    ["11:30 - 13:30"],
-                    ["11:30 - 13:30"],
+                    ["08:00 - 17:00"],
+                    ["08:00 - 17:00"],
+                    ["08:00 - 17:00"],
+                    ["08:00 - 17:00"],
+                    ["08:00 - 17:00"],
                     [],
                     []
                 ],
                 "contact" : {
-                    "telephone" : "03 81 48 45 40",
-                    "mail" : "pole-restauration-besancon@crous-bfc.fr",
-                    "web" : "https://www.crous-bfc.fr/restaurant/restaurant-petit-bouloie/"
+                    "telephone" : "03 81 66 61 30",
+                    "mail" : "sumpps@univ-fcomte.fr",
+                    "web" :  {"lien": "https://www.univ-fcomte.fr/les-services-administratifs/sumpps-campus-sante", "label": "Site Web du SUMPPS"}
                 }
             }
-        },
+        }, 
 
         "ru_lumiere": {
             "nom" : "Restaurant Lumière",
-            "position" : [47.249163, 5.986774],
-            "targets" : ["MDE"],
-            "enigme" : 2,
+            "position" : [47.248774239797456, 5.9871213956161125],
+            "suivants" : ["MDE"],
+            "enigme" : 7,
             "infos" : {
                 "description" : [
                     "Restaurant universitaire disposant de 1150 places permettant de partager un repas équilibré entre amis.", 
-                    "Le restaurant à l'étage propose des plusieurs selfs :", 
+                    "Le restaurant à l'étage propose plusieurs selfs :", 
                     ["cuisine traditionnelle", "grill-frites", "cuisine italienne", "cuisine du monde", "saveur de la mer", "menu végétalien"],
-                    "Au rez-de-chaussée, une cafétaria / sandwicherie offre un espace convivial pour manger sur le pouce."
+                    "Au rez-de-chaussée, une cafétéria / sandwicherie offre un espace convivial pour manger sur le pouce."
                 ],
                 "horaires" : [
                     ["11:30 - 13:30", "18:00 - 20:00"],
@@ -140,7 +178,7 @@
                 "contact" : {
                     "telephone" : "03 81 48 45 00",
                     "mail" : "pole-restauration-besancon@crous-bfc.fr",
-                    "web" : "https://www.crous-bfc.fr/restaurant/restaurant-lumiere/"
+                    "web" : {"lien": "https://www.crous-bfc.fr/restaurant/restaurant-lumiere/", "label": "Site Web du RU"}
                 }
             }
         },
@@ -148,8 +186,8 @@
         "MDE":{
             "nom" : "Maison des Étudiants",
             "position" : [47.248209, 5.988368],
-            "targets" : ["dpt_info"],
-            "enigme" : 5,
+            "suivants" : ["fac_droit"],
+            "enigme" : 8,
             "infos" : {
                 "description" : [
                     "Lieu d'accueil et d'information pour vous orienter vers les services de l'université et pour répondre à toute question concernant votre vie estudiantine :",
@@ -157,7 +195,9 @@
                     "Lieu d'accompagnement au montage de projets hors-cursus et à la gestion associative :",
                     ["création et gestion d'associations", "aide au montage de projets", "recherche de subventions", "etc"],
                     "Service d'accompagnement à l'orientation et au projet professionnel par l'équipe du Service Orientation-Stage-Emploi :",
-                    ["orientation universitaire", "débouchés", "recherche de stage", "rédaction de CV et de lettre de motivation", "etc"]
+                    ["orientation universitaire", "débouchés", "recherche de stage", "rédaction de CV et de lettre de motivation", "etc"], 
+                    "De nombreuses associations y sont hébergées pour vous y engager bénévolement :", 
+                    ["Théâtre Universitaire", "Synusie", "Ruban de Moebius", "Radiocampus", "Orchestre Universitaire", "Chorale Universitaire", "etc"]
                 ], 
                 "horaires" : [
                     ["09:00 - 12:00", "13:00 - 17:00"],
@@ -170,136 +210,266 @@
                 ], 
                 "contact" : {
                     "telephone" : "03 81 66 66 99", 
-                    "web" : "https://www.univ-fcomte.fr/les-maisons-des-etudiants"
+                    "web" : {"lien": "https://www.univ-fcomte.fr/les-maisons-des-etudiants", "label":"Site Web de la maison des étudiants"}
                 }
             }
         },
 
-        "dpt_info": {
-            "nom" : "Département informatique",
-            "position" : [47.245790, 5.987455],
-            "targets" : ["amphi_A"],
-            "enigme" : 6,
+        "fac_droit": {
+            "nom" : "Fac de Droit",
+            "position" : [47.247089719228576, 5.986140420800996],
+            "suivants" : ["bu_sciences"],
+            "enigme" : 9,
             "infos" : {
                 "description" : [
-                    "Le Département des Enseignements Informatiques offre un ensemble complet de formations depuis l'obtention du baccalauréat :",
-                    ["Licence (Bac+3, orientée vers la poursuite en Master)", "Licence Pro (Bac+3, orientée vers l'activité professionnelle)", "Master (Bac+5, Cadre en informatique ou Poursuite en Doctorat)", "Cursus Master en Ingénierie (CMI Bac+5, complète la Licence et le Master pour les étudiants les plus motivés et délivre un label d'ingénieur)"],
-                    "Dans ce bâtiment (bat. C) se situe:", 
-                    ["l'amphi C pour les cours magistraux", "les salles de Travaux Pratiques (TP) équipées de postes de travail informatiques et en accès libre", "une salle de coworking", "les bureaux des enseignants en informatique"]
+                    "L'UFR SJEPG forme les étudiants qui souhaitent entreprendre des études juridiques ou économiques et se préparer aux carrières libérales traditionnelles (barreau, notariat), aux carrières de la fonction publique (administration, magistrature, enseignement) ou aux carrières du secteur privé (gestion et administration des entreprises industrielles ou de services).",
+                    "Ces études conduisent à des débouchés variées et comportent des possibilités de bifurcation et de spécialisation intéressantes, à partir d'une bonne formation de base, à dominante juridique ou économique, acquise au terme du premier cycle (Licence de Droit, Sciences Economiques, Administration Economique et Sociale)."
                 ], 
                 "contact" : {
-                    "telephone" : "03 81 66 64 55", 
-                    "mail" : "corinne.charles@univ-fcomte.fr ",
-                    "web" : "https://dept-info.univ-fcomte.fr/"
+                    "telephone" : "03 81 66 67 33", 
+                    "mail" : "christine.lopez@univ-fcomte.fr ",
+                    "web" : {"lien": "http://sjepg.univ-fcomte.fr/", "label":"Site Web de l'UFR SJEPG"}
                 }
             }
         }, 
 
-        "amphi_A": {
-            "nom" : "Amphi A",
-            "position" : [47.244779, 5.988424],
-            "targets" : ["propedeutique"],
-            "enigme" : 7,
+        "bu_sciences" : {
+            "nom" : "BU Sciences",
+            "position" : [47.246297105047766, 5.9864160097071775],
+            "suivants" : ["fresque"],
+            "enigme" : 10,
             "infos" : {
                 "description" : [
-                    "Amphithéâtre dans lequel se déroulent les cours magistraux de différentes unités d'enseignement (mathématiques, informatique, chimie, physique, méca, etc.).", 
-                    "Comme d'autres amphis du campus il accueil les examens et les réunions."
-                ]
+                    "Bibliothèque universitaire Sciences Sport Claude Oytana.", 
+                    "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs aux domaines scientifiques tels que : ", 
+                    ["la chimie", "la physique", "les mathématiques", "la mécanique", "l'informatique"], 
+                    "Des postes de travail informatiques sont également accessibles permettant de consulter une grande quantité de ressources numériques.", 
+                    "Actuellement fermée pour cause de transformation en Learning Center, la BU a été déménagée provisoirement dans le bâtiment Propédeutique en salle 11K."
+                ],
+                "horaires" : [
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    ["08:30 - 16:30"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 66 61 87",
+                    "mail" : "bu-sciences@univ-fcomte.fr",
+                    "web" : {"lien": "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/", "label":"Site Web de la BU de science"}
+                }
             }
-        },
+        }, 
 
-        "propedeutique":{
-            "nom" : "Hall Propédeutique",
-            "position" : [47.245564, 5.985005],
-            "targets" : [],
-            "enigme" : 8,
+        "fresque" : {
+            "nom" : "Fresque de l'UFR ST",
+            "position" : [47.245561034920456, 5.985538139836991],
+            "suivants" : [],
+            "enigme" : 11,
             "infos" : {
                 "description" : [
-                    "Le hall du bâtiment Propédeutique abrite les départements d'anglais, de géosciences, de SVT et 4 amphithéâtres dans lesquels se déroulent cours et examens.",
-                    "Dans les différentes ailes du bâtiment se situent les salles de TP de géologie, chimie et SVT.", 
-                    "Le secrétariat pour les nouveaux venus (Starter ST/SVT) quant à lui se trouve au fond du hall entre la machine à café et les escaliers."]
+                    "Cette fresque, présente dès la création de l'UFR ST a vu se succéder plusieurs générations d'étudiants depuis les années 1960."
+                ]
             }
         }
     }, 
 
-
     "enigme":[
-        {"type": "QCM",
-            "choix": ["choix 1","choix 2","choix 3"],
-            "intitule" : "Intitule de l'enigme 1",
-            "description" : [
-                "Blablabla"
+        {
+            "type": "QR",
+            "titre" : "Mot mystère",
+            "intitule" : [
+                "Observez autour de vous, et complétez les mots manquant afin de retrouver le mot mystère :",
+                "_ _ 1 _ _ _ _ _ _ _",
+                "_ _ _ _ _ _ 3 _",
+                "_ _ _ _ _ _ _ 5 _ _ _ _ 4 _ _ _ _ _",
+                "_ _ _ _ _ 2 _"
             ],
-            "reponse" : "choix 2",
-            "indices" : ["indice1", "indice choix 2"]},
+            "reponse" : "COURS",
+            "indices" : [
+                "Quels sont les noms des 4 amphithéâtres du hall ?",
+                "Les chiffres indiquent la position de la lettre dans la réponse",
+                "Ils vous sont dispensés dans les amphithéâtres",
+                "COURS"
+            ]
+        }, 
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 2",
-            "description" : [
-                "Blablabla"
+        {
+            "type" : "QCM",
+            "titre" : "La vie en cours magistral",
+            "intitule" : [
+                "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi ?"
             ],
-            "reponse" :"42",
-            "indices" : ["42 indice"]},
+            "choix" : ["266 places","285 places", "276 places"],
+            "reponse" : "276 places",
+            "indices" : [
+                "Il n'y a pas le même nombre de rangs au centre que sur les côtés", 
+                "276 places"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 3",
-            "description" : [
-                "Blablabla"
+        {
+            "type": "QR",
+            "titre" : "Le distributeur",
+            "intitule" : [
+                "Quel est le code à saisir sur le distributeur pour avoir une gaufre ?"
             ],
-            "reponse" : "Truc",
-            "indices" : ["indice1 Truc"],
-            "file" : {"type": "picture", "src": "file1.jpg"}},
+            "reponse" : "A26",
+            "file" : {
+                "type" : "picture", 
+                "src" : "distributeur.jpg", 
+                "description": "Distributeur de nourriture"
+            },
+            "indices" : [
+                "Le code est composé d'une lettre et de deux chiffres",
+                "A26"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 4",
-            "description" : [
-                "Blablabla"
+        {
+            "type" : "QCM",
+            "titre" : "Circuler dans la fac",
+            "intitule" : [
+                "Quels bâtiments la passerelle permet-elle de relier ?"
             ],
-            "reponse" : "Ouais",
-            "indices" : ["indice1 Ouais"],
-            "file" : {"type": "audio", "src": "file2.mp3"}},
+            "choix" : ["A et C", "B et C", "A et B"],
+            "reponse" : "B et C",
+            "indices" : [
+                "Leurs noms se suivent dans l'alphabet", 
+                "http://sciences.univ-fcomte.fr/download/ufr-st/document/plans/plan_ufr-st_09-2019.pdf",
+                "B et C"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 5",
-            "description" : [
-                "Blablabla"
+        {
+            "type": "QCM",
+            "titre" : "Les filles en informatique",
+            "intitule" : [
+                "D'après la bande dessinée, les filles boost l'informatique en étant :"
             ],
-            "reponse" : "Bidule",
-            "indices" : ["indice1","indice2","indice3 Bidule"],
-            "file" : {"type": "link", "src": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"}}, 
+            "choix" : ["Calmes et organisées", "Multi-tâches", "Pareilles que les garçons", "Meilleures en webdesign"],
+            "reponse" : "Pareilles que les garçons",
+            "file" : {
+                "type" : "picture", 
+                "src" : "bd.jpg", 
+                "description" : "Planche de bande dessinée"
+            },
+            "indices" : [
+                "Avez-vous compris le sens principal de la BD?",
+                "Oubliez un peu les clichés",
+                "Concentrez-vous sur la dernière vignette",
+                "Pareilles que les garçons"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 6",
-            "description" : [
-                "Blablabla"
+        {
+            "type": "QR",
+            "titre" : "Le vrai nom de la BU",
+            "intitule" : [
+                "Quel est le vrai nom de la \"BU de Droit\" ?"
             ],
-            "reponse" : "42",
-            "indices" : ["42"],
-            "file" : {"type": "video", "src": "file3.mp4"}}, 
-        
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 7",
-            "description" : [
-                "Blablabla"
-            ],
-            "reponse" : "42",
-            "indices" : ["42"],
-            "file": {"type": "embeddedContent", "src": "https://www.youtube.com/embed/dQw4w9WgXcQ"}},
+            "reponse" : "PROUDHON",
+            "indices" : [
+                "Observez le haut de la porte d'entrée", 
+                "Son nom commence par 'P'",
+                "P_ _U_ _O_",
+                "PROUDHON"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 8",
-            "description" : [
-                "Blablabla"
+        {
+            "type": "QR",
+            "titre" : "Acronyme",
+            "intitule" : [
+                "Donnez la signification de l'acronyme \"SUMPPS\" :"
             ],
-            "reponse" : "42",
-            "indices" : ["42"]},
+            "reponse" : "SERVICE UNIVERSITAIRE DE MÉDECINE PRÉVENTIVE ET DE PROMOTION DE LA SANTÉ",
+            "indices" : [
+                "Observez la façade du bâtiment ou les panneaux alentour", 
+                "Service Universitaire de ...",
+                "SERVICE UNIVERSITAIRE DE MÉDECINE PRÉVENTIVE ET DE PROMOTION DE LA SANTÉ"
+            ]
+        },
 
-        {"type": "QR",
-            "intitule" : "Intitule de l'enigme 8",
-            "description" : [
-                "Blablabla"
+        {
+            "type" : "QCM",
+            "titre" : "Jeu de couleurs",
+            "intitule" : [
+                "Quel est l'ordre des couleurs de l'arc-en-ciel peint sur la façade du restaurant ?"
             ],
-            "reponse" : "42",
-            "indices" : ["42"]}
-    ]   
+            "choix" : ["Rouge jaune orange bleu", "Vert jaune orange rouge", "Rouge orange jaune bleu", "Rouge orange bleu"],
+            "reponse" : "Rouge orange jaune bleu",
+            "indices" : [
+                "Il est composé de quatre couleurs",
+                "La première couleur est rouge",
+                "rouge orange jaune bleu"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "titre" : "Des espaces pour se réunir",
+            "intitule" : [
+                "Quel service se trouve sur 3 étages différents ?"
+            ],
+            "reponse" : "WORKORAMA",
+            "indices" : [
+                "L'organisation des étages est indiquée sur la vitre de la MDE", 
+                "Il s'agit d'espaces de co-working",
+                "W_ _K_ _ _ _A", 
+                "WORKORAMA"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "titre" : "Un sigle cette fois",
+            "intitule" : [
+                "Dans le sigle \"SJEPG\", que signifie la lettre 'P' ?"
+            ],
+            "reponse" : "POLITIQUES",
+            "indices" : [
+                "Observez votre environnement, le sigle y est détaillé",
+                "P_L_ _ _Q_ _S",
+                "POLITIQUES"
+            ]
+        },
+
+        {
+            "type" : "QCM",
+            "titre" : "Ça travail",
+            "intitule" : [
+                "Que fait l'étudiant peint sur la façade arrière de la BU ?"
+            ],
+            "choix" : ["Il regarde un livre", "Il fait du sport", "Il est sur son ordinateur", "Il observe dans un microscope"],
+            "reponse" : "Il observe dans un microscope",
+            "indices" : [
+                "Il s'agit d'une grande fresque peinte en noir",
+                "Il doit faire de la biologie",
+                "Il observe dans un microscope"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "titre" : "Un peu d'archéologie",
+            "intitule" : [
+                "Quel est le nom de ce petit fossile ?"
+            ],
+            "reponse" : "PTERICHTYS",
+            "file" : {
+                "type" : "picture", 
+                "src" : "fresque.png", 
+                "description" : "Extrait de la fresque du bâtiment Propédeutique"
+            },
+            "indices" : [
+                "Il est caché dans la moitié gauche de la fresque",
+                "S'agissant d'un fossile, il faut se baisser pour le trouver",
+                "P_ _R_ _ _T_S",
+                "PTERICHTYS"
+            ]
+        }
+    ]
 }

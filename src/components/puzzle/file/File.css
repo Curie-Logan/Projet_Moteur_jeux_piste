@@ -1,4 +1,7 @@
-#file img{
-    width : 90%;
-    margin-bottom: 10px;
+#file img, #file audio, #file video{
+    max-width : 90vw;
+    max-height: 40vh;
+
+    margin-top: 3vh;
+    margin-bottom: 2vh;
 }

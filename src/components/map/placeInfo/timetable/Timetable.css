@@ -6,16 +6,19 @@
     margin-right: auto;
     margin-bottom: 1vh;
 
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+
     display: block;
 
     white-space: nowrap;
 
     border-collapse: collapse;
-    
-    background-color: #546B7E;
     border-radius: 1em;
-    border: solid #EED8B9 2px;
 
+    background-color: #F5F5DC;
+
+    color: #F1524A;
 }
 
 #timetable > tbody {
@@ -24,7 +27,8 @@
 }
 
 #timetable tr:nth-child(even){
-    background-color: #D0D0E2;
+    background-color: #F1524A;
+    color: #F5F5DC;
 }
 
 #timetable td:first-child{

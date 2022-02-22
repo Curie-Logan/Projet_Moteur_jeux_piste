@@ -7,11 +7,11 @@ import StartPuzzle from './startPuzzle/StartPuzzle';
 
 import './PlaceInfo.css';
 
-let objet;
+let component;
 class PlaceInfo extends React.Component{
     constructor(props){
         super(props);
-        objet = this;
+        component = this;
     }
 
     /**
@@ -25,11 +25,10 @@ class PlaceInfo extends React.Component{
         let info = this.props.wrapper.getPlaceInfo(this.props.place);
         let name = this.props.wrapper.getPlaceName(this.props.place);
         let description = info["description"];
-        let startPuzzle = (this.props.puzzle)? <StartPuzzle wrapper={this.props.wrapper} gamePath={this.props.gamePath} place={this.props.place} callbackFunction={callbackFunction}/> : '';
+        let startPuzzle = (this.props.puzzle)? <StartPuzzle wrapper={this.props.wrapper} gameID={this.props.gameID} place={this.props.place} callbackFunction={callbackFunction}/> : '';
         
         return(
             <div id='placeInfo'>
-                {/* <img src='./img/map/placeInfo/close_button.png' alt='' onClick={this.handlerCloseInfo}/> */}
                 <button onClick={this.handlerCloseInfo} id="closeButton">X</button>
 
                 <h2>{name}</h2> 
@@ -44,9 +43,10 @@ class PlaceInfo extends React.Component{
             </div>
         );
     }
+    
 } export default PlaceInfo;
 
 function callbackFunction(childData) {
     console.log(childData);
-    objet.props.response(objet.props.place);
+    component.props.response(component.props.place);
 }
