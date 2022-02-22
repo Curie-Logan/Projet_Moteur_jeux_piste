@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker, useMap} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
 
 import './Map.css';
 import Ending from '../ending/Ending';
+import { LatLng } from 'leaflet';
 
 let objet;
 class Map extends React.Component {
@@ -173,84 +174,120 @@ class Map extends React.Component {
      * Get the marker of the player to display on the map
      * @returns the marker of the player
      */
-     displayPlayer(){
-        
+    displayPlayer(){
         if(this.props.geolocation === true){
             if(this.state.playerPosition.length != 0){
-            console.log("ahahha");
             return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
-        }
+            }
         }
     }
 
+    // displayCenter(){
+    //     if(this.props.resume === true){
+    //         let avgLong = 0;
+    //         let avgLat = 0;
+    //         let size = 0;
+    
+    //         if(Array.isArray(this.state.visited)){
+    //             for(let place of this.state.visited){
+    //                 let position = this.props.wrapper.getPlacePosition(place);
+    //                 console.log("current");
+    //                 console.log(position);
+    //                 avgLong += position[0];
+    //                 avgLat += position[1];
+    //                 size++;
+    //             }
+    //         }else{
+    //             let position = this.props.wrapper.getPlacePosition(this.state.visited);
+    //             console.log(position);
+    //             avgLong += position[0];
+    //             avgLat += position[1];
+    //             size++;
+    //         }
+    
+            
+    //         if(this.state.current){
+    
+    //             console.log(this.state.current);
+    //             let position = this.props.wrapper.getPlacePosition(this.state.current);
+    //             console.log(position);
+    //             avgLong += position[0];
+    //             avgLat += position[1];
+    //             size++;
+    //         }
+        
+    //         if(Array.isArray(this.state.next)){
+    //             for(let place of this.state.next){
+    //                 let position = this.props.wrapper.getPlacePosition(place);
+    //                 console.log("current");
+    //                 console.log(position);
+    //                 avgLong += position[0];
+    //                 avgLat += position[1];
+    //                 size++;
+    
+    //             }
+    //         }else{
+    //             let position = this.props.wrapper.getPlacePosition(this.state.next);
+    //             console.log(position);
+    //             avgLong += position[0];
+    //             avgLat += position[1];
+    //             size++;
+    
+    //         }
+    
+    
+    
+    //         avgLong = avgLong / size;
+    
+    //         avgLat = avgLat / size ;
+    //         let center = <LatLng> coords={[avgLong,avgLat]}</LatLng>
+    //         m.fitBounds([
+    //             [40.712, -74.227],
+    //             [40.774, -74.125]
+    //         ]);
+    //         console.log(m);
+            
+    //     }
+    //         return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
+    //     }
+
     displayCenter(){
         
-        if(this.props.resume === true){
-    
-            let avgLong = 0;
-            let avgLat = 0;
-            let size = 0;
+        let t = [];
+
     
             if(Array.isArray(this.state.visited)){
                 for(let place of this.state.visited){
                     let position = this.props.wrapper.getPlacePosition(place);
-                    console.log("current");
-                    console.log(position);
-                    avgLong += position[0];
-                    avgLat += position[1];
-                    size++;
+                    t.push(position);
                 }
             }else{
                 let position = this.props.wrapper.getPlacePosition(this.state.visited);
-                console.log(position);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
+                t.push(position);
+
             }
     
             
-            if(this.state.current){
-    
-                console.log(this.state.current);
+            if(this.state.current.length != 0){    
                 let position = this.props.wrapper.getPlacePosition(this.state.current);
-                console.log(position);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
+                t.push(position);
             }
-    
-    
-    
-    
+        
             if(Array.isArray(this.state.next)){
                 for(let place of this.state.next){
                     let position = this.props.wrapper.getPlacePosition(place);
-                    console.log("current");
-                    console.log(position);
-                    avgLong += position[0];
-                    avgLat += position[1];
-                    size++;
-    
+                    t.push(position);    
                 }
             }else{
                 let position = this.props.wrapper.getPlacePosition(this.state.next);
-                console.log(position);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
-    
+                t.push(position);    
             }
     
+                if(!Array.isArray(t[0]) ){
+                t.push(this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace()));
+            }
+            return t;
     
-    
-            avgLong = avgLong / size;
-    
-            avgLat = avgLat / size ;
-    
-            return [avgLong,avgLat];
-            
-        }
-            return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
         }
 
 
@@ -301,21 +338,24 @@ class Map extends React.Component {
     }
 
     render() {
+
         return (
             <MapContainer id="map"
-            center = {this.displayCenter()}
-                zoom = {17} minZoom = {3} zoomControl={false}>
-
+                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={true}>
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
-                
                 {this.displayMarkers()}
                 {this.displayPlayer()}
-
+                <Center/>
             </MapContainer>  
         );
     }
  } export default Map;
 
+ function Center() {
+    const map = useMap()
+    map.fitBounds(objet.displayCenter())
+    return null
+  }
 
  function checkPositionCloseMarker(pos){
     let cord = pos.coords;
