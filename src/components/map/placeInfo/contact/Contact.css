@@ -9,26 +9,32 @@
    padding-top: 4px;
    padding-bottom: 8px;
 
-   background-color: #F5F5DC;
    border-radius: 1em;
+   background-color: #F5F5DC;
 
    text-align: left;
    color: #F1524A;
 }
 
-#contact p{
-   line-height: 50px;
-   display: inline;
+#contact table td{
+   padding-top: 2ex;
+}
+#contact table tr:last-of-type td{
+   padding-bottom: 2ex;
 }
 
 #contact img{
    width: 32px;
    vertical-align: middle;
-   margin-right: 0.5em;
-   margin-left: 0.5em;
+   margin-right: 0.7em;
+   margin-left: 0.7em;
 }
 
-#contact a {
+#contact a{
    color: #F1524A;
    text-decoration: none;
+}
+#contact a:active{
+   font-weight: bold;
+   text-decoration: underline;
 }

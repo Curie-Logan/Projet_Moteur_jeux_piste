@@ -11,9 +11,9 @@ class Puzzle extends React.Component{
         super(props);
         this.puzzle = this.props.wrapper.getPuzzleForPlace(this.props.place);
         this.handleAnswerSubmission = this.handleAnswerSubmission.bind(this);
-        this.showQuestion = this.showQuestion.bind(this);
+        this.handlerGoodAnswer = this.handlerGoodAnswer.bind(this);
         this.handlerRetry = this.handlerRetry.bind(this);
-        this.state = {  hint: <button onClick={this.revealHint} id="hint"></button>, 
+        this.state = {  hint: <button onClick={this.revealHint} id="hint"/>, 
                         content: this.showQuestion(), 
                         attempt: 0};
     }
@@ -35,9 +35,8 @@ class Puzzle extends React.Component{
             localStorage.setItem("progression",JSON.stringify(progression));
     
             this.setState({content: <div><h2>C'est la bonne réponse !</h2><button onClick={this.handlerGoodAnswer} id="returnMap">Retourner à la carte</button></div>});
-        }
-        else{
-            this.setState({content: <div><button onClick={this.handlerClosePuzzle} id="closeButton">X</button><h2>Mauvaise réponse !</h2><button id="retry" onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
+        }else{
+            this.setState({content: <div><h2>Mauvaise réponse !</h2><button id="retry" onClick={this.handlerRetry}>Nouvelle tentative</button></div>});
         }
     }
 
@@ -52,7 +51,7 @@ class Puzzle extends React.Component{
     /**
      * Handler when a good answer is entered
      */
-    handlerGoodAnswer = () => {
+    handlerGoodAnswer(){
         this.props.response("Good Response");
         document.getElementById("puzzleDiv").remove();
         document.getElementById("infoDiv").remove();
@@ -91,27 +90,29 @@ class Puzzle extends React.Component{
         }
     
         let question = [];
+        let key = 0;
         for (let paragraph of entitled){
-            question.push(<p>{paragraph}</p>);
+            question.push(<p key={key}>{paragraph}</p>);
+            key++;
         }
 
-        return (<div id="puzzle">
-            <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
-            <h2>{title}</h2>
-            <div id="question">{question}</div>
-            {fileJsx}
-            <Hint revealedHints={saved} title={title} hints={hints}/>
-            <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
-        </div>);
+        return (
+            <div>
+                <button onClick={this.handlerClosePuzzle} id="closeButton">X</button>
+                <h2 id="title">{title}</h2>
+                <div id="question">{question}</div>
+                {fileJsx}
+                <Hint revealedHints={saved} title={title} hints={hints}/>
+                <AnswerForm type={puzzleType} choices={choices} onAnswerChange={this.handleAnswerSubmission} id={this.props.id}/>
+            </div>
+        );
     }
-
+    //puzzleInformations
     render(){
         return (
-           <div id="puzzleInformations">
+           <div id="puzzle"> 
                {this.state.content}
            </div>
         );
     }
-}
-
-export default Puzzle;
+} export default Puzzle;

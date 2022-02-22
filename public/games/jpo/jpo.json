@@ -103,7 +103,8 @@
             ],
             "reponse" : "FIGURE",
             "indices" : [
-                "Mot de 6 lettres", "Vous en avez une sous votre masque", 
+                "Mot de 6 lettres", 
+                "Vous en avez une sous votre masque", 
                 "Vous pouvez vous renseigner auprès d'un intervenant sur le stand", 
                 "FIGURE"
             ]
@@ -113,7 +114,7 @@
             "type": "QR",
             "titre" : "Mot mystère",
             "intitule" : [
-                "Observez autour de vous, et complètez les mots manquant afin de retrouver le mot mystère.",
+                "Observez autour de vous, et complétez les mots manquant afin de retrouver le mot mystère :",
                 "_ _ 1 _ _ _ _ _ _ _",
                 "_ _ _ _ _ _ 3 _",
                 "_ _ _ _ _ _ _ 5 _ _ _ _ 4 _ _ _ _ _",
@@ -134,7 +135,7 @@
             "intitule" : [
                 "Si on considère qu'aucun siège n'est cassé, combien de places théoriques contient l'amphi ?"
             ],
-            "choix" : ["266 places","285 places", "276 places"],
+            "choix" : ["266 places", "285 places", "276 places"],
             "reponse" : "276 places",
             "indices" : [
                 "Il n'y a pas le même nombre de rangs au centre que sur les côtés", 
@@ -161,7 +162,7 @@
             "type": "QR",
             "titre" : "Les vitrine de géologie",
             "intitule" : [
-                "Retrouvez le nom du minéral sur la photo ci-dessous ?"
+                "Retrouvez le nom du minéral sur la photo ci-dessous :"
             ],
             "reponse" : "STRONTIANITE",
             "file" : {
@@ -170,7 +171,7 @@
                 "description" : "Mineral exposé dans une vitrine de géologie"
             },
             "indices" : [
-                "Observez la vitrine de droite dans le renfoncement au dessus de l'amphi Jacquemain",
+                "Observez la vitrine de droite dans le renfoncement au-dessus de l'amphi Jacquemain",
                 "12 lettres",
                 "_T_ _ _T_ _ _ _T_",
                 "STRONTIANITE"
@@ -194,7 +195,7 @@
             "type": "QR",
             "titre" : "Un peu d'archéologie",
             "intitule" : [
-                "Quel est le nom de ce petit fossile?"
+                "Quel est le nom de ce petit fossile ?"
             ],
             "reponse" : "PTERICHTYS",
             "file" : {
@@ -204,7 +205,7 @@
             },
             "indices" : [
                 "Il est caché dans la moitié gauche de la fresque",
-                "S'agissant d'un fossil, il faut se baisser pour le trouver",
+                "S'agissant d'un fossile, il faut se baisser pour le trouver",
                 "P_ _R_ _ _T_S",
                 "PTERICHTYS"
             ]

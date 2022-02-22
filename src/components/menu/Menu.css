@@ -1,8 +1,6 @@
 #menu {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
-    background-color: #121D28;
-    color: #F1524A;
 
     margin-left: auto;
     margin-right: auto;
@@ -10,70 +8,61 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    background-color: #121D28;
+    color: #F1524A;
 }
 
-#menu>h1{
+#menu > h1{
     position: relative;
-    top: 2.5em;
+    top: 10vh;
+
+    font-size: 2.5em;
 }
 
-#menu>h2{
-    position: relative;
-    top: 2.5em;
+#menu > h2{
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 1em;
+
+    font-size: 2em;
 }
 
-button{
-    width: 80%;
-    height: 2.5em;
-    border-radius: 1em;
-    background-color: #546B7E;
-    color: #F1524A;
-    font-size: larger;
-    font-weight: bold;
-    margin: 1em;
-}
-
-#returnMenu{
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 2.5em;
-}
-
-
-#divGames{
-    margin-bottom: 15rem;
-}
-
-#options{
+#menu #options{
     margin-bottom: auto;
     margin-top: auto;
 }
 
-.game{
+#menu button, #menu .game{
     width: 80%;
     min-height: 2.5em;
     height: max-content;
+
+    margin: 1em;
+    padding: 0.3em;
+
+    overflow: hidden;
+
     border-radius: 1em;
+
     background-color: #546B7E;
+
     color: #F1524A;
     font-size: larger;
-    font-weight: bold;
-    margin: 1em;
-    margin-left: auto;
-    margin-right: auto;
-
-    /* margin: 2em;
-    color: #FC7C52;
-    border: 2px solid;
-    border-radius: 1em;
-    margin-left: auto;
-    margin-right: auto; */
+    font-weight: bold;  
+}
+#menu button:active{
+    border: 3px solid #F1524A;
 }
 
-.game:hover, #options > button:hover{
-    border: 2px solid #F1524A;
+#menu #gamesList{
+    margin-bottom: auto;
+}
+
+#menu #returnMenu{
+    position: relative;
+    bottom: 10vh;
+
+    margin-left: auto;
+    margin-right: auto;
 }

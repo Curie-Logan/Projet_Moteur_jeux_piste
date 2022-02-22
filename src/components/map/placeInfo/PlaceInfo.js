@@ -7,11 +7,11 @@ import StartPuzzle from './startPuzzle/StartPuzzle';
 
 import './PlaceInfo.css';
 
-let objet;
+let component;
 class PlaceInfo extends React.Component{
     constructor(props){
         super(props);
-        objet = this;
+        component = this;
     }
 
     /**
@@ -43,9 +43,10 @@ class PlaceInfo extends React.Component{
             </div>
         );
     }
+    
 } export default PlaceInfo;
 
 function callbackFunction(childData) {
     console.log(childData);
-    objet.props.response(objet.props.place);
+    component.props.response(component.props.place);
 }

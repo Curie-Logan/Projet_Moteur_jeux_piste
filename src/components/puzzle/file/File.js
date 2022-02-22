@@ -3,9 +3,8 @@ import React from "react";
 import './File.css';
 
 class File extends React.Component{
-
     /**
-     * Get a HTML element to display the content of the file
+     * Get an appropriate HTML element to display the content of the file
      * @returns the file to show
      */
     showFile(){
@@ -31,6 +30,5 @@ class File extends React.Component{
            </div>
         );
     }
-}
-
-export default File;
+    
+} export default File;

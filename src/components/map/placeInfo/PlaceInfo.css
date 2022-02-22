@@ -1,6 +1,9 @@
-#placeInfo{
-    z-index: 2;
+#infoDiv{
+    z-index: 1;
+}
 
+#placeInfo{
+    width: 100vw;
     min-height: 100vh;
 
     margin-left: auto;
@@ -12,23 +15,22 @@
     justify-content: space-around;
 
     background-color: #121D28;
-    opacity: 0.88;
 }
 
 /* The close button */
 #closeButton{
-    width: 30px;
-    height: 30px;
-
     position: absolute;
-
     top: 5px;
     left: 5px;
 
-    background-color: #F1524A;
+    width: 30px;
+    height: 30px;
+
     border-radius: 50%;
     border: none;
-    
+
+    background-color: #F1524A;
+
     color: #FFFFFF;
     font-size: medium;
     font-weight: bold;
@@ -41,7 +43,13 @@
 }
 
 #placeInfo h2{
+    width: 95%;
+
+    margin-top: 5vh;
     margin-bottom: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    
     font-size : 2em;
 }
 

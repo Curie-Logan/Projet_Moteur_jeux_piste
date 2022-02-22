@@ -44,9 +44,9 @@
             "enigme" : 2,
             "infos" : {
                 "description" : [
-                    "Cafétaria universitaire.", 
+                    "Cafétéria universitaire.", 
                     "Lieu de détente disposant d'un espace de restauration rapide et de snack.",
-                    "Un distributeur proposant diverse spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."
+                    "Un distributeur proposant diverses spécialités de boissons chaudes (café, cappuccino, thé, etc.) et de la nourriture est également mis à disposition des étudiants."
                 ], 
                 "horaires" : [
                     ["08:30 - 16:30"],
@@ -85,13 +85,13 @@
                     "Dans ce bâtiment (bat. C) se situe:", 
                     ["l'amphi Deville pour les cours magistraux", "les salles de Travaux Pratiques (TP) équipées de postes de travail informatiques et en accès libre", "une salle de coworking", "les bureaux des enseignants en informatique"],
                     "En décembre 2018 l'amphithéâtre du bâtiment C a pris le nom de «Amphithéâtre Deville» en hommage à Henri Sainte-Claire Deville (1818-1881).",
-                    "En effet en 1945, à l'âge de 26 ans, en plus d'avoir été nommé professeur de chimie, il fût le premier doyen de la faculté des sciences de Besançon où il y restera pendant 6 années",
+                    "En effet en 1945, à l'âge de 26 ans, en plus d'avoir été nommé professeur de chimie, il fût le premier doyen de la faculté des sciences de Besançon où il y restera pendant 6 années.",
                     "Ses travaux les plus connus sont relatifs aux métaux et à la chimie métallurgique."
                 ], 
                 "contact" : {
                     "telephone" : "03 81 66 64 55", 
                     "mail" : "corinne.charles@univ-fcomte.fr ",
-                    "web" : "https://dept-info.univ-fcomte.fr/"
+                    "web" : {"lien": "https://dept-info.univ-fcomte.fr/", "label": "Site Web du département informatique"}
                 }
             }
         }, 
@@ -120,7 +120,7 @@
                 "contact" : {
                     "telephone" : "03 81 66 61 92",
                     "mail" : "bu-droit@univ-fcomte.fr",
-                    "web" :  "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/"
+                    "web" :  {"lien" : "https://scd.univ-fcomte.fr/bibliotheques/bu-proudhon-droit-economie-gestion/", "label" : "Site Web de la BU"}
                 }
             }
         }, 
@@ -132,7 +132,7 @@
             "enigme" : 6,
             "infos" : {
                 "description" : [
-                    "Le service de médecine préventive propose gratuitement des soins, des renseigmements, des consultations auprès des atudiants.",
+                    "Le service de médecine préventive propose gratuitement des soins, des renseignements, des consultations auprès des étudiants.",
                     "Il est constitué : ",
                     ["de médecins", "d'infirmières", "d'une diététicienne", "d'une psychologue"],
                     "Il met également en place des actions de préventions sur des sujets divers (tabac, alcool, sida, etc.) et organise des collectes de sang et des formations de secouriste."
@@ -149,7 +149,7 @@
                 "contact" : {
                     "telephone" : "03 81 66 61 30",
                     "mail" : "sumpps@univ-fcomte.fr",
-                    "web" :  "https://www.univ-fcomte.fr/les-services-administratifs/sumpps-campus-sante"
+                    "web" :  {"lien": "https://www.univ-fcomte.fr/les-services-administratifs/sumpps-campus-sante", "label": "Site Web du SUMPPS"}
                 }
             }
         }, 
@@ -162,9 +162,9 @@
             "infos" : {
                 "description" : [
                     "Restaurant universitaire disposant de 1150 places permettant de partager un repas équilibré entre amis.", 
-                    "Le restaurant à l'étage propose des plusieurs selfs :", 
+                    "Le restaurant à l'étage propose plusieurs selfs :", 
                     ["cuisine traditionnelle", "grill-frites", "cuisine italienne", "cuisine du monde", "saveur de la mer", "menu végétalien"],
-                    "Au rez-de-chaussée, une cafétaria / sandwicherie offre un espace convivial pour manger sur le pouce."
+                    "Au rez-de-chaussée, une cafétéria / sandwicherie offre un espace convivial pour manger sur le pouce."
                 ],
                 "horaires" : [
                     ["11:30 - 13:30", "18:00 - 20:00"],
@@ -178,7 +178,7 @@
                 "contact" : {
                     "telephone" : "03 81 48 45 00",
                     "mail" : "pole-restauration-besancon@crous-bfc.fr",
-                    "web" : "https://www.crous-bfc.fr/restaurant/restaurant-lumiere/"
+                    "web" : {"lien": "https://www.crous-bfc.fr/restaurant/restaurant-lumiere/", "label": "Site Web du RU"}
                 }
             }
         },
@@ -210,7 +210,7 @@
                 ], 
                 "contact" : {
                     "telephone" : "03 81 66 66 99", 
-                    "web" : "https://www.univ-fcomte.fr/les-maisons-des-etudiants"
+                    "web" : {"lien": "https://www.univ-fcomte.fr/les-maisons-des-etudiants", "label":"Site Web de la maison des étudiants"}
                 }
             }
         },
@@ -228,7 +228,7 @@
                 "contact" : {
                     "telephone" : "03 81 66 67 33", 
                     "mail" : "christine.lopez@univ-fcomte.fr ",
-                    "web" : "http://sjepg.univ-fcomte.fr/"
+                    "web" : {"lien": "http://sjepg.univ-fcomte.fr/", "label":"Site Web de l'UFR SJEPG"}
                 }
             }
         }, 
@@ -241,7 +241,7 @@
             "infos" : {
                 "description" : [
                     "Bibliothèque universitaire Sciences Sport Claude Oytana.", 
-                    "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs aux domaines scientifiques tel que : ", 
+                    "Espace de travail et de révision mettant à disposition de nombreux livres et revues sur le sport mais également des documents relatifs aux domaines scientifiques tels que : ", 
                     ["la chimie", "la physique", "les mathématiques", "la mécanique", "l'informatique"], 
                     "Des postes de travail informatiques sont également accessibles permettant de consulter une grande quantité de ressources numériques.", 
                     "Actuellement fermée pour cause de transformation en Learning Center, la BU a été déménagée provisoirement dans le bâtiment Propédeutique en salle 11K."
@@ -258,7 +258,7 @@
                 "contact" : {
                     "telephone" : "03 81 66 61 87",
                     "mail" : "bu-sciences@univ-fcomte.fr",
-                    "web" : "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/"
+                    "web" : {"lien": "https://scd.univ-fcomte.fr/bibliotheques/bu-sciences-sport-claude-oytana/", "label":"Site Web de la BU de science"}
                 }
             }
         }, 
@@ -281,7 +281,7 @@
             "type": "QR",
             "titre" : "Mot mystère",
             "intitule" : [
-                "Observez autour de vous, et complètez les mots manquant afin de retrouver le mot mystère.",
+                "Observez autour de vous, et complétez les mots manquant afin de retrouver le mot mystère :",
                 "_ _ 1 _ _ _ _ _ _ _",
                 "_ _ _ _ _ _ 3 _",
                 "_ _ _ _ _ _ _ 5 _ _ _ _ 4 _ _ _ _ _",
@@ -314,7 +314,7 @@
             "type": "QR",
             "titre" : "Le distributeur",
             "intitule" : [
-                "Quel est le code à saisir pour avoir une gaufre"
+                "Quel est le code à saisir sur le distributeur pour avoir une gaufre ?"
             ],
             "reponse" : "A26",
             "file" : {
@@ -347,9 +347,9 @@
             "type": "QCM",
             "titre" : "Les filles en informatique",
             "intitule" : [
-                "D'après la bande dessinée, comparées aux garçons, les filles en informatique sont :"
+                "D'après la bande dessinée, les filles boost l'informatique en étant :"
             ],
-            "choix" : ["Plus calmes et organisées", "Multi-'tâches", "Pareilles que les garçons", "Plus créatives", "Meilleures en webdesign"],
+            "choix" : ["Calmes et organisées", "Multi-tâches", "Pareilles que les garçons", "Meilleures en webdesign"],
             "reponse" : "Pareilles que les garçons",
             "file" : {
                 "type" : "picture", 
@@ -383,11 +383,11 @@
             "type": "QR",
             "titre" : "Acronyme",
             "intitule" : [
-                "Donnez la signification de l'acronyme \"SUMPPS\" : "
+                "Donnez la signification de l'acronyme \"SUMPPS\" :"
             ],
             "reponse" : "SERVICE UNIVERSITAIRE DE MÉDECINE PRÉVENTIVE ET DE PROMOTION DE LA SANTÉ",
             "indices" : [
-                "Oberservez la façade du bâtiment ou les panneaux alentours", 
+                "Observez la façade du bâtiment ou les panneaux alentour", 
                 "Service Universitaire de ...",
                 "SERVICE UNIVERSITAIRE DE MÉDECINE PRÉVENTIVE ET DE PROMOTION DE LA SANTÉ"
             ]
@@ -416,7 +416,7 @@
             ],
             "reponse" : "WORKORAMA",
             "indices" : [
-                "L'organisation des étages est indiqué sur la vitre de la MDE", 
+                "L'organisation des étages est indiquée sur la vitre de la MDE", 
                 "Il s'agit d'espaces de co-working",
                 "W_ _K_ _ _ _A", 
                 "WORKORAMA"
@@ -444,7 +444,7 @@
                 "Que fait l'étudiant peint sur la façade arrière de la BU ?"
             ],
             "choix" : ["Il regarde un livre", "Il fait du sport", "Il est sur son ordinateur", "Il observe dans un microscope"],
-            "reponse" : "il observe dans un microscope",
+            "reponse" : "Il observe dans un microscope",
             "indices" : [
                 "Il s'agit d'une grande fresque peinte en noir",
                 "Il doit faire de la biologie",
@@ -456,7 +456,7 @@
             "type": "QR",
             "titre" : "Un peu d'archéologie",
             "intitule" : [
-                "Quel est le nom de ce petit fossile?"
+                "Quel est le nom de ce petit fossile ?"
             ],
             "reponse" : "PTERICHTYS",
             "file" : {
@@ -466,7 +466,7 @@
             },
             "indices" : [
                 "Il est caché dans la moitié gauche de la fresque",
-                "S'agissant d'un fossil, il faut se baisser pour le trouver",
+                "S'agissant d'un fossile, il faut se baisser pour le trouver",
                 "P_ _R_ _ _T_S",
                 "PTERICHTYS"
             ]

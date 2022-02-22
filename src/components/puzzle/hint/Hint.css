@@ -1,7 +1,9 @@
-/* #hint{
-    display: flex;
-    justify-content: flex-end;
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-} */
+#hints p{
+    width: 93vw;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1.2em;
+    font-weight: bold;
+}

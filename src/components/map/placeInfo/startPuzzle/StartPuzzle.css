@@ -13,9 +13,10 @@
 }
 
 #startPuzzle p{
-    line-height: 50px;
     display: inline;
 
+    line-height: 50px;
+    
     font-size: 1.15em;
     font-weight: bold;
     color: #F1524A;  

@@ -3,7 +3,6 @@ import React from 'react';
 import './Timetable.css';
 
 class Timetable extends React.Component{
-
     /**
      * Get the content of the timetable
      * @returns the timetable to display
@@ -24,20 +23,28 @@ class Timetable extends React.Component{
 
             if(this.props.hours[i].length){
                 for(let hour of this.props.hours[i]){
-                    let h = <td>{hour}</td>
-                    cells.push(h);
+                    cells.push(
+                        <td>
+                            {hour}
+                        </td>
+                    );
                 }
             }else{
-                let h = <td colSpan={nbCols}>FERMÉ</td>
-                cells.push(h);
+                cells.push(
+                    <td colSpan={nbCols}>
+                        FERMÉ
+                    </td>
+                );
             }
             
-            let row = 
+            timetable.push(
                 <tr>
-                    <td>{days[i]}</td>
+                    <td>
+                        {days[i]}
+                    </td>
                     {cells}
-                </tr>;
-            timetable.push(row);
+                </tr>
+            );
         }
 
         return timetable;
@@ -50,7 +57,6 @@ class Timetable extends React.Component{
                     {this.getContent()}
                 </tbody>
             </table>
-            
         );
     }
 
