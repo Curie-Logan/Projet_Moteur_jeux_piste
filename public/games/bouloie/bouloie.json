@@ -1,5 +1,6 @@
 {   
     "intro":{
+        "titre" : "Campus de la Bouloie",
         "contexte" : "Ce jeu de piste a pour objectif de vous faire visiter le campus universitaire de la Bouloie pour découvrir les principaux lieux fréquentés par les étudiants.",
         "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route et ne forcez pas l'entrée d'un bâtiment si celle-ci ne vous est pas autorisée."
     },

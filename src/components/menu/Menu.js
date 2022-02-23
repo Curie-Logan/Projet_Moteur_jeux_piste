@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import Wrapper from "../../wrapper";
 import Map from "../map/Map";
 import Tutorial from "../tutorial/Tutorial";
+import Intro from "./intro/Intro";
 
 import './Menu.css';
 
@@ -108,7 +109,8 @@ class Menu extends React.Component{
                 const wrapper = new Wrapper(`${gameID}/${gameID}.json`);
 
                 ReactDOM.render(
-                    <Map resume={false} wrapper={wrapper} geolocation={true} gameID={gameID}/>,
+                    [<Map resume={false} wrapper={wrapper} geolocation={true} gameID={gameID}/>,
+                    <Intro wrapper={wrapper}/>],
                     document.getElementsByClassName("App-header")[0]
                 );
             });

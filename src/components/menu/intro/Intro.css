@@ -1,0 +1,66 @@
+#intro{
+    width: 95vw;
+    min-height: 60vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-color: #121D28;
+    opacity: 0.9;
+
+    color: #F1524A;
+    text-align: justify;
+}
+
+#intro h2{
+    width: 95%;
+
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    
+    text-align: center;
+    font-size : 1.5em;
+    font-weight: bold;
+    color: #F1524A;
+}
+
+#intro p{
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+}
+#intro p:last-of-type{
+    font-weight: bold;
+}
+
+#intro button{
+    min-width: 50vw;
+    width: max-content;
+    min-height: 2.5em;
+    height: max-content;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+    padding: 0.3em;
+
+    border-radius: 1em;
+
+    background-color: #546B7E;
+    
+    color: #F1524A;
+    font-size: medium;
+    font-weight: bold;
+}
+#intro button:active{
+    border: 3px solid #F1524A;
+}

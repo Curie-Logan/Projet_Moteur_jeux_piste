@@ -28,6 +28,14 @@
     }
 
     /**
+     * Get the number of places to visit during the game
+     * @returns the number of places
+     */
+    getNbPlaces(){
+        return Object.keys(this.data.parcours).length;
+    }
+
+    /**
      * Get the first place of the course
      * @returns the first place
      */

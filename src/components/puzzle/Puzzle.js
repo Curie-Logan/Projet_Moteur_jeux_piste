@@ -13,6 +13,7 @@ class Puzzle extends React.Component{
         this.handleAnswerSubmission = this.handleAnswerSubmission.bind(this);
         this.handlerGoodAnswer = this.handlerGoodAnswer.bind(this);
         this.handlerRetry = this.handlerRetry.bind(this);
+        this.showQuestion = this.showQuestion.bind(this);
         this.state = {  hint: <button onClick={this.revealHint} id="hint"/>, 
                         content: this.showQuestion(), 
                         attempt: 0};
@@ -81,7 +82,7 @@ class Puzzle extends React.Component{
         const progression = JSON.parse(localStorage.getItem("progression"));
         let saved = false;
         
-        if(progression["revealedHints"]){
+        if(progression && progression["revealedHints"]){
             for(const hintObject of progression["revealedHints"]){
                 if(hintObject["puzzleTitle"]===title){
                     saved = true;

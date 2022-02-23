@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import {MapContainer, TileLayer, Marker, useMap} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
 import Ending from '../ending/Ending';
 
 import './Map.css';
-<<<<<<< HEAD
-import Ending from '../ending/Ending';
-import { LatLng } from 'leaflet';
-=======
->>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
 
 let component;
 class Map extends React.Component {
@@ -169,89 +164,6 @@ class Map extends React.Component {
      * Get the marker of the player to display on the map
      * @returns the marker of the player
      */
-<<<<<<< HEAD
-    displayPlayer(){
-        if(this.props.geolocation === true){
-            if(this.state.playerPosition.length != 0){
-            return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
-            }
-        }
-    }
-
-    // displayCenter(){
-    //     if(this.props.resume === true){
-    //         let avgLong = 0;
-    //         let avgLat = 0;
-    //         let size = 0;
-    
-    //         if(Array.isArray(this.state.visited)){
-    //             for(let place of this.state.visited){
-    //                 let position = this.props.wrapper.getPlacePosition(place);
-    //                 console.log("current");
-    //                 console.log(position);
-    //                 avgLong += position[0];
-    //                 avgLat += position[1];
-    //                 size++;
-    //             }
-    //         }else{
-    //             let position = this.props.wrapper.getPlacePosition(this.state.visited);
-    //             console.log(position);
-    //             avgLong += position[0];
-    //             avgLat += position[1];
-    //             size++;
-    //         }
-    
-            
-    //         if(this.state.current){
-    
-    //             console.log(this.state.current);
-    //             let position = this.props.wrapper.getPlacePosition(this.state.current);
-    //             console.log(position);
-    //             avgLong += position[0];
-    //             avgLat += position[1];
-    //             size++;
-    //         }
-        
-    //         if(Array.isArray(this.state.next)){
-    //             for(let place of this.state.next){
-    //                 let position = this.props.wrapper.getPlacePosition(place);
-    //                 console.log("current");
-    //                 console.log(position);
-    //                 avgLong += position[0];
-    //                 avgLat += position[1];
-    //                 size++;
-    
-    //             }
-    //         }else{
-    //             let position = this.props.wrapper.getPlacePosition(this.state.next);
-    //             console.log(position);
-    //             avgLong += position[0];
-    //             avgLat += position[1];
-    //             size++;
-    
-    //         }
-    
-    
-    
-    //         avgLong = avgLong / size;
-    
-    //         avgLat = avgLat / size ;
-    //         let center = <LatLng> coords={[avgLong,avgLat]}</LatLng>
-    //         m.fitBounds([
-    //             [40.712, -74.227],
-    //             [40.774, -74.125]
-    //         ]);
-    //         console.log(m);
-            
-    //     }
-    //         return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
-    //     }
-
-    displayCenter(){
-        
-        let t = [];
-
-=======
      displayPlayer(){
         if(this.props.geolocation === true && this.state.playerPosition.length !== 0){
             return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={this.state.playerPosition[1]}/>;
@@ -267,42 +179,10 @@ class Map extends React.Component {
             let avgLong = 0;
             let avgLat = 0;
             let size = 0;
->>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
     
             if(Array.isArray(this.state.visited)){
                 for(let place of this.state.visited){
                     let position = this.props.wrapper.getPlacePosition(place);
-<<<<<<< HEAD
-                    t.push(position);
-                }
-            }else{
-                let position = this.props.wrapper.getPlacePosition(this.state.visited);
-                t.push(position);
-
-            }
-    
-            
-            if(this.state.current.length != 0){    
-                let position = this.props.wrapper.getPlacePosition(this.state.current);
-                t.push(position);
-            }
-        
-            if(Array.isArray(this.state.next)){
-                for(let place of this.state.next){
-                    let position = this.props.wrapper.getPlacePosition(place);
-                    t.push(position);    
-                }
-            }else{
-                let position = this.props.wrapper.getPlacePosition(this.state.next);
-                t.push(position);    
-            }
-    
-                if(!Array.isArray(t[0]) ){
-                t.push(this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace()));
-            }
-            return t;
-    
-=======
                     avgLong += position[0];
                     avgLat += position[1];
                     size++;
@@ -340,7 +220,6 @@ class Map extends React.Component {
             avgLat = avgLat / size ;
 
             return [avgLong,avgLat];
->>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
         }
 
         return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
@@ -386,33 +265,21 @@ class Map extends React.Component {
     }
 
     render() {
-
         return (
             <MapContainer id="map"
-<<<<<<< HEAD
-                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={true}>
-=======
                 center = {this.calculateCenter()}
                 zoom = {17} minZoom = {3} zoomControl={false}>
 
->>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
+                
                 {this.displayMarkers()}
                 {this.displayPlayer()}
-                <Center/>
+
             </MapContainer>  
         );
     }
 
-<<<<<<< HEAD
- function Center() {
-    const map = useMap()
-    map.fitBounds(objet.displayCenter())
-    return null
-  }
-=======
 } export default Map;
->>>>>>> d4c2bd87fdcec935962247a551d20237e4e55fa8
 
 
 /**
