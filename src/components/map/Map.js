@@ -9,7 +9,6 @@ import Ending from '../ending/Ending';
 
 import './Map.css';
 
-
 let component;
 class Map extends React.Component {
     constructor(props){
@@ -120,9 +119,9 @@ class Map extends React.Component {
 
     /**
      * Function called to put the place in parameter in current place
-     * @param place the place tu put as current
+     * @param place the place to put as current
      */
-    changerMarker(place){
+    changeMarker(place){
         let tNext = this.state.next;
         if(this.state.current !== ""){
              tNext.push(this.state.current);
@@ -157,7 +156,7 @@ class Map extends React.Component {
      * @param puzzle indicate if a puzzle must be proposed or not
      */
     handlerClickPin(place, puzzle = false){
-        this.changerMarker(place);
+        this.changeMarker(place);
         this.displayInfo(place, puzzle);
     }
 
@@ -166,35 +165,35 @@ class Map extends React.Component {
      * @returns the marker of the player
      */
     displayPlayer(){
-        if(this.props.geolocation === true){
-            if(this.state.playerPosition.length != 0){
-                return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
-            }
+        if(this.props.geolocation === true && this.state.playerPosition.length !== 0){
+            return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={this.state.playerPosition[1]}/>;
         }
     }
 
-  
+    /**
+     * Get the geographic position of all displayed location markers 
+     * @returns an array of geographic position
+     */
     getAllPinsPosition(){
-        let t = [];    
+        let positions = [];    
         for(let place of this.state.visited){
-            let position = this.props.wrapper.getPlacePosition(place);
-            t.push(position);
+            let pos = this.props.wrapper.getPlacePosition(place);
+            positions.push(pos);
         }            
-        if(this.state.current.length != 0){    
-            let position = this.props.wrapper.getPlacePosition(this.state.current);
-            t.push(position);
+        if(this.state.current.length !== 0){    
+            let pos = this.props.wrapper.getPlacePosition(this.state.current);
+            positions.push(pos);
         }
         for(let place of this.state.next){
-            let position = this.props.wrapper.getPlacePosition(place);
-            t.push(position);    
+            let pos = this.props.wrapper.getPlacePosition(place);
+            positions.push(pos);    
         }
-        if(!Array.isArray(t[0]) ){
-            t.push(this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace()));
+        if(!Array.isArray(positions[0]) ){
+            positions.push(this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace()));
         }
-        return t;
+        return positions;
     }
     
-
     /**
      * Get the markers for the places to display on the map
      *  - green markers for places visited
@@ -235,10 +234,9 @@ class Map extends React.Component {
     }
 
     render() {
-
         return (
             <MapContainer id="map"
-                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={true}>
+                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={false}>
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
                 {this.displayMarkers()}
                 {this.displayPlayer()}
@@ -246,18 +244,23 @@ class Map extends React.Component {
             </MapContainer>  
         );
     }
-}export default Map;
 
- function CenterRelativeToPins() {
-    const map = useMap()
-    map.fitBounds(component.getAllPinsPosition())
-    return null
-  }
+} export default Map;
+
+/**
+ * Center the map according to place markers 
+ * @returns 
+ */
+function CenterRelativeToPins() {
+    const map = useMap();
+    map.fitBounds(component.getAllPinsPosition());
+    return null;
+}
 
 
 /**
  * Check that the player using his geolocation is close to a place to visit
- * @param pos 
+ * @param pos the position of the place
  */
 function checkPlayerCloseMarker(pos){
     let cord = pos.coords;
@@ -268,7 +271,7 @@ function checkPlayerCloseMarker(pos){
     for(let place of component.state.next){
         let pos = component.props.wrapper.getPlacePosition(place);
         if(Math.abs((pos[0] + pos[1]) - (cord.latitude + cord.longitude)) < 0.00012){
-            component.changerMarker(place);
+            component.changeMarker(place);
         }
     }
 }

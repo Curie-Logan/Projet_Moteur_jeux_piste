@@ -76,23 +76,8 @@ class AnswerForm extends React.Component{
      * @param event the click event on the submit button 
      */
     handleSubmit(event){
-        if(this.props.type === "QCM"){
-            const form = document.getElementById("answer");
-            let checked = false;
-            for(const element of form){
-                if(element instanceof HTMLInputElement && element.checked){
-                    checked = true;
-                }
-            }
-            if(checked){
-                this.props.onAnswerChange(this.state.value);
-            }else{
-                alert("Aucune réponse n'a été sélectionné");
-            }
-        }else{
-            this.props.onAnswerChange(this.state.value);
-            event.preventDefault();
-        } 
+        this.props.onAnswerChange(this.state.value);
+        event.preventDefault();
     }
 
     render(){
