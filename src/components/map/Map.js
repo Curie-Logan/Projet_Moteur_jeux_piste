@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 
-import {MapContainer, TileLayer, Marker} from 'react-leaflet';
+import {MapContainer, TileLayer, Marker, useMap} from 'react-leaflet';
 import L from 'leaflet';
 
 import PlaceInfo from './placeInfo/PlaceInfo';
 import Ending from '../ending/Ending';
 
 import './Map.css';
+
 
 let component;
 class Map extends React.Component {
@@ -164,66 +165,35 @@ class Map extends React.Component {
      * Get the marker of the player to display on the map
      * @returns the marker of the player
      */
-     displayPlayer(){
-        if(this.props.geolocation === true && this.state.playerPosition.length !== 0){
-            return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={this.state.playerPosition[1]}/>;
+    displayPlayer(){
+        if(this.props.geolocation === true){
+            if(this.state.playerPosition.length != 0){
+                return <Marker position={this.state.playerPosition} icon={getMarkerIcon("player")} key={999}></Marker>;
+            }
         }
     }
 
-    /**
-     * Calculates on which position the map should be centered
-     * @returns the geographical position of the center of the map
-     */
-    calculateCenter(){
-        if(this.props.resume === true){
-            let avgLong = 0;
-            let avgLat = 0;
-            let size = 0;
-    
-            if(Array.isArray(this.state.visited)){
-                for(let place of this.state.visited){
-                    let position = this.props.wrapper.getPlacePosition(place);
-                    avgLong += position[0];
-                    avgLat += position[1];
-                    size++;
-                }
-            }else{
-                let position = this.props.wrapper.getPlacePosition(this.state.visited);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
-            }
-    
-            if(this.state.current){
-                let position = this.props.wrapper.getPlacePosition(this.state.current);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
-            }
-    
-            if(Array.isArray(this.state.next)){
-                for(let place of this.state.next){
-                    let position = this.props.wrapper.getPlacePosition(place);
-                    avgLong += position[0];
-                    avgLat += position[1];
-                    size++;
-                }
-            }else{
-                let position = this.props.wrapper.getPlacePosition(this.state.next);
-                avgLong += position[0];
-                avgLat += position[1];
-                size++;
-    
-            }
-    
-            avgLong = avgLong / size;
-            avgLat = avgLat / size ;
-
-            return [avgLong,avgLat];
+  
+    getAllPinsPosition(){
+        let t = [];    
+        for(let place of this.state.visited){
+            let position = this.props.wrapper.getPlacePosition(place);
+            t.push(position);
+        }            
+        if(this.state.current.length != 0){    
+            let position = this.props.wrapper.getPlacePosition(this.state.current);
+            t.push(position);
         }
-
-        return this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace());
+        for(let place of this.state.next){
+            let position = this.props.wrapper.getPlacePosition(place);
+            t.push(position);    
+        }
+        if(!Array.isArray(t[0]) ){
+            t.push(this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace()));
+        }
+        return t;
     }
+    
 
     /**
      * Get the markers for the places to display on the map
@@ -265,21 +235,24 @@ class Map extends React.Component {
     }
 
     render() {
+
         return (
             <MapContainer id="map"
-                center = {this.calculateCenter()}
-                zoom = {17} minZoom = {3} zoomControl={false}>
-
+                center = {this.props.wrapper.getPlacePosition(this.props.wrapper.getFirstPlace())} zoom = {17} minZoom = {3} zoomControl={true}>
                 <TileLayer url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"/>
-                
                 {this.displayMarkers()}
                 {this.displayPlayer()}
-
+                <CenterRelativeToPins/>
             </MapContainer>  
         );
     }
+}export default Map;
 
-} export default Map;
+ function CenterRelativeToPins() {
+    const map = useMap()
+    map.fitBounds(component.getAllPinsPosition())
+    return null
+  }
 
 
 /**
