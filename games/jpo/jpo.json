@@ -47,14 +47,27 @@
         }, 
 
         "bureau_starter" : {
-            "nom" : "Bureau starter",
+            "nom" : "Secrétariat starter",
             "position" : [47.245413708767074, 5.984936191020921],
             "suivants" : ["coursive_hall"],
             "enigme" : 3,
             "infos" : {
                 "description" : [
                     "C'est dans ce bureau que les nouveaux étudiants viennent rencontrer les responsables de première année."
-                ]
+                ],
+                "horaires" : [
+                    ["07:50 - 12:30", "14h00 - 16h30"],
+                    ["07:50 - 12:30", "14h00 - 16h30"],
+                    ["07:50 - 12:30", "14h00 - 16h30"],
+                    ["07:50 - 12:30", "14h00 - 16h30"],
+                    ["07:50 - 12:30", "14h00 - 15h30"],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "03 81 66 66 78",
+                    "mail" : "starter.st@univ-fcomte.fr"
+                }
             }
         },
 
