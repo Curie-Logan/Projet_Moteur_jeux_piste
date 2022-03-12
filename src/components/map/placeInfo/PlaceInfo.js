@@ -47,6 +47,6 @@ class PlaceInfo extends React.Component{
 } export default PlaceInfo;
 
 function callbackFunction(childData) {
-    console.log(childData);
+    // console.log(childData);
     component.props.response(component.props.place);
 }

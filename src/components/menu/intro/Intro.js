@@ -12,7 +12,7 @@ class Intro extends React.Component{
      * Close the game introduction page to display the map
      */
     closeIntro(){
-        document.getElementById("intro").remove();
+        document.getElementById("intro").style.display = "none";
     }
 
     render(){
@@ -21,11 +21,11 @@ class Intro extends React.Component{
 
         return (
             <div id="intro">
-                <h2>{intro["titre"]}</h2>
-                <p>{intro["contexte"]}</p>
-                <p>{nbPlaces}</p>
-                <p>{intro["consignes"]}</p>
-                <button onClick={this.closeIntro}>Jouer</button>
+                <h2 key="title">{intro["titre"]}</h2>
+                <p key="context">{intro["contexte"]}</p>
+                <p key="nbPlaces">{nbPlaces}</p>
+                <p key="instructions">{intro["consignes"]}</p>
+                <button onClick={this.closeIntro} key="play">Jouer</button>
             </div>
         );
     }
