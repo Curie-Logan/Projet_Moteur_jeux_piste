@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/Projet_Moteur_jeux_piste/static/css/main.9af80b27.chunk.css",
-    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.0c96e30a.chunk.js",
-    "main.js.map": "/Projet_Moteur_jeux_piste/static/js/main.0c96e30a.chunk.js.map",
+    "main.css": "/Projet_Moteur_jeux_piste/static/css/main.3957b16d.chunk.css",
+    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.1136b75b.chunk.js",
+    "main.js.map": "/Projet_Moteur_jeux_piste/static/js/main.1136b75b.chunk.js.map",
     "runtime-main.js": "/Projet_Moteur_jeux_piste/static/js/runtime-main.eb1cd9e6.js",
     "runtime-main.js.map": "/Projet_Moteur_jeux_piste/static/js/runtime-main.eb1cd9e6.js.map",
-    "static/js/2.cf7beaf8.chunk.js": "/Projet_Moteur_jeux_piste/static/js/2.cf7beaf8.chunk.js",
-    "static/js/2.cf7beaf8.chunk.js.map": "/Projet_Moteur_jeux_piste/static/js/2.cf7beaf8.chunk.js.map",
+    "static/js/2.f09fcc1b.chunk.js": "/Projet_Moteur_jeux_piste/static/js/2.f09fcc1b.chunk.js",
+    "static/js/2.f09fcc1b.chunk.js.map": "/Projet_Moteur_jeux_piste/static/js/2.f09fcc1b.chunk.js.map",
     "index.html": "/Projet_Moteur_jeux_piste/index.html",
     "service-worker.js": "/Projet_Moteur_jeux_piste/service-worker.js",
     "service-worker.js.map": "/Projet_Moteur_jeux_piste/service-worker.js.map",
-    "static/css/main.9af80b27.chunk.css.map": "/Projet_Moteur_jeux_piste/static/css/main.9af80b27.chunk.css.map",
-    "static/js/2.cf7beaf8.chunk.js.LICENSE.txt": "/Projet_Moteur_jeux_piste/static/js/2.cf7beaf8.chunk.js.LICENSE.txt",
+    "static/css/main.3957b16d.chunk.css.map": "/Projet_Moteur_jeux_piste/static/css/main.3957b16d.chunk.css.map",
+    "static/js/2.f09fcc1b.chunk.js.LICENSE.txt": "/Projet_Moteur_jeux_piste/static/js/2.f09fcc1b.chunk.js.LICENSE.txt",
+    "static/media/bd 2.jpg": "/Projet_Moteur_jeux_piste/static/media/bd 2.86a5459a.jpg",
     "static/media/bd.jpg": "/Projet_Moteur_jeux_piste/static/media/bd.86a5459a.jpg",
     "static/media/caillou.png": "/Projet_Moteur_jeux_piste/static/media/caillou.3b764930.png",
+    "static/media/distributeur 2.jpg": "/Projet_Moteur_jeux_piste/static/media/distributeur 2.b381c9e9.jpg",
     "static/media/distributeur.jpg": "/Projet_Moteur_jeux_piste/static/media/distributeur.55679cc5.jpg",
+    "static/media/fresque 2.png": "/Projet_Moteur_jeux_piste/static/media/fresque 2.478f2767.png",
     "static/media/fresque.png": "/Projet_Moteur_jeux_piste/static/media/fresque.d8ef8880.png"
   },
   "entrypoints": [
     "static/js/runtime-main.eb1cd9e6.js",
-    "static/js/2.cf7beaf8.chunk.js",
-    "static/css/main.9af80b27.chunk.css",
-    "static/js/main.0c96e30a.chunk.js"
+    "static/js/2.f09fcc1b.chunk.js",
+    "static/css/main.3957b16d.chunk.css",
+    "static/js/main.1136b75b.chunk.js"
   ]
 }
