@@ -57,7 +57,9 @@ class Contact extends React.Component{
         return(
             <div id='contact'>
                 <table>
-                    {this.getContent()}
+                    <tbody>
+                        {this.getContent()}
+                    </tbody>
                 </table>
             </div>
         );

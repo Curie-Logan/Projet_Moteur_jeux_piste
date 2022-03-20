@@ -8,7 +8,6 @@ import Wrapper from "../../wrapper";
 import './Ending.css';
 
 class Ending extends React.Component{
-
     /**
      * Return to the main menu of the game
      */
