@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import Wrapper from "../../wrapper";
 import Map from "../map/Map";
-import Tutorial from "../tutorial/Tutorial";
+import Tutorial from "./tutorial/Tutorial";
 import Intro from "./intro/Intro";
 
 import './Menu.css';

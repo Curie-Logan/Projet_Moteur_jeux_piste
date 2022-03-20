@@ -166,7 +166,7 @@
                 "Retrouvez le nom du minéral sur la photo ci-dessous :"
             ],
             "reponse" : "STRONTIANITE",
-            "file" : {
+            "fichier" : {
                 "type": "picture", 
                 "src": "caillou.png", 
                 "description" : "Mineral exposé dans une vitrine de géologie"
@@ -199,7 +199,7 @@
                 "Quel est le nom de ce petit fossile ?"
             ],
             "reponse" : "PTERICHTYS",
-            "file" : {
+            "fichier" : {
                 "type": "picture", 
                 "src": "fresque.png", 
                 "description": "Extrait de la fresque du bâtiment Propédeutique"

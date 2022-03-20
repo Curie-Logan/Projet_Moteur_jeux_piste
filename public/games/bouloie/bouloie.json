@@ -318,7 +318,7 @@
                 "Quel est le code à saisir sur le distributeur pour avoir une gaufre ?"
             ],
             "reponse" : "A26",
-            "file" : {
+            "fichier" : {
                 "type" : "picture", 
                 "src" : "distributeur.jpg", 
                 "description": "Distributeur de nourriture"
@@ -352,7 +352,7 @@
             ],
             "choix" : ["Calmes et organisées", "Multi-tâches", "Pareilles que les garçons", "Meilleures en webdesign"],
             "reponse" : "Pareilles que les garçons",
-            "file" : {
+            "fichier" : {
                 "type" : "picture", 
                 "src" : "bd.jpg", 
                 "description" : "Planche de bande dessinée"
@@ -460,7 +460,7 @@
                 "Quel est le nom de ce petit fossile ?"
             ],
             "reponse" : "PTERICHTYS",
-            "file" : {
+            "fichier" : {
                 "type" : "picture", 
                 "src" : "fresque.png", 
                 "description" : "Extrait de la fresque du bâtiment Propédeutique"

@@ -73,7 +73,7 @@ class Puzzle extends React.Component{
         const title = this.puzzle["titre"];
         const entitled = this.puzzle["intitule"];
         const hints = this.puzzle["indices"];
-        const file = this.puzzle["file"];
+        const file = this.puzzle["fichier"];
 
         const fileJsx = (file !== undefined) ? <File gameID={this.props.gameID} file={file}/> : ""; 
 
