@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Projet_Moteur_jeux_piste/static/css/main.6086cbeb.css",
-    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.17d81a77.js",
+    "main.js": "/Projet_Moteur_jeux_piste/static/js/main.c04b46da.js",
     "static/media/fresque 2.png": "/Projet_Moteur_jeux_piste/static/media/fresque 2.478f2767c62b5c706776.png",
     "static/media/caillou.png": "/Projet_Moteur_jeux_piste/static/media/caillou.3b76493018ec20e29f09.png",
     "static/media/distributeur 2.jpg": "/Projet_Moteur_jeux_piste/static/media/distributeur 2.b381c9e9479e5976fedf.jpg",
@@ -13,10 +13,10 @@
     "static/media/screen_beamer.png": "/Projet_Moteur_jeux_piste/static/media/screen_beamer.33798c2d32d1bd06e509.png",
     "index.html": "/Projet_Moteur_jeux_piste/index.html",
     "main.6086cbeb.css.map": "/Projet_Moteur_jeux_piste/static/css/main.6086cbeb.css.map",
-    "main.17d81a77.js.map": "/Projet_Moteur_jeux_piste/static/js/main.17d81a77.js.map"
+    "main.c04b46da.js.map": "/Projet_Moteur_jeux_piste/static/js/main.c04b46da.js.map"
   },
   "entrypoints": [
     "static/css/main.6086cbeb.css",
-    "static/js/main.17d81a77.js"
+    "static/js/main.c04b46da.js"
   ]
 }

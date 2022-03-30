@@ -31,7 +31,7 @@
 
         "404_C" : {
             "nom" : "Salle de soutenance", 
-            "position" : [47.24561642411048, 5.987471735674419],
+            "position" : [47.2456643373129, 5.987562782291923],
             "suivants" : [],
             "enigme" : 1,
             "infos" : {
