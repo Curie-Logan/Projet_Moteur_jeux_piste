@@ -62,7 +62,7 @@
             "type" : "QCM",
             "titre" : "Le langage C++",
             "intitule" : [
-                "Cette expression [](){}(); est valide ?"
+                "Cette expression [](){}(); est valide?"
             ],
             "choix" : ["Vrai", "Faux" , "Bizarre mais c'est du C++ donc ..."],
             "reponse" : "VRAI",
@@ -77,7 +77,7 @@
             "type": "QR",
             "titre" : "Avis sur la soutenance",
             "intitule" : [
-                "Jusqu'à présent comment est la soutenance ?"
+                "Jusqu'à présent comment est la soutenance?"
             ],
             "reponse" : "BIEN",
             "fichier" : {
