@@ -1,0 +1,95 @@
+{
+    "intro" : {
+        "titre" : "Démo de la soutenance",
+        "contexte" : "Ce parcours sommaire sert de support de démonstration lors de la soutenance de présentation du projet.",
+        "consignes" : "Bien qu'il s'agisse d'un jeu de rapidité, ne vous mettez pas en danger. Quitter les yeux de l'appli lorsque vous traversez une route et ne forcez pas l'entrée d'un bâtiment ou d'une salle si son accès ne vous est pas autorisé."
+    },
+
+    "parcours" : {
+        "amphi_A" : {
+            "nom" : "Amphi A", 
+            "depart" : true,
+            "position" : [47.24477398546998, 5.988390069299617],
+            "suivants" : ["404_C"],
+            "enigme" : 0,
+            "infos" : {
+                "description" : [
+                    "C'est dans cet amphithéâtre qu'a eu lieu l'examen de Programmation Multi-paradigmes la semaine dernière.",
+                    "Cette épreuve d'une durée d'une heure, était un QCM comportant soixante questions."
+                ],
+                "horaires" : [
+                    [],
+                    [],
+                    ["11:30 - 12:30"],
+                    [],
+                    [],
+                    [],
+                    []
+                ]
+            }
+        },
+
+        "404_C" : {
+            "nom" : "Salle de soutenance", 
+            "position" : [47.24561642411048, 5.987471735674419],
+            "suivants" : [],
+            "enigme" : 1,
+            "infos" : {
+                "description" : [
+                    "Dans cette salle a lieu actuellement la soutenance de projet de Camil, Jérémy et Logan.",
+                    "Le projet s'est étendu sur 5 mois et consistait à développer une application de moteur de jeux de piste sur mobile. Il fut encadré par M. Dadeau ici présent."
+                ],
+                "horaires" : [
+                    [],
+                    [],
+                    [],
+                    ["16:00 - 17:00"],
+                    [],
+                    [],
+                    []
+                ],
+                "contact" : {
+                    "telephone" : "06 07 08 09 10", 
+                    "mail" : "fake@email.com",
+                    "web" : {"lien": "https://curie-logan.github.io/Projet_Moteur_jeux_piste", "label": "Lien vers l'application"}
+                }
+            }
+        }
+    }, 
+
+    "enigme" : [
+        {
+            "type" : "QCM",
+            "titre" : "Le langage C++",
+            "intitule" : [
+                "Cette expression [](){}(); est valide ?"
+            ],
+            "choix" : ["Vrai", "Faux" , "Bizarre mais c'est du C++ donc ..."],
+            "reponse" : "VRAI",
+            "indices" : [
+                "Ne pas répondre au hasard", 
+                "C'est une lambda expression anonyme qui ne fait rien", 
+                "Vrai"
+            ]
+        },
+
+        {
+            "type": "QR",
+            "titre" : "Avis sur la soutenance",
+            "intitule" : [
+                "Jusqu'à présent comment est la soutenance ?"
+            ],
+            "reponse" : "BIEN",
+            "fichier" : {
+                "type": "picture", 
+                "src": "screen_beamer.png", 
+                "description" : "Première slide du support de présentation"
+            },
+            "indices" : [
+                "Le sujet est intéressant",
+                "Le support de présentation est un Beamer",
+                "Elle est BIEN"
+            ]
+        }
+    ]
+}

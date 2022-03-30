@@ -1,11 +1,13 @@
 #answer #choices{
     width: max-content;
+    max-width: 93vw;
 
     margin-top: 5vh;
     margin-left: auto;
     margin-right: auto;
 
     text-align: left;
+    word-wrap: break-word;
 }
 
 #answer input[type=checkbox]{

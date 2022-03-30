@@ -1,9 +1,11 @@
 #hints p{
-    width: 93vw;
+    max-width: 93vw;
 
     margin-left: auto;
     margin-right: auto;
 
     font-size: 1.2em;
     font-weight: bold;
+
+    word-wrap: break-word;
 }
